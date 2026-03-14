@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut Supérieur Des Arts Gemmologiques | Excellence & Luxe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0a0a;
+            --gold-light: #f3cf65;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Video Background */
+        .video-docker video {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5), rgba(0,0,0,0.95));
+        }
+
+        /* UI Elements */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+
+        /* Animations */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        /* Lang Selector */
+        .lang-dropdown {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+        @media print { body { display: none; } }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Background -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker z-0">
+        <video autoplay muted loop playsinline class="absolute">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-diamonds-shining-in-the-light-2412-large.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 video-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass border-b border-white/5">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 border border-gold flex items-center justify-center transform rotate-45 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                <span class="transform -rotate-45 font-bold text-gold text-[10px] tracking-tighter">ISAG</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-semibold tracking-[0.2em] text-xs uppercase">ISAG Lyon</span>
+                <span class="text-[8px] text-gold uppercase tracking-[0.2em] hidden sm:block">Institut Supérieur des Arts Gemmologiques</span>
+            </div>
+        </div>
+        
+        <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
+            <a href="#" class="hover:text-gold transition-colors" data-key="nav-home">Accueil</a>
+            <a href="#" class="hover:text-gold transition-colors" data-key="nav-formations">Formations</a>
+            <a href="#" class="hover:text-gold transition-colors" data-key="nav-masterclass">Masterclass</a>
+            <a href="#" class="hover:text-gold transition-colors" data-key="nav-about">L’Institut</a>
+            <a href="#" class="hover:text-gold transition-colors" data-key="nav-contact">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <div class="lang-selector relative group">
+                <button class="text-gold border border-gold/30 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest flex items-center space-x-2 hover:bg-gold/10 transition-all">
+                    <span id="currentLangDisplay">FR</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M19 9l-7 7-7-7" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="lang-dropdown absolute right-0 mt-2 w-32 glass border border-gold/20 rounded-sm overflow-hidden">
+                    <button onclick="changeLang('fr')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">Français</button>
+                    <button onclick="changeLang('en')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">English</button>
+                    <button onclick="changeLang('zh')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">中文</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 text-center">
+        <div class="reveal">
+            <span class="text-gold tracking-[0.6em] text-[10px] uppercase mb-6 block" data-key="hero-subtitle">Lyon • Capitale de la Haute Joaillerie</span>
+            <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight" id="main-title" data-key="hero-title">
+                L'Art de la <br><span class="text-gold italic font-light">Gemmologie</span>
+            </h1>
+            <div class="w-20 h-[1px] bg-gold mx-auto mb-10 opacity-50"></div>
+        </div>
+        
+        <p class="max-w-2xl text-sm md:text-base font-light text-gray-400 mb-12 leading-relaxed reveal" style="animation-delay: 0.3s" data-key="hero-description">
+            Un centre d’excellence dédié à la transmission des savoir-faire d'exception. Bienvenue à l’ISAG, la référence lyonnaise pour les futurs experts des pierres précieuses.
+        </p>
+
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 reveal" style="animation-delay: 0.6s">
+            <button class="px-12 py-4 bg-gold text-black font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-white transition-all duration-500 shadow-xl shadow-gold/10" data-key="hero-btn1">
+                Découvrir l'Institut
+            </button>
+            <button class="px-12 py-4 border border-white/20 text-white font-bold uppercase text-[10px] tracking-[0.2em] hover:border-gold hover:text-gold transition-all duration-500" data-key="hero-btn2">
+                Nos Formations
+            </button>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="relative z-10 py-32 px-6 bg-[#030303]">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-8">
+                <h2 class="text-gold text-4xl font-light italic" data-key="about-title">L'Excellence comme héritage</h2>
+                <div class="space-y-6 text-gray-400 font-light leading-relaxed text-sm">
+                    <p data-key="about-text1">Implanté au cœur de Lyon, pôle historique de la joaillerie, l'ISAG initie ses étudiants aux codes les plus confidentiels du luxe mondial.</p>
+                    <p data-key="about-text2">Notre pédagogie offre un équilibre parfait entre rigueur scientifique de laboratoire et expertise des marchés internationaux.</p>
+                </div>
+                <div class="flex space-x-12 pt-6">
+                    <div>
+                        <span class="text-gold text-2xl font-bold block mb-1">100%</span>
+                        <span class="text-[9px] uppercase tracking-widest text-gray-500" data-key="about-stats1">Expertise Pratique</span>
+                    </div>
+                    <div>
+                        <span class="text-gold text-2xl font-bold block mb-1">Lyon</span>
+                        <span class="text-[9px] uppercase tracking-widest text-gray-500" data-key="about-stats2">Quartier du Luxe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="absolute -inset-4 border border-gold/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
+                <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80" alt="Gem" class="relative w-full grayscale group-hover:grayscale-0 transition-all duration-1000">
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Services -->
+    <section class="relative z-10 py-32 px-6 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10">
+                    <div class="text-gold mb-6 font-serif italic text-3xl">01</div>
+                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation1-title">Gemmologie</h3>
+                    <p class="text-xs text-gray-500 leading-loose" data-key="formation1-desc">Analyse scientifique des pierres précieuses et fines. Identification des traitements et des synthèses.</p>
+                </div>
+                <div class="glass-card p-10">
+                    <div class="text-gold mb-6 font-serif italic text-3xl">02</div>
+                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation2-title">Diamantologie</h3>
+                    <p class="text-xs text-gray-500 leading-loose" data-key="formation2-desc">Maîtrise du système de gradation international GIA. Expertise sur le diamant brut et taillé.</p>
+                </div>
+                <div class="glass-card p-10">
+                    <div class="text-gold mb-6 font-serif italic text-3xl">03</div>
+                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation3-title">Horlogerie</h3>
+                    <p class="text-xs text-gray-500 leading-loose" data-key="formation4-desc">Compréhension des complications et de l'histoire des grandes manufactures de luxe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-[#050505] border-t border-white/5 py-20 px-6 text-center md:text-left">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+            <div>
+                <span class="text-gold font-bold tracking-[0.3em] uppercase block mb-6 text-sm">ISAG Lyon</span>
+                <p class="text-gray-600 text-[10px] leading-loose max-w-xs" data-key="footer-desc">
+                    L'excellence académique au service des métiers des pierres précieuses.
+                </p>
+            </div>
+            <div>
+                <span class="text-white font-semibold tracking-widest uppercase block mb-6 text-[10px]">Contact</span>
+                <p class="text-gray-600 text-[10px] space-y-2">
+                    <span class="block">Lyon, France</span>
+                    <span class="block">contact@gemmologie-isag.com</span>
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex space-x-6 text-gray-600 text-[10px] uppercase tracking-widest">
+                    <a href="#" class="hover:text-gold transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-gold transition-colors">LinkedIn</a>
+                </div>
+                <p class="mt-8 text-[8px] text-gray-800 uppercase tracking-widest">&copy; 2025 ISAG Lyon. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            fr: {
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'L’Institut',
+                'nav-contact': 'Contact',
+                'hero-subtitle': 'Lyon • Capitale de la Haute Joaillerie',
+                'hero-title': "L'Art de la <br><span class=\"text-gold italic font-light\">Gemmologie</span>",
+                'hero-description': 'Un centre d’excellence dédié à la transmission des savoir-faire d\'exception. Bienvenue à l’ISAG, la référence lyonnaise pour les futurs experts des pierres précieuses.',
+                'hero-btn1': 'Découvrir l\'Institut',
+                'hero-btn2': 'Nos Formations',
+                'about-title': 'L\'Excellence comme héritage',
+                'about-text1': 'Implanté au cœur de Lyon, pôle historique de la joaillerie, l\'ISAG initie ses étudiants aux codes les plus confidentiels du luxe mondial.',
+                'about-text2': 'Notre pédagogie offre un équilibre parfait entre rigueur scientifique de laboratoire et expertise des marchés internationaux.',
+                'about-stats1': 'Expertise Pratique',
+                'about-stats2': 'Quartier du Luxe',
+                'formation1-title': 'Gemmologie',
+                'formation1-desc': 'Analyse scientifique des pierres précieuses et fines. Identification des traitements et des synthèses.',
+                'formation2-title': 'Diamantologie',
+                'formation2-desc': 'Maîtrise du système de gradation international GIA. Expertise sur le diamant brut et taillé.',
+                'formation4-desc': 'Compréhension des complications et de l\'histoire des grandes manufactures de luxe.',
+                'footer-desc': 'L\'excellence académique au service des métiers des pierres précieuses.'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-formations': 'Programs',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'The Institute',
+                'nav-contact': 'Contact',
+                'hero-subtitle': 'Lyon • Capital of High Jewelry',
+                'hero-title': "The Art of <br><span class=\"text-gold italic font-light\">Gemology</span>",
+                'hero-description': 'A center of excellence dedicated to transmitting exceptional know-how. Welcome to ISAG, the Lyon reference for future gemstone experts.',
+                'hero-btn1': 'Discover the Institute',
+                'hero-btn2': 'Our Programs',
+                'about-title': 'Excellence as Heritage',
+                'about-text1': 'Located in the heart of Lyon, the historical hub of jewelry, ISAG introduces students to the most confidential codes of global luxury.',
+                'about-text2': 'Our pedagogy offers a perfect balance between laboratory scientific rigor and international market expertise.',
+                'about-stats1': 'Hands-on Expertise',
+                'about-stats2': 'Luxury District',
+                'formation1-title': 'Gemology',
+                'formation1-desc': 'Scientific analysis of precious and semi-precious stones. Identification of treatments and synthetics.',
+                'formation2-title': 'Diamond Grading',
+                'formation2-desc': 'Mastery of the international GIA grading system. Expertise in rough and polished diamonds.',
+                'formation4-desc': 'Understanding complications and the history of major luxury manufactures.',
+                'footer-desc': 'Academic excellence at the service of the gemstone industry.'
+            },
+            zh: {
+                'nav-home': '首页',
+                'nav-formations': '培训课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '学院概况',
+                'nav-contact': '联系我们',
+                'hero-subtitle': '里昂 • 高级珠宝之都',
+                'hero-title': "宝石学的 <br><span class=\"text-gold italic font-light\">艺术</span>",
+                'hero-description': '一个致力于传承卓越技艺的卓越中心。欢迎来到 ISAG，里昂未来宝石专家的摇篮。',
+                'hero-btn1': '探索学院',
+                'hero-btn2': '查看课程',
+                'about-title': '追求卓越的传承',
+                'about-text1': 'ISAG坐落于法国珠宝历史中心里昂的心脏地带，引导学生掌握全球奢侈品行业最机密的规范。',
+                'about-text2': '我们的教学在实验室科学严谨性与国际市场专业知识之间达到了完美平衡。',
+                'about-stats1': '实践专业知识',
+                'about-stats2': '奢侈品区',
+                'formation1-title': '宝石学',
+                'formation1-desc': '宝石和半宝石的科学分析。处理和合成的鉴定。',
+                'formation2-title': '钻石学',
+                'formation2-desc': '掌握GIA国际分级系统。原石和成品钻石的专业鉴定。',
+                'formation4-desc': '深入理解复杂功能及各大奢侈钟表品牌的历史。',
+                'footer-desc': '为宝石行业服务的卓越学术教育。'
+            }
+        };
+
+        function changeLang(lang) {
+            document.getElementById('currentLangDisplay').innerText = lang.toUpperCase();
+            
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Adjust RTL if needed (for Arabic, though not implemented here)
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+
+        // Preload reveal animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

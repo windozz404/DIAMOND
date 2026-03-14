@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut Supérieur Des Arts Gemmologique | Excellence & Luxe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0a0a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .video-docker video {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        /* Styles spécifiques pour les images sans animation de survol */
+        .image-statique {
+            transition: none !important;
+        }
+        .image-statique:hover {
+            transform: none !important;
+            filter: none !important;
+        }
+
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: fadeIn 1.2s ease forwards; }
+
+        @media print { body { display: none; } }
+
+        /* Style pour le sélecteur de langue */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            display: none;
+            min-width: 140px;
+            z-index: 100;
+        }
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .lang-dropdown a:hover {
+            background-color: var(--gold);
+            color: black;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" onkeydown="return disableKeys(event)">
+
+    <!-- Vidéo en arrière-plan -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker">
+        <video autoplay muted loop playsinline class="absolute">
+            <source src="video.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80" alt="Fond Diamants">
+        </video>
+        <div class="absolute inset-0 video-overlay"></div>
+    </div>
+
+    <!-- Navigation avec sélecteur de langue uniquement -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
+                <span class="transform -rotate-45 font-bold text-gold text-xs">ISAG</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-semibold tracking-[0.2em] text-sm uppercase">ISAG Lyon</span>
+                <span class="text-[10px] text-gold uppercase tracking-widest hidden sm:block">Institut Supérieur des Arts Gemmologiques</span>
+            </div>
+        </div>
+        
+        <!-- Liens de navigation centraux (modifiés selon demande) -->
+        <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
+            <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
+            <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
+            <a href="masterclass.html" class="hover:text-gold transition-colors duration-300" data-key="nav-masterclass">Masterclass</a>
+            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L’Institut</a>
+            <a href="contact.html" class="hover:text-gold transition-colors duration-300" data-key="nav-contact">Contact & Admissions</a>
+        </div>
+
+        <!-- Sélecteur de langue uniquement -->
+        <div class="lang-selector">
+            <button class="text-gold hover:text-white transition-colors p-2 rounded-full border border-gold/30 hover:border-gold flex items-center space-x-1" title="Choisir la langue">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <span id="currentLang" class="text-xs uppercase hidden sm:inline">Fr</span>
+            </button>
+            <div class="lang-dropdown">
+                <a data-lang="fr">🇫🇷 Français</a>
+                <a data-lang="ar">🇸🇦 العربية</a>
+                <a data-lang="zh">🇨🇳  Mandarin</a>
+                <a data-lang="en">🇬🇧 English</a>
+            </div>
+        </div>
+
+        <button class="lg:hidden text-gold p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 text-center">
+        <div class="animate-up opacity-0" style="animation-delay: 0.2s">
+            <span class="text-gold tracking-[0.5em] text-xs uppercase mb-4 block" data-key="hero-subtitle">Lyon • Capitale de la Haute Joaillerie</span>
+            <h1 class="text-4xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight" data-key="hero-title">
+                ISAG <br><span class="text-gold italic font-light">LYON</span>
+            </h1>
+            <div class="w-24 h-[1px] bg-gold mx-auto mb-8"></div>
+        </div>
+        
+        <p class="max-w-3xl text-sm md:text-lg font-light text-gray-300 mb-12 leading-relaxed animate-up opacity-0" style="animation-delay: 0.4s" data-key="hero-description">
+            Un centre d’excellence dédié à la transmission des savoir-faire d'exception. Bienvenue à l’Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.
+        </p>
+
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-up opacity-0" style="animation-delay: 0.6s">
+            <a href="propos.html" class="group relative px-10 py-4 bg-gold text-black font-bold uppercase text-[10px] tracking-[0.2em] overflow-hidden transition-all duration-500">
+                <span class="relative z-10" data-key="hero-btn1">Découvrir l'Institut</span>
+                <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </a>
+            <a href="formations.html" class="px-10 py-4 border border-white/30 hover:border-gold hover:text-gold transition-all duration-500 uppercase text-[10px] tracking-[0.2em]" data-key="hero-btn2">
+                Consulter les Cursus
+            </a>
+        </div>
+    </header>
+
+    <!-- Detailed About Section -->
+    <section id="about" class="relative z-10 py-32 px-6 bg-black">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8 animate-up opacity-0" style="animation-delay: 0.2s">
+                <h2 class="text-gold text-4xl font-light italic" data-key="about-title">L'Excellence comme héritage</h2>
+                <p class="text-gray-400 font-light leading-loose text-sm md:text-base" data-key="about-text1">
+                    Implanté au cœur de Lyon, pôle historique de la bijouterie-joaillerie française, l'ISAG propose un écosystème d'apprentissage unique. Notre établissement ne se contente pas de former ; il initie ses étudiants aux codes les plus confidentiels du luxe mondial.
+                </p>
+                <p class="text-gray-400 font-light leading-loose text-sm md:text-base" data-key="about-text2">
+                    <strong>Notre pédagogie :</strong> Un équilibre parfait entre rigueur scientifique (gemmologie de laboratoire) et expertise de terrain (marchés internationaux). Nous formons des experts capables de certifier, d'évaluer et de conseiller les maisons de luxe les plus prestigieuses.
+                </p>
+                <p class="text-gray-400 font-light leading-loose text-sm md:text-base" data-key="about-text3">
+                    <strong>Le Laboratoire :</strong> Nos étudiants disposent de matériels de pointe : réfractomètres, polariscopes, spectroscopes à réseaux et microscopes binoculaires de haute précision, permettant une analyse exhaustive des inclusions et de la nature des gemmes.
+                </p>
+                <div class="grid grid-cols-2 gap-8 pt-8">
+                    <div>
+                        <span class="text-gold text-3xl font-bold block mb-2">100%</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500" data-key="about-stats1">Expertise Pratique</span>
+                    </div>
+                    <div>
+                        <span class="text-gold text-3xl font-bold block mb-2">Lyon</span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-500" data-key="about-stats2">Quartier du Luxe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative glass p-4 rounded-sm rotate-1 hover:rotate-0 transition-transform duration-700">
+                <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/fsunvy7apes.jpg" alt="Examen au microscope" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute -top-6 -right-6 bg-white/5 backdrop-blur-md p-6 border border-white/10 hidden md:block">
+                    <p class="text-gold text-xs font-bold uppercase tracking-widest" data-key="about-badge1">Savoir-faire</p>
+                    <p class="text-[9px] text-gray-400" data-key="about-badge2">Transmission & Rigueur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Section -->
+    <section id="formations" class="relative z-10 py-32 px-6 bg-[#050505]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl mb-6" data-key="formations-title">Un Cursus à la <span class="text-gold italic">Hauteur</span> de vos Ambitions</h2>
+                <p class="text-gray-500 uppercase tracking-[0.4em] text-[10px]" data-key="formations-subtitle">Maîtrisez les 5 piliers de l'industrie du luxe</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Gemmologie -->
+                <div class="glass p-10 group">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-black transition-all duration-500">
+                        <span class="font-serif italic text-xl">G</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation1-title">Gemmologie Fondamentale</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation1-desc">
+                        L'étude scientifique des pierres précieuses (Diamant, Rubis, Saphir, Émeraude) et des pierres fines. Identification des traitements et des synthèses.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation1-list1">• Cristallographie & Optique</li>
+                        <li data-key="formation1-list2">• Étude des inclusions</li>
+                        <li data-key="formation1-list3">• Gemmes Organiques (Perles, Ambre)</li>
+                    </ul>
+                </div>
+
+                <!-- Diamantologie -->
+                <div class="glass p-10 group">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-black transition-all duration-500">
+                        <span class="font-serif italic text-xl">D</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation2-title">Diamantologie & Gradation</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation2-desc">
+                        De l'extraction au négoce. Maîtrise absolue du système de gradation international GIA/HRD. Expertise sur le diamant brut et taillé.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation2-list1">• Les 4C (Carat, Color, Clarity, Cut)</li>
+                        <li data-key="formation2-list2">• Détection des diamants de labo</li>
+                        <li data-key="formation2-list3">• Bourses du diamant</li>
+                    </ul>
+                </div>
+
+                <!-- Expertise Bijoutière -->
+                <div class="glass p-10 group">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-black transition-all duration-500">
+                        <span class="font-serif italic text-xl">E</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation3-title">Expertise Bijoutière</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation3-desc">
+                        Apprenez à dater un bijou ancien, à reconnaître les poinçons et à estimer la valeur d'une pièce de haute joaillerie sur le marché de l'art.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation3-list1">• Histoire du bijou</li>
+                        <li data-key="formation3-list2">• Alliages et Poinçons</li>
+                        <li data-key="formation3-list3">• Estimation en salle des ventes</li>
+                    </ul>
+                </div>
+
+                <!-- Horlogerie de Luxe -->
+                <div class="glass p-10 group">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-black transition-all duration-500">
+                        <span class="font-serif italic text-xl">H</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation4-title">Haute Horlogerie</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation4-desc">
+                        Compréhension des complications horlogères, des mouvements mécaniques et de l'histoire des grandes manufactures suisses et françaises.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation4-list1">• Complications (Tourbillon, QP)</li>
+                        <li data-key="formation4-list2">• Marché de la collection</li>
+                        <li data-key="formation4-list3">• Culture horlogère</li>
+                    </ul>
+                </div>
+
+                <!-- Marketing & Communication -->
+                <div class="glass p-10 group">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-black transition-all duration-500">
+                        <span class="font-serif italic text-xl">C</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation5-title">Communication de Luxe</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation5-desc">
+                        Les stratégies de vente et de marketing spécifiques au secteur du grand luxe. Relation client VIP et storytelling de marque.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation5-list1">• Management du Luxe</li>
+                        <li data-key="formation5-list2">• Psychologie de l'acheteur</li>
+                        <li data-key="formation5-list3">• Digital & Influence</li>
+                    </ul>
+                </div>
+
+                <!-- Carrières & Débouchés -->
+                <div class="glass p-10 group border-gold/20">
+                    <div class="w-12 h-12 border border-gold/30 flex items-center justify-center mb-8 bg-gold/10">
+                        <span class="font-serif italic text-xl text-gold">★</span>
+                    </div>
+                    <h3 class="text-xl mb-4 tracking-wider uppercase" data-key="formation6-title">Votre Avenir</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-6" data-key="formation6-desc">
+                        L'ISAG vous ouvre les portes des plus grandes maisons de la Place Vendôme, des laboratoires d'expertise et du négoce international.
+                    </p>
+                    <ul class="text-[10px] text-gold uppercase tracking-widest space-y-2">
+                        <li data-key="formation6-list1">• Expert en maison de ventes</li>
+                        <li data-key="formation6-list2">• Acheteur de pierres</li>
+                        <li data-key="formation6-list3">• Responsable de Boutique Luxe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Lab Section - MODIFIÉE : suppression des animations au survol des images -->
+    <section id="expert" class="relative z-10 py-32 px-6 bg-black overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2">
+                <h2 class="text-4xl md:text-5xl mb-8" data-key="expert-title">Un Laboratoire de <span class="text-gold italic">Classe Mondiale</span></h2>
+                <div class="space-y-6 text-gray-400 font-light text-sm md:text-base">
+                    <p data-key="expert-desc">L'étude de la gemmologie requiert une précision chirurgicale. À l'ISAG, chaque étudiant dispose d'un poste de travail complet pour analyser des centaines de gemmes issues de notre collection privée.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+                        <div class="p-4 border-l border-gold/40 bg-white/5">
+                            <h4 class="text-white text-xs font-bold uppercase mb-2" data-key="expert-tech1">Spectroscopie</h4>
+                            <p class="text-[11px]" data-key="expert-tech1-desc">Analyse de l'absorption de la lumière pour identifier les éléments chromophores.</p>
+                        </div>
+                        <div class="p-4 border-l border-gold/40 bg-white/5">
+                            <h4 class="text-white text-xs font-bold uppercase mb-2" data-key="expert-tech2">Microscopie</h4>
+                            <p class="text-[11px]" data-key="expert-tech2-desc">Immersion au cœur des inclusions pour déterminer l'origine géographique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                <!-- Images sans animation - classes image-statique ajoutées -->
+                <div class="h-64 bg-cover bg-center glass image-statique" style="background-image: url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80')"></div>
+                <div class="h-64 bg-cover bg-center glass mt-8 image-statique" style="background-image: url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Contact Section -->
+    <section id="contact" class="relative z-10 py-32 px-6 bg-gold text-black text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-[10px] uppercase tracking-[0.5em] font-bold mb-4 block" data-key="cta-subtitle">Inscriptions Ouvertes 2025-2026</span>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8 italic" data-key="cta-title">Écrivez votre légende.</h2>
+            <p class="text-lg mb-12 uppercase tracking-widest font-light" data-key="cta-text">Contactez nos conseillers pour un entretien d'orientation personnalisé.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="contact.html" class="inline-block border-2 border-black px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-500 w-full sm:w-auto" data-key="cta-btn1">
+                    Demander la Brochure
+                </a>
+                <a href="tel:+330652893943" class="inline-block bg-black text-white px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 w-full sm:w-auto" data-key="cta-btn2">
+                    Nous Appeler
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black border-t border-white/5 py-20 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+            <div class="md:col-span-2">
+                <span class="text-gold font-bold tracking-[0.3em] uppercase block mb-6 text-sm">ISAG Lyon</span>
+                <p class="text-gray-600 text-xs leading-loose max-w-sm" data-key="footer-desc">
+                    L'Institut Supérieur des Arts Gemmologique est le pôle de référence pour l'éducation aux métiers des pierres précieuses et du luxe en région Auvergne-Rhône-Alpes. Excellence académique et immersion professionnelle.
+                </p>
+            </div>
+            <div>
+                <span class="text-white font-semibold tracking-widest uppercase block mb-6 text-[10px]" data-key="footer-title1">L'Institut</span>
+                <ul class="text-gray-600 text-xs space-y-3 uppercase tracking-tighter">
+                    <li><a href="propos.html" class="hover:text-gold" data-key="footer-link1">L'Histoire</a></li>
+                    <li><a href="propos.html#expert" class="hover:text-gold" data-key="footer-link2">Le Laboratoire</a></li>
+                    <li><a href="formations.html" class="hover:text-gold" data-key="footer-link3">Les Cursus</a></li>
+                    <li><a href="#" class="hover:text-gold" data-key="footer-link4">Partenariats</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="text-white font-semibold tracking-widest uppercase block mb-6 text-[10px]" data-key="footer-title2">Accès</span>
+                <p class="text-gray-600 text-xs space-y-2">
+                    <span class="block" data-key="footer-address">Lyon, France</span>
+                    <span class="block text-gold hover:underline cursor-pointer">contact@gemmologie-isag.com</span>
+                    <span class="block">+33 06 52 89 39 43</span>
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center text-[10px] text-gray-700 uppercase tracking-widest">
+            <p data-key="footer-copyright">&copy; 2025 ISAG - Institut Supérieur des Arts Gemmologique. Tous droits réservés.</p>
+            <div class="space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white" data-key="footer-legal">Mentions Légales</a>
+                <a href="#" class="hover:text-white" data-key="footer-rgpd">RGPD</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dictionnaire de traductions
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L’Institut',
+                'nav-contact': 'Contact & Admissions',
+                
+                // Hero
+                'hero-subtitle': 'Lyon • Capitale de la Haute Joaillerie',
+                'hero-title': "ISAG <span class=\"text-gold italic font-light\">LYON</span>",
+                'hero-description': 'Un centre d’excellence dédié à la transmission des savoir-faire d\'exception. Bienvenue à l’Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.',
+                'hero-btn1': 'Découvrir l\'Institut',
+                'hero-btn2': 'Consulter les Cursus',
+                
+                // About
+                'about-title': 'L\'Excellence comme héritage',
+                'about-text1': 'Implanté au cœur de Lyon, pôle historique de la bijouterie-joaillerie française, l\'ISAG propose un écosystème d\'apprentissage unique. Notre établissement ne se contente pas de former ; il initie ses étudiants aux codes les plus confidentiels du luxe mondial.',
+                'about-text2': '<strong>Notre pédagogie :</strong> Un équilibre parfait entre rigueur scientifique (gemmologie de laboratoire) et expertise de terrain (marchés internationaux). Nous formons des experts capables de certifier, d\'évaluer et de conseiller les maisons de luxe les plus prestigieuses.',
+                'about-text3': '<strong>Le Laboratoire :</strong> Nos étudiants disposent de matériels de pointe : réfractomètres, polariscopes, spectroscopes à réseaux et microscopes binoculaires de haute précision, permettant une analyse exhaustive des inclusions et de la nature des gemmes.',
+                'about-stats1': 'Expertise Pratique',
+                'about-stats2': 'Quartier du Luxe',
+                'about-badge1': 'Savoir-faire',
+                'about-badge2': 'Transmission & Rigueur',
+                
+                // Formations
+                'formations-title': 'Un Cursus à la <span class="text-gold italic">Hauteur</span> de vos Ambitions',
+                'formations-subtitle': 'Maîtrisez les 5 piliers de l\'industrie du luxe',
+                'formation1-title': 'Gemmologie Fondamentale',
+                'formation1-desc': 'L\'étude scientifique des pierres précieuses (Diamant, Rubis, Saphir, Émeraude) et des pierres fines. Identification des traitements et des synthèses.',
+                'formation1-list1': '• Cristallographie & Optique',
+                'formation1-list2': '• Étude des inclusions',
+                'formation1-list3': '• Gemmes Organiques (Perles, Ambre)',
+                'formation2-title': 'Diamantologie & Gradation',
+                'formation2-desc': 'De l\'extraction au négoce. Maîtrise absolue du système de gradation international GIA/HRD. Expertise sur le diamant brut et taillé.',
+                'formation2-list1': '• Les 4C (Carat, Color, Clarity, Cut)',
+                'formation2-list2': '• Détection des diamants de labo',
+                'formation2-list3': '• Bourses du diamant',
+                'formation3-title': 'Expertise Bijoutière',
+                'formation3-desc': 'Apprenez à dater un bijou ancien, à reconnaître les poinçons et à estimer la valeur d\'une pièce de haute joaillerie sur le marché de l\'art.',
+                'formation3-list1': '• Histoire du bijou',
+                'formation3-list2': '• Alliages et Poinçons',
+                'formation3-list3': '• Estimation en salle des ventes',
+                'formation4-title': 'Haute Horlogerie',
+                'formation4-desc': 'Compréhension des complications horlogères, des mouvements mécaniques et de l\'histoire des grandes manufactures suisses et françaises.',
+                'formation4-list1': '• Complications (Tourbillon, QP)',
+                'formation4-list2': '• Marché de la collection',
+                'formation4-list3': '• Culture horlogère',
+                'formation5-title': 'Communication de Luxe',
+                'formation5-desc': 'Les stratégies de vente et de marketing spécifiques au secteur du grand luxe. Relation client VIP et storytelling de marque.',
+                'formation5-list1': '• Management du Luxe',
+                'formation5-list2': '• Psychologie de l\'acheteur',
+                'formation5-list3': '• Digital & Influence',
+                'formation6-title': 'Votre Avenir',
+                'formation6-desc': 'L\'ISAG vous ouvre les portes des plus grandes maisons de la Place Vendôme, des laboratoires d\'expertise et du négoce international.',
+                'formation6-list1': '• Expert en maison de ventes',
+                'formation6-list2': '• Acheteur de pierres',
+                'formation6-list3': '• Responsable de Boutique Luxe',
+                
+                // Expert
+                'expert-title': 'Un Laboratoire de <span class="text-gold italic">Classe Mondiale</span>',
+                'expert-desc': 'L\'étude de la gemmologie requiert une précision chirurgicale. À l\'ISAG, chaque étudiant dispose d\'un poste de travail complet pour analyser des centaines de gemmes issues de notre collection privée.',
+                'expert-tech1': 'Spectroscopie',
+                'expert-tech1-desc': 'Analyse de l\'absorption de la lumière pour identifier les éléments chromophores.',
+                'expert-tech2': 'Microscopie',
+                'expert-tech2-desc': 'Immersion au cœur des inclusions pour déterminer l\'origine géographique.',
+                
+                // CTA
+                'cta-subtitle': 'Inscriptions Ouvertes 2025-2026',
+                'cta-title': 'Écrivez votre légende.',
+                'cta-text': 'Contactez nos conseillers pour un entretien d\'orientation personnalisé.',
+                'cta-btn1': 'Demander la Brochure',
+                'cta-btn2': 'Nous Appeler',
+                
+                // Footer
+                'footer-desc': 'L\'Institut Supérieur des Arts Gemmologique est le pôle de référence pour l\'éducation aux métiers des pierres précieuses et du luxe en région Auvergne-Rhône-Alpes. Excellence académique et immersion professionnelle.',
+                'footer-title1': 'L\'Institut',
+                'footer-link1': 'L\'Histoire',
+                'footer-link2': 'Le Laboratoire',
+                'footer-link3': 'Les Cursus',
+                'footer-link4': 'Partenariats',
+                'footer-title2': 'Accès',
+                'footer-address': 'Lyon, France',
+                'footer-copyright': '© 2025 ISAG - Institut Supérieur des Arts Gemmologique. Tous droits réservés.',
+                'footer-legal': 'Mentions Légales',
+                'footer-rgpd': 'RGPD'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-formations': 'Programs',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'hero-subtitle': 'Lyon • Capital of High Jewelry',
+                'hero-title': 'The Art of <br><span class="text-gold italic font-light">Gemmology</span>',
+                'hero-description': 'A center of excellence dedicated to transmitting exceptional savoir-faire. Welcome to the Institut Supérieur des Arts Gemmologique (ISAG), the Lyon reference for future experts in precious stones and luxury trades.',
+                'hero-btn1': 'Discover the Institute',
+                'hero-btn2': 'View Programs',
+                'about-title': 'Excellence as Heritage',
+                'about-text1': 'Located in the heart of Lyon, a historic center of French jewelry-making, ISAG offers a unique learning ecosystem. Our institution does not just train; it initiates students into the most confidential codes of global luxury.',
+                'about-text2': '<strong>Our pedagogy:</strong> A perfect balance between scientific rigor (laboratory gemmology) and field expertise (international markets). We train experts capable of certifying, evaluating, and advising the most prestigious luxury houses.',
+                'about-text3': '<strong>The Laboratory:</strong> Our students have access to cutting-edge equipment: refractometers, polariscopes, grating spectroscopes, and high-precision binocular microscopes, enabling exhaustive analysis of inclusions and the nature of gems.',
+                'about-stats1': 'Practical Expertise',
+                'about-stats2': 'Luxury District',
+                'about-badge1': 'Know-how',
+                'about-badge2': 'Transmission & Rigor',
+                'formations-title': 'Programs <span class="text-gold italic">Tailored</span> to Your Ambitions',
+                'formations-subtitle': 'Master the 5 pillars of the luxury industry',
+                'formation1-title': 'Fundamental Gemmology',
+                'formation1-desc': 'The scientific study of precious stones (Diamond, Ruby, Sapphire, Emerald) and fine stones. Identification of treatments and synthetics.',
+                'formation1-list1': '• Crystallography & Optics',
+                'formation1-list2': '• Inclusion Study',
+                'formation1-list3': '• Organic Gems (Pearls, Amber)',
+                'formation2-title': 'Diamondology & Grading',
+                'formation2-desc': 'From extraction to trading. Mastery of the international GIA/HRD grading system. Expertise in rough and cut diamonds.',
+                'formation2-list1': '• The 4Cs (Carat, Color, Clarity, Cut)',
+                'formation2-list2': '• Lab-grown diamond detection',
+                'formation2-list3': '• Diamond exchanges',
+                'formation3-title': 'Jewelry Expertise',
+                'formation3-desc': 'Learn to date antique jewelry, recognize hallmarks, and estimate the value of high jewelry pieces on the art market.',
+                'formation3-list1': '• Jewelry history',
+                'formation3-list2': '• Alloys & Hallmarks',
+                'formation3-list3': '• Auction house estimation',
+                'formation4-title': 'High Watchmaking',
+                'formation4-desc': 'Understanding watch complications, mechanical movements, and the history of great Swiss and French manufacturers.',
+                'formation4-list1': '• Complications (Tourbillon, Perpetual Calendar)',
+                'formation4-list2': '• Collectors market',
+                'formation4-list3': '• Watch culture',
+                'formation5-title': 'Luxury Communication',
+                'formation5-desc': 'Sales and marketing strategies specific to the luxury sector. VIP client relations and brand storytelling.',
+                'formation5-list1': '• Luxury Management',
+                'formation5-list2': '• Buyer psychology',
+                'formation5-list3': '• Digital & Influence',
+                'formation6-title': 'Your Future',
+                'formation6-desc': 'ISAG opens the doors to the greatest houses of Place Vendôme, expert laboratories, and international trading.',
+                'formation6-list1': '• Auction house expert',
+                'formation6-list2': '• Stone buyer',
+                'formation6-list3': '• Luxury Boutique Manager',
+                'expert-title': 'A <span class="text-gold italic">World-Class</span> Laboratory',
+                'expert-desc': 'The study of gemmology requires surgical precision. At ISAG, each student has a complete workstation to analyze hundreds of gems from our private collection.',
+                'expert-tech1': 'Spectroscopy',
+                'expert-tech1-desc': 'Analysis of light absorption to identify chromophore elements.',
+                'expert-tech2': 'Microscopy',
+                'expert-tech2-desc': 'Immersion in inclusions to determine geographical origin.',
+                'cta-subtitle': 'Applications Open 2025-2026',
+                'cta-title': 'Write your legend.',
+                'cta-text': 'Contact our advisors for a personalized orientation interview.',
+                'cta-btn1': 'Request Brochure',
+                'cta-btn2': 'Call Us',
+                'footer-desc': 'The Institut Supérieur des Arts Gemmologique is the reference center for education in precious stones and luxury trades in the Auvergne-Rhône-Alpes region. Academic excellence and professional immersion.',
+                'footer-title1': 'The Institute',
+                'footer-link1': 'History',
+                'footer-link2': 'The Laboratory',
+                'footer-link3': 'Programs',
+                'footer-link4': 'Partnerships',
+                'footer-title2': 'Access',
+                'footer-address': 'Lyon, France',
+                'footer-copyright': '© 2025 ISAG - Institut Supérieur des Arts Gemmologique. All rights reserved.',
+                'footer-legal': 'Legal Notice',
+                'footer-rgpd': 'GDPR'
+            },
+            ar: {
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'البرامج',
+                'nav-masterclass': 'دراسات عليا',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'hero-subtitle': 'ليون • عاصمة المجوهرات الراقية',
+                'hero-title': 'فن <br><span class="text-gold italic font-light">علم الأحجار الكريمة</span>',
+                'hero-description': 'مركز للتميز مكرس لنقل المعرفة الاستثنائية. مرحباً بكم في المعهد العالي لفنون علم الأحجار الكريمة (ISAG)، المرجع في ليون لخبراء الأحجار الكريمة ومهن الرفاهية في المستقبل.',
+                'hero-btn1': 'اكتشف المعهد',
+                'hero-btn2': 'اطلع على البرامج',
+                'about-title': 'التميز كإرث',
+                'about-text1': 'يقع المعهد في قلب ليون، المركز التاريخي لصناعة المجوهرات الفرنسية، ويقدم نظاماً تعليمياً فريداً. مؤسستنا لا تكتفي بالتدريس؛ بل تُطلِع طلابها على أكثر رموز الرفاهية العالمية سرية.',
+                'about-text2': '<strong>طريقتنا التعليمية:</strong> توازن مثالي بين الدقة العلمية (علم الأحجار المخبري) والخبرة الميدانية (الأسواق الدولية). نُخرج خبراء قادرين على اعتماد وتقييم واستشارة أرقى دور الرفاهية.',
+                'about-text3': '<strong>المختبر:</strong> طلابنا لديهم إمكانية الوصول إلى أحدث المعدات: أجهزة قياس الانكسار، والمستقطبات، ومطيافات الشبكة، ومجاهر ثنائية عالية الدقة، مما يتيح تحليلاً شاملاً للشوائب وطبيعة الأحجار.',
+                'about-stats1': 'خبرة عملية',
+                'about-stats2': 'حي الرفاهية',
+                'about-badge1': 'دراية فنية',
+                'about-badge2': 'نقل ودقة',
+                'formations-title': 'برامج <span class="text-gold italic">تتناسب</span> مع طموحاتك',
+                'formations-subtitle': 'أتقن الركائز الخمس لصناعة الرفاهية',
+                'formation1-title': 'علم الأحجار الكريمة الأساسي',
+                'formation1-desc': 'الدراسة العلمية للأحجار الكريمة (الماس، الياقوت، الزفير، الزمرد) والأحجار الكريمة الأخرى. تحديد المعالجات والتركيبات.',
+                'formation1-list1': '• علم البلورات والبصريات',
+                'formation1-list2': '• دراسة الشوائب',
+                'formation1-list3': '• الأحجار العضوية (اللؤلؤ، الكهرمان)',
+                'formation2-title': 'علم الماس وتدرجه',
+                'formation2-desc': 'من الاستخراج إلى التجارة. إتقان نظام التدرج الدولي GIA/HRD. خبرة في الماس الخام والمصقول.',
+                'formation2-list1': '• المعايير الأربعة (القيراط، اللون، النقاء، القطع)',
+                'formation2-list2': '• كشف الماس المخبري',
+                'formation2-list3': '• أسواق الماس',
+                'formation3-title': 'خبرة المجوهرات',
+                'formation3-desc': 'تعلم تأريخ المجوهرات القديمة، والتعرف على الدمغات، وتقدير قيمة قطعة مجوهرات راقية في سوق الفن.',
+                'formation3-list1': '• تاريخ المجوهرات',
+                'formation3-list2': '• السبائك والدمغات',
+                'formation3-list3': '• التقييم في دور المزادات',
+                'formation4-title': 'صناعة الساعات الراقية',
+                'formation4-desc': 'فهم تعقيدات الساعات، والحركات الميكانيكية، وتاريخ كبرى الشركات المصنعة السويسرية والفرنسية.',
+                'formation4-list1': '• التعقيدات (توربيون، تقويم دائم)',
+                'formation4-list2': '• سوق الجامعين',
+                'formation4-list3': '• ثقافة الساعات',
+                'formation5-title': 'اتصالات الرفاهية',
+                'formation5-desc': 'استراتيجيات البيع والتسويق الخاصة بقطاع الرفاهية. علاقات العملاء المتميزين وسرد قصص العلامة التجارية.',
+                'formation5-list1': '• إدارة الرفاهية',
+                'formation5-list2': '• سيكولوجية المشتري',
+                'formation5-list3': '• الرقمي والتأثير',
+                'formation6-title': 'مستقبلك',
+                'formation6-desc': 'يفتح لكم ISAG أبواب أكبر دور فاندوم، ومختبرات الخبرة، والتجارة الدولية.',
+                'formation6-list1': '• خبير في دور المزادات',
+                'formation6-list2': '• مشتري أحجار',
+                'formation6-list3': '• مدير متجر فاخر',
+                'expert-title': 'مختبر <span class="text-gold italic">عالمي المستوى</span>',
+                'expert-desc': 'تتطلب دراسة علم الأحجار الكريمة دقة جراحية. في ISAG، يمتلك كل طالب محطة عمل كاملة لتحليل مئات الأحجار من مجموعتنا الخاصة.',
+                'expert-tech1': 'التحليل الطيفي',
+                'expert-tech1-desc': 'تحليل امتصاص الضوء لتحديد عناصر التلوين.',
+                'expert-tech2': 'الفحص المجهري',
+                'expert-tech2-desc': 'الغوص في أعماق الشوائب لتحديد المنشأ الجغرافي.',
+                'cta-subtitle': 'التسجيل مفتوح 2025-2026',
+                'cta-title': 'اكتب أسطورتك.',
+                'cta-text': 'اتصل بمستشارينا لتحديد موعد توجيه شخصي.',
+                'cta-btn1': 'طلب كتيب',
+                'cta-btn2': 'اتصل بنا',
+                'footer-desc': 'المعهد العالي لفنون علم الأحجار الكريمة هو المركز المرجعي للتعليم في مجال الأحجار الكريمة ومهن الرفاهية في منطقة أوفرن-رون-ألب. التميز الأكاديمي والانغماس المهني.',
+                'footer-title1': 'المعهد',
+                'footer-link1': 'التاريخ',
+                'footer-link2': 'المختبر',
+                'footer-link3': 'البرامج',
+                'footer-link4': 'الشراكات',
+                'footer-title2': 'الوصول',
+                'footer-address': 'ليون، فرنسا',
+                'footer-copyright': '© 2025 ISAG - المعهد العالي لفنون علم الأحجار الكريمة. جميع الحقوق محفوظة.',
+                'footer-legal': 'إشعار قانوني',
+                'footer-rgpd': 'اللائحة العامة لحماية البيانات'
+            },
+            zh: {
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'hero-subtitle': '里昂 • 高级珠宝之都',
+                'hero-title': '<span class="text-gold italic font-light">宝石学</span><br>的艺术',
+                'hero-description': '一个致力于传承卓越专业知识的卓越中心。欢迎来到里昂高等宝石艺术学院(ISAG)，这里是未来宝石和奢侈品行业专家的里昂参考机构。',
+                'hero-btn1': '探索学院',
+                'hero-btn2': '查看课程',
+                'about-title': '卓越传承',
+                'about-text1': 'ISAG位于法国珠宝业历史中心里昂的心脏地带，提供独特的学习环境。我们机构不仅提供培训，还引导学生了解全球奢侈品最保密的规范。',
+                'about-text2': '<strong>我们的教学法：</strong>科学严谨性（实验室宝石学）与实地专业知识（国际市场）的完美平衡。我们培养能够为最负盛名的奢侈品牌提供认证、评估和咨询的专家。',
+                'about-text3': '<strong>实验室：</strong>我们的学生可以使用尖端设备：折射仪、偏光仪、光栅分光镜和高精度双目显微镜，能够对内含物和宝石性质进行详尽分析。',
+                'about-stats1': '实践经验',
+                'about-stats2': '奢侈品区',
+                'about-badge1': '专业技能',
+                'about-badge2': '传承与严谨',
+                'formations-title': '课程<span class="text-gold italic">契合</span>您的抱负',
+                'formations-subtitle': '掌握奢侈品行业的五大支柱',
+                'formation1-title': '基础宝石学',
+                'formation1-desc': '对宝石（钻石、红宝石、蓝宝石、祖母绿）和半宝石的科学研究。鉴定处理和合成品。',
+                'formation1-list1': '• 晶体学与光学',
+                'formation1-list2': '• 内含物研究',
+                'formation1-list3': '• 有机宝石（珍珠、琥珀）',
+                'formation2-title': '钻石学与分级',
+                'formation2-desc': '从开采到贸易。精通国际GIA/HRD分级系统。对原钻和成品钻的专业知识。',
+                'formation2-list1': '• 4C标准（克拉、颜色、净度、切工）',
+                'formation2-list2': '• 实验室培育钻石检测',
+                'formation2-list3': '• 钻石交易所',
+                'formation3-title': '珠宝鉴定',
+                'formation3-desc': '学习鉴定古董珠宝的年代，识别印记，并评估高级珠宝艺术品在市场中的价值。',
+                'formation3-list1': '• 珠宝历史',
+                'formation3-list2': '• 合金与印记',
+                'formation3-list3': '• 拍卖行估价',
+                'formation4-title': '高级制表',
+                'formation4-desc': '了解钟表复杂功能、机械机芯以及瑞士和法国主要制造商的历史。',
+                'formation4-list1': '• 复杂功能（陀飞轮、万年历）',
+                'formation4-list2': '• 收藏家市场',
+                'formation4-list3': '• 钟表文化',
+                'formation5-title': '奢侈品传播',
+                'formation5-desc': '针对奢侈品行业的销售和营销策略。VIP客户关系和品牌故事讲述。',
+                'formation5-list1': '• 奢侈品管理',
+                'formation5-list2': '• 买家心理学',
+                'formation5-list3': '• 数字与影响力',
+                'formation6-title': '您的未来',
+                'formation6-desc': 'ISAG为您打开旺多姆广场最著名品牌、专业实验室和国际贸易的大门。',
+                'formation6-list1': '• 拍卖行专家',
+                'formation6-list2': '• 宝石采购',
+                'formation6-list3': '• 奢侈品店经理',
+                'expert-title': '<span class="text-gold italic">世界级</span>实验室',
+                'expert-desc': '宝石学研究需要手术般的精度。在ISAG，每个学生都有一个完整的工作站，用于分析我们私人收藏中的数百颗宝石。',
+                'expert-tech1': '光谱分析',
+                'expert-tech1-desc': '分析光吸收以识别着色元素。',
+                'expert-tech2': '显微分析',
+                'expert-tech2-desc': '深入内含物以确定地理来源。',
+                'cta-subtitle': '2025-2026学年招生开放',
+                'cta-title': '书写您的传奇。',
+                'cta-text': '联系我们的顾问进行个性化入学咨询。',
+                'cta-btn1': '索取手册',
+                'cta-btn2': '致电我们',
+                'footer-desc': '里昂高等宝石艺术学院是奥弗涅-罗讷-阿尔卑斯大区宝石和奢侈品行业教育的参考中心。学术卓越和职业沉浸。',
+                'footer-title1': '学院',
+                'footer-link1': '历史',
+                'footer-link2': '实验室',
+                'footer-link3': '课程',
+                'footer-link4': '合作伙伴',
+                'footer-title2': '地址',
+                'footer-address': '法国 里昂',
+                'footer-copyright': '© 2025 ISAG - 里昂高等宝石艺术学院。版权所有。',
+                'footer-legal': '法律声明',
+                'footer-rgpd': '通用数据保护条例'
+            }
+        };
+
+        function disableKeys(e) {
+            if (e.keyCode == 123) return false;
+            if (e.ctrlKey && e.keyCode == 85) return false;
+            if (e.ctrlKey && e.keyCode == 83) return false;
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
+            return true;
+        }
+
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+        });
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") return;
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation d'apparition au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-up');
+                    entry.target.style.opacity = 1;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, header').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ========== GESTION DE LA LANGUE ==========
+        const langOptions = document.querySelectorAll('.lang-dropdown a');
+        const currentLangSpan = document.getElementById('currentLang');
+        
+        // Fonction pour appliquer la traduction
+        function applyLanguage(lang) {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'LI') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Mettre à jour l'indicateur de langue
+            let langCode = 'Fr';
+            if (lang === 'ar') langCode = 'ع';
+            else if (lang === 'zh') langCode = '中';
+            else if (lang === 'en') langCode = 'En';
+            else langCode = 'Fr';
+            currentLangSpan.textContent = langCode;
+            
+            // Sauvegarder la préférence
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Charger la langue sauvegardée ou utiliser le français par défaut
+        const savedLang = localStorage.getItem('preferredLang') || 'fr';
+        applyLanguage(savedLang);
+
+        // Gérer les clics sur les options de langue
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                applyLanguage(lang);
+            });
+        });
+    </script>
+</body>
+</html>
