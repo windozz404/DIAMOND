@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Contact et inscriptions | ISAG Lyon</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
+    <meta name="description" content="Contactez l'ISAG pour toute demande d'admission ou d'information.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F1D592;
+            --dark: #0a0a0a;
+            --clay: #1e1e1e;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #FBF5B7 50%, #AA8A2E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-send {
+            background: linear-gradient(45deg, #AA8A2E, #D4AF37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .image-container img {
+            transition: transform 0.8s ease;
+        }
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.8s ease forwards; }
+
+        /* Style pour la navigation glass (identique aux autres pages) */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        /* Style pour le sélecteur de langue */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            display: none;
+            min-width: 140px;
+            z-index: 100;
+        }
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .lang-dropdown a:hover {
+            background-color: var(--gold);
+            color: black;
+        }
+
+        /* Styles pour le menu mobile (identiques aux autres pages) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 80px 30px 30px;
+            border-left: 1px solid var(--gold);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            color: var(--gold);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Sélecteur de langue mobile */
+        .mobile-lang-selector {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .mobile-lang-title {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mobile-lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .mobile-lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .mobile-lang-btn.active {
+            background: var(--gold);
+            color: black;
+            border-color: var(--gold);
+        }
+
+        .mobile-lang-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Bouton hamburger */
+        .hamburger-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger-btn:active {
+            background: var(--gold);
+        }
+
+        .hamburger-btn:active svg {
+            stroke: black;
+        }
+
+        /* Améliorations responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            h2 {
+                font-size: 2rem !important;
+            }
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+            .container-padding {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .glass-card {
+                padding: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            .btn-send {
+                width: 100%;
+            }
+        }
+
+        /* Ajustements pour le formulaire sur mobile */
+        @media (max-width: 480px) {
+            .input-field {
+                padding: 0.75rem 1rem !important;
+            }
+            .glass-card {
+                padding: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation avec menu mobile (unifiée avec les autres pages) -->
+    <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
+                <span class="transform -rotate-45 font-bold text-gold text-[10px] sm:text-xs">ISAG</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-semibold tracking-[0.2em] text-[10px] sm:text-sm uppercase">ISAG Lyon</span>
+                <span class="text-[8px] sm:text-[10px] text-gold uppercase tracking-widest hidden xs:block">Institut Supérieur</span>
+            </div>
+        </div>
+        
+        <!-- Liens de navigation desktop -->
+        <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
+            <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
+            <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
+            <a href="masterclass.html" class="hover:text-gold transition-colors duration-300" data-key="nav-masterclass">Masterclass</a>
+            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L'Institut</a>
+            <a href="contact.html" class="hover:text-gold transition-colors duration-300 text-gold font-bold" data-key="nav-contact">Contact & Admissions</a>
+        </div>
+
+        <!-- Sélecteur de langue desktop -->
+        <div class="lang-selector hidden sm:block">
+            <button class="text-gold hover:text-white transition-colors p-2 rounded-full border border-gold/30 hover:border-gold flex items-center space-x-1" title="Choisir la langue">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <span id="currentLang" class="text-xs uppercase hidden sm:inline">Fr</span>
+            </button>
+            <div class="lang-dropdown">
+                <a data-lang="fr">🇫🇷 Français</a>
+                <a data-lang="en">🇬🇧 English</a>
+                <a data-lang="ar">🇸🇦 العربية</a>
+                <a data-lang="zh">🇨🇳  Mandarin</a>
+            </div>
+        </div>
+
+        <!-- Bouton menu hamburger pour mobile -->
+        <button class="lg:hidden text-gold hamburger-btn" id="menuToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Overlay du menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Menu mobile latéral -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu">×</div>
+        
+        <!-- Logo dans le menu -->
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-gold/30">
+            <div class="w-12 h-12 border-2 border-gold flex items-center justify-center transform rotate-45">
+                <span class="transform -rotate-45 font-bold text-gold">ISAG</span>
+            </div>
+            <div>
+                <span class="font-bold text-gold text-sm">ISAG Lyon</span>
+                <p class="text-[8px] text-gray-400">Institut Supérieur des Arts Gemmologiques</p>
+            </div>
+        </div>
+
+        <!-- Liens du menu mobile -->
+        <a href="index.html" data-key="nav-home">Accueil</a>
+        <a href="formations.html" data-key="nav-formations">Formations</a>
+        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
+        <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
+        <a href="#" class="text-gold font-bold border-gold px-3 py-2 text-center mt-4" data-key="nav-apply">Candidature Online</a>
+
+        <!-- Sélecteur de langue dans le menu mobile -->
+        <div class="mobile-lang-selector">
+            <div class="mobile-lang-title" data-key="lang-choose">Choisir la langue</div>
+            <div class="mobile-lang-grid">
+                <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+                <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="mobile-lang-btn" data-lang="ar">🇸🇦 AR</button>
+                <button class="mobile-lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+        </div>
+
+        <!-- Informations de contact dans le menu -->
+        <div class="mt-8 pt-4 text-center">
+            <p class="text-gold text-xs mb-2">contact@isag-lyon.com</p>
+            <p class="text-gray-500 text-[10px]">+33 (0)4 72 XX XX XX</p>
+        </div>
+    </div>
+
+    <!-- Hero Section with Background Image (adaptée pour mobile) -->
+    <header class="relative pt-32 sm:pt-48 pb-20 sm:pb-32 px-4 sm:px-6 flex flex-col items-center text-center overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-20">
+            <img src="https://images.unsplash.com/photo-1573408302382-9954f6c56020?auto=format&fit=crop&q=80&w=2000" alt="Fond Gemmologie" class="w-full h-full object-cover grayscale">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        </div>
+        
+        <div class="animate-fade px-2">
+            <span class="text-gold tracking-[0.3em] sm:tracking-[0.5em] text-[9px] sm:text-[11px] uppercase mb-3 sm:mb-6 block font-semibold" data-key="hero-supra">Excellence & Savoir-faire</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-8 leading-tight" data-key="hero-title">Rejoignez <span class="gold-gradient italic font-light tracking-normal">l'Élite</span> des Gemmologues</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed font-light px-2" data-key="hero-text">
+                De l'identification des pierres à l'expertise de marché, l'ISAG forme les futurs leaders de la joaillerie internationale au cœur de Lyon.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 space-y-20 sm:space-y-32 pb-20 sm:pb-32">
+        
+        <!-- Section: Informations d'Admission (adaptée pour mobile) -->
+        <section class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div class="image-container aspect-square shadow-2xl order-2 lg:order-1">
+                <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=800" alt="Étudiant examinant une pierre" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div class="absolute bottom-4 sm:bottom-8 left-2 sm:left-8 right-2 sm:right-8 p-3 sm:p-6 glass-card border-white/10">
+                    <p class="text-gold text-[8px] sm:text-xs uppercase tracking-widest mb-1 sm:mb-2 font-bold" data-key="did-you-know">Le Saviez-vous ?</p>
+                    <p class="text-[10px] sm:text-sm font-light italic" data-key="fact-text">"Nos sessions de formation sont limitées à 8 étudiants pour garantir un accompagnement ultra-personnalisé et l'accès à un matériel de pointe."</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade order-1 lg:order-2" style="animation-delay: 0.2s">
+                <h2 class="text-2xl sm:text-3xl font-bold" data-key="admission-title">Le Processus d'Admission</h2>
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="flex gap-4 sm:gap-6">
+                        <span class="text-gold font-bold text-xl sm:text-2xl">01.</span>
+                        <div>
+                            <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2" data-key="step1-title">Dossier de Candidature</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-key="step1-text">Soumettez votre CV et lettre de motivation via notre formulaire dédié. Nous analysons chaque profil avec soin.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 sm:gap-6">
+                        <span class="text-gold font-bold text-xl sm:text-2xl">02.</span>
+                        <div>
+                            <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2" data-key="step2-title">Entretien d'Orientation</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-key="step2-text">Un échange de 30 minutes avec nos experts pour définir votre projet professionnel et valider les prérequis.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 sm:gap-6">
+                        <span class="text-gold font-bold text-xl sm:text-2xl">03.</span>
+                        <div>
+                            <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2" data-key="step3-title">Financement & Inscription</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-key="step3-text">Accompagnement administratif pour vos demandes de financement (CPF, OPCO) et finalisation de l'inscription.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Formulaire & Contact (adaptée pour mobile) -->
+        <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
+            
+            <!-- Contact Cards (adaptés pour mobile) -->
+            <div class="lg:col-span-4 space-y-4 sm:space-y-6 animate-fade" style="animation-delay: 0.3s">
+                <div class="glass-card p-4 sm:p-6 lg:p-8">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-6 text-gold" data-key="direct-contact">Contact Direct</h3>
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start space-x-3 sm:space-x-4 group">
+                            <div class="text-gold bg-gold/10 p-2 sm:p-3 rounded-lg group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="phone">Téléphone</p>
+                                <p class="text-xs sm:text-sm font-medium">+33 (0)4 72 XX XX XX</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 sm:space-x-4 group">
+                            <div class="text-gold bg-gold/10 p-2 sm:p-3 rounded-lg group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="email-label">Email</p>
+                                <p class="text-xs sm:text-sm font-medium">admissions@isag-lyon.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-container h-48 sm:h-56 lg:h-64 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1584305323473-d75c44242271?auto=format&fit=crop&q=80&w=800" alt="Matériel de gemmologie" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <p class="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-[8px] sm:text-[10px] text-white/50 uppercase tracking-widest" data-key="workshop-label">Atelier d'expertise Lyon</p>
+                </div>
+            </div>
+
+            <!-- Formulaire (adapté pour mobile) -->
+            <div class="lg:col-span-8 animate-fade" style="animation-delay: 0.4s">
+                <form id="contactForm" class="glass-card p-4 sm:p-6 md:p-8 lg:p-12 space-y-4 sm:space-y-6">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4" data-key="form-title">Demande d'information rapide</h3>
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-6">
+                        <div class="space-y-1 sm:space-y-2">
+                            <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="name-label">Prénom & Nom</label>
+                            <input type="text" required class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm" placeholder="Votre nom" data-key="name-placeholder">
+                        </div>
+                        <div class="space-y-1 sm:space-y-2">
+                            <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="email-label">Votre Email</label>
+                            <input type="email" required class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm" placeholder="nom@exemple.com" data-key="email-placeholder">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-6">
+                        <div class="space-y-1 sm:space-y-2">
+                            <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="program-label">Formation visée</label>
+                            <select class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm appearance-none cursor-pointer">
+                                <option data-key="program-option1">Diplôme de Gemmologue Expert</option>
+                                <option data-key="program-option2">Masterclass : Diamant & Expertise</option>
+                                <option data-key="program-option3">Initiation à la Gemmologie</option>
+                                <option data-key="program-option4">Autre demande</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1 sm:space-y-2">
+                            <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="funding-label">Mode de financement</label>
+                            <select class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm appearance-none cursor-pointer">
+                                <option data-key="funding-option1">Compte personnel de formation (CPF)</option>
+                                <option data-key="funding-option2">Auto-financement</option>
+                                <option data-key="funding-option3">Plan de formation entreprise</option>
+                                <option data-key="funding-option4">Pôle Emploi / Aide publique</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1 sm:space-y-2">
+                        <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="message-label">Votre Message</label>
+                        <textarea rows="3" sm:rows="4" required class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm resize-none" placeholder="Précisez votre projet..." data-key="message-placeholder"></textarea>
+                    </div>
+
+                    <div class="pt-2 sm:pt-4 flex flex-col md:flex-row items-center gap-3 sm:gap-6">
+                        <button type="submit" class="btn-send w-full md:w-auto px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 text-black font-bold uppercase tracking-widest text-[9px] sm:text-[11px] rounded-full shadow-xl" data-key="submit-btn">
+                            Envoyer ma demande
+                        </button>
+                        <p class="text-[7px] sm:text-[9px] text-gray-500 uppercase leading-relaxed max-w-xs text-center md:text-left" data-key="form-consent">
+                            En envoyant ce formulaire, vous acceptez d'être recontacté par un conseiller ISAG.
+                        </p>
+                    </div>
+                    <p id="formStatus" class="text-center text-[10px] sm:text-xs mt-2 sm:mt-4 hidden"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Section: FAQ Express (adaptée pour mobile) -->
+        <section class="space-y-6 sm:space-y-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center" data-key="faq-title">Questions Fréquentes</h2>
+            <div class="grid sm:grid-cols-2 gap-4 sm:gap-8">
+                <div class="glass-card p-4 sm:p-6">
+                    <h4 class="text-gold font-bold mb-1 sm:mb-3 text-xs sm:text-sm uppercase tracking-wide" data-key="faq1-question">La formation est-elle diplômante ?</h4>
+                    <p class="text-gray-400 text-[10px] sm:text-sm font-light" data-key="faq1-answer">Oui, nos parcours d'expertise sont certifiés et reconnus par les plus grandes maisons de joaillerie de la place de Lyon et de Genève.</p>
+                </div>
+                <div class="glass-card p-4 sm:p-6">
+                    <h4 class="text-gold font-bold mb-1 sm:mb-3 text-xs sm:text-sm uppercase tracking-wide" data-key="faq2-question">Quels sont les prérequis ?</h4>
+                    <p class="text-gray-400 text-[10px] sm:text-sm font-light" data-key="faq2-answer">Pour le cycle expert, une forte motivation et un sens du détail sont nécessaires. Aucune base scientifique poussée n'est exigée au préalable.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Map Section (adaptée pour mobile) -->
+    <section class="mt-12 sm:mt-20 px-4 sm:px-6 max-w-7xl mx-auto h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl sm:rounded-[3rem] overflow-hidden relative shadow-2xl">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5042898967!2d4.8290!3d45.7578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea50d87e0795%3A0xc319139268841440!2sPlace%20Bellecour%2C%2069002%20Lyon!5e0!3m2!1sfr!2sfr!4v1620000000000" 
+            class="w-full h-full grayscale contrast-125 brightness-50 border-0 hover:grayscale-0 transition-all duration-1000" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+        <div class="absolute top-2 sm:top-4 lg:top-10 left-2 sm:left-4 lg:left-10 p-2 sm:p-4 lg:p-6 glass-card bg-black/60 pointer-events-none border-gold/30">
+            <h4 class="text-gold font-bold text-xs sm:text-sm lg:text-lg mb-0.5 sm:mb-1 lg:mb-2" data-key="map-title">Visitez l'ISAG</h4>
+            <p class="text-[8px] sm:text-[10px] lg:text-xs text-gray-300" data-key="map-address">Quartier historique des joailliers<br>69002 Lyon, France</p>
+        </div>
+    </section>
+
+    <!-- Footer unifié avec les autres pages -->
+    <footer class="bg-black py-16 sm:py-32 px-4 sm:px-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-16">
+            <div class="sm:col-span-2">
+                <span class="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] text-gold block mb-4 sm:mb-8">ISAG</span>
+                <p class="text-gray-500 font-light max-w-sm leading-loose text-xs sm:text-sm" data-key="footer-desc">
+                    L'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="footer_nav">Navigation</h5>
+                <ul class="text-gray-500 text-[10px] sm:text-xs space-y-2 sm:space-y-4 uppercase tracking-widest">
+                    <li><a href="index.html" class="hover:text-gold" data-key="nav-home">Accueil</a></li>
+                    <li><a href="formations.html" class="hover:text-gold" data-key="nav-formations">Formations</a></li>
+                    <li><a href="masterclass.html" class="hover:text-gold" data-key="nav-masterclass">Masterclass</a></li>
+                    <li><a href="propos.html" class="hover:text-gold" data-key="nav-about">À propos</a></li>
+                    <li><a href="contact.html" class="hover:text-gold" data-key="nav-contact">Contact & Admissions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="location">Lieu d'Exception</h5>
+                <p class="text-gray-500 text-[10px] sm:text-xs font-light leading-relaxed" data-key="address">
+                    Presqu'île de Lyon<br>
+                    69002 France<br><br>
+                    admissions@gemmologie-isag.com
+                </p>
+            </div>
+        </div>
+        <div class="mt-16 sm:mt-32 pt-4 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[7px] sm:text-[8px] text-gray-700 uppercase tracking-[0.2em] sm:tracking-[0.4em]">
+            <span data-key="copyright">© 2025 ISAG Lyon. Tous droits réservés.</span>
+            <div class="flex space-x-4 sm:space-x-8 mt-2 sm:mt-4 md:mt-0">
+                <a href="#" data-key="legal">Mentions Légales</a>
+                <a href="#" data-key="privacy">Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dictionnaire de traductions
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L\'Institut',
+                'nav-contact': 'Contact & Admissions',
+                'nav-apply': 'Candidature Online',
+                'lang-choose': 'Choisir la langue',
+                
+                // Hero
+                'hero-supra': 'Excellence & Savoir-faire',
+                'hero-title': 'Rejoignez <span class="gold-gradient italic font-light tracking-normal">l\'Élite</span> des Gemmologues',
+                'hero-text': 'De l\'identification des pierres à l\'expertise de marché, l\'ISAG forme les futurs leaders de la joaillerie internationale au cœur de Lyon.',
+                
+                // Admission
+                'admission-title': 'Le Processus d\'Admission',
+                'step1-title': 'Dossier de Candidature',
+                'step1-text': 'Soumettez votre CV et lettre de motivation via notre formulaire dédié. Nous analysons chaque profil avec soin.',
+                'step2-title': 'Entretien d\'Orientation',
+                'step2-text': 'Un échange de 30 minutes avec nos experts pour définir votre projet professionnel et valider les prérequis.',
+                'step3-title': 'Financement & Inscription',
+                'step3-text': 'Accompagnement administratif pour vos demandes de financement (CPF, OPCO) et finalisation de l\'inscription.',
+                'did-you-know': 'Le Saviez-vous ?',
+                'fact-text': '"Nos sessions de formation sont limitées à 8 étudiants pour garantir un accompagnement ultra-personnalisé et l\'accès à un matériel de pointe."',
+                
+                // Contact
+                'direct-contact': 'Contact Direct',
+                'phone': 'Téléphone',
+                'email-label': 'Email',
+                'workshop-label': 'Atelier d\'expertise Lyon',
+                
+                // Formulaire
+                'form-title': 'Demande d\'information rapide',
+                'name-label': 'Prénom & Nom',
+                'name-placeholder': 'Votre nom',
+                'email-placeholder': 'nom@exemple.com',
+                'program-label': 'Formation visée',
+                'program-option1': 'Diplôme de Gemmologue Expert',
+                'program-option2': 'Masterclass : Diamant & Expertise',
+                'program-option3': 'Initiation à la Gemmologie',
+                'program-option4': 'Autre demande',
+                'funding-label': 'Mode de financement',
+                'funding-option1': 'Compte personnel de formation (CPF)',
+                'funding-option2': 'Auto-financement',
+                'funding-option3': 'Plan de formation entreprise',
+                'funding-option4': 'Pôle Emploi / Aide publique',
+                'message-label': 'Votre Message',
+                'message-placeholder': 'Précisez votre projet...',
+                'submit-btn': 'Envoyer ma demande',
+                'form-consent': 'En envoyant ce formulaire, vous acceptez d\'être recontacté par un conseiller ISAG.',
+                
+                // FAQ
+                'faq-title': 'Questions Fréquentes',
+                'faq1-question': 'La formation est-elle diplômante ?',
+                'faq1-answer': 'Oui, nos parcours d\'expertise sont certifiés et reconnus par les plus grandes maisons de joaillerie de la place de Lyon et de Genève.',
+                'faq2-question': 'Quels sont les prérequis ?',
+                'faq2-answer': 'Pour le cycle expert, une forte motivation et un sens du détail sont nécessaires. Aucune base scientifique poussée n\'est exigée au préalable.',
+                
+                // Map
+                'map-title': 'Visitez l\'ISAG',
+                'map-address': 'Quartier historique des joailliers<br>69002 Lyon, France',
+                
+                // Footer - clés unifiées
+                'footer-desc': 'L\'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.',
+                'footer_nav': 'Navigation',
+                'location': 'Lieu d\'Exception',
+                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
+                'copyright': '© 2025 ISAG Lyon. Tous droits réservés.',
+                'legal': 'Mentions Légales',
+                'privacy': 'Confidentialité',
+                
+                // Messages formulaire
+                'sending': 'Envoi en cours...',
+                'secure-connection': 'Sécurisation de la connexion...',
+                'success': 'Message Transmis',
+                'success-message': 'Succès ! Un conseiller prendra contact avec vous dans les 24 heures.'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-formations': 'Programs',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'nav-apply': 'Apply Online',
+                'lang-choose': 'Choose language',
+                
+                // Hero
+                'hero-supra': 'Excellence & Know-how',
+                'hero-title': 'Join the <span class="gold-gradient italic font-light tracking-normal">Elite</span> of Gemologists',
+                'hero-text': 'From stone identification to market expertise, ISAG trains future leaders of international jewelry in the heart of Lyon.',
+                
+                // Admission
+                'admission-title': 'Admission Process',
+                'step1-title': 'Application File',
+                'step1-text': 'Submit your CV and cover letter via our dedicated form. We analyze each profile carefully.',
+                'step2-title': 'Orientation Interview',
+                'step2-text': 'A 30-minute exchange with our experts to define your professional project and validate prerequisites.',
+                'step3-title': 'Financing & Registration',
+                'step3-text': 'Administrative support for your financing requests (CPF, OPCO) and finalization of registration.',
+                'did-you-know': 'Did you know?',
+                'fact-text': '"Our training sessions are limited to 8 students to guarantee ultra-personalized support and access to cutting-edge equipment."',
+                
+                // Contact
+                'direct-contact': 'Direct Contact',
+                'phone': 'Phone',
+                'email-label': 'Email',
+                'workshop-label': 'Expertise Workshop Lyon',
+                
+                // Form
+                'form-title': 'Quick Information Request',
+                'name-label': 'First & Last Name',
+                'name-placeholder': 'Your name',
+                'email-placeholder': 'name@example.com',
+                'program-label': 'Target Program',
+                'program-option1': 'Expert Gemologist Diploma',
+                'program-option2': 'Masterclass: Diamond & Expertise',
+                'program-option3': 'Introduction to Gemology',
+                'program-option4': 'Other request',
+                'funding-label': 'Funding Method',
+                'funding-option1': 'Personal Training Account (CPF)',
+                'funding-option2': 'Self-funding',
+                'funding-option3': 'Company training plan',
+                'funding-option4': 'Employment center / Public aid',
+                'message-label': 'Your Message',
+                'message-placeholder': 'Specify your project...',
+                'submit-btn': 'Send my request',
+                'form-consent': 'By sending this form, you agree to be contacted by an ISAG advisor.',
+                
+                // FAQ
+                'faq-title': 'Frequently Asked Questions',
+                'faq1-question': 'Is the training diploma-granting?',
+                'faq1-answer': 'Yes, our expertise programs are certified and recognized by the largest jewelry houses in Lyon and Geneva.',
+                'faq2-question': 'What are the prerequisites?',
+                'faq2-answer': 'For the expert cycle, strong motivation and attention to detail are necessary. No advanced scientific background is required beforehand.',
+                
+                // Map
+                'map-title': 'Visit ISAG',
+                'map-address': 'Historic jewelers district<br>69002 Lyon, France',
+                
+                // Footer - clés unifiées
+                'footer-desc': 'The Institut Supérieur des Arts Gemmologiques is dedicated to transmitting the ancient knowledge of precious stones through a modern and scientific approach.',
+                'footer_nav': 'Navigation',
+                'location': 'Exceptional Location',
+                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
+                'copyright': '© 2025 ISAG Lyon. All rights reserved.',
+                'legal': 'Legal Notice',
+                'privacy': 'Privacy',
+                
+                // Form messages
+                'sending': 'Sending...',
+                'secure-connection': 'Securing connection...',
+                'success': 'Message Sent',
+                'success-message': 'Success! An advisor will contact you within 24 hours.'
+            },
+            ar: {
+                // Navigation
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'البرامج',
+                'nav-masterclass': 'دراسات عليا',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'nav-apply': 'قدم الآن',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'hero-supra': 'التميز والخبرة',
+                'hero-title': 'انضم إلى <span class="gold-gradient italic font-light tracking-normal">نخبة</span> علماء الأحجار الكريمة',
+                'hero-text': 'من تحديد الأحجار إلى خبرة السوق، يقوم ISAG بتدريب قادة المستقبل في مجال المجوهرات الدولية في قلب ليون.',
+                
+                // Admission
+                'admission-title': 'عملية القبول',
+                'step1-title': 'ملف التقديم',
+                'step1-text': 'قدم سيرتك الذاتية وخطاب التحفيز عبر نموذجنا المخصص. نحن نحلل كل ملف بعناية.',
+                'step2-title': 'مقابلة توجيهية',
+                'step2-text': 'تبادل لمدة 30 دقيقة مع خبرائنا لتحديد مشروعك المهني والتحقق من المتطلبات الأساسية.',
+                'step3-title': 'التمويل والتسجيل',
+                'step3-text': 'دعم إداري لطلبات التمويل الخاصة بك (CPF، OPCO) وإنهاء التسجيل.',
+                'did-you-know': 'هل تعلم؟',
+                'fact-text': '"جلسات التدريب لدينا محدودة بـ 8 طلاب لضمان دعم شخصي للغاية والوصول إلى أحدث المعدات."',
+                
+                // Contact
+                'direct-contact': 'اتصال مباشر',
+                'phone': 'الهاتف',
+                'email-label': 'البريد الإلكتروني',
+                'workshop-label': 'ورشة الخبرة ليون',
+                
+                // Form
+                'form-title': 'طلب معلومات سريع',
+                'name-label': 'الاسم الأول والكنية',
+                'name-placeholder': 'اسمك',
+                'email-placeholder': 'name@example.com',
+                'program-label': 'البرنامج المستهدف',
+                'program-option1': 'دبلوم خبير الأحجار الكريمة',
+                'program-option2': 'دراسات عليا: الماس والخبرة',
+                'program-option3': 'مقدمة في علم الأحجار الكريمة',
+                'program-option4': 'طلب آخر',
+                'funding-label': 'طريقة التمويل',
+                'funding-option1': 'حساب التكوين الشخصي (CPF)',
+                'funding-option2': 'تمويل ذاتي',
+                'funding-option3': 'خطة تدريب الشركة',
+                'funding-option4': 'مركز التوظيف / مساعدة عامة',
+                'message-label': 'رسالتك',
+                'message-placeholder': 'حدد مشروعك...',
+                'submit-btn': 'أرسل طلبي',
+                'form-consent': 'بإرسال هذا النموذج، فإنك توافق على أن يتم الاتصال بك من قبل مستشار ISAG.',
+                
+                // FAQ
+                'faq-title': 'الأسئلة المتكررة',
+                'faq1-question': 'هل التدريب يمنح شهادة؟',
+                'faq1-answer': 'نعم، برامج الخبرة لدينا معتمدة ومعترف بها من قبل أكبر دور المجوهرات في ليون وجنيف.',
+                'faq2-question': 'ما هي المتطلبات الأساسية؟',
+                'faq2-answer': 'للدورة المتخصصة، الدافع القوي والاهتمام بالتفاصيل ضروريان. لا توجد خلفية علمية متقدمة مطلوبة مسبقًا.',
+                
+                // Map
+                'map-title': 'قم بزيارة ISAG',
+                'map-address': 'حي الجواهريين التاريخي<br>69002 ليون، فرنسا',
+                
+                // Footer - clés unifiées
+                'footer-desc': 'المعهد العالي لفنون علم الأحجار الكريمة مكرس لنقل المعرفة العريقة للأحجار الكريمة من خلال نهج حديث وعلمي.',
+                'footer_nav': 'التنقل',
+                'location': 'موقع استثنائي',
+                'address': 'شبه جزيرة ليون<br>69002 فرنسا<br><br>admissions@gemmologie-isag.com',
+                'copyright': '© 2025 ISAG ليون. جميع الحقوق محفوظة.',
+                'legal': 'إشعار قانوني',
+                'privacy': 'خصوصية',
+                
+                // Form messages
+                'sending': 'جاري الإرسال...',
+                'secure-connection': 'تأمين الاتصال...',
+                'success': 'تم الإرسال',
+                'success-message': 'تم بنجاح! سيتصل بك مستشار في غضون 24 ساعة.'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'nav-apply': '在线申请',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'hero-supra': '卓越与技艺',
+                'hero-title': '加入<span class="gold-gradient italic font-light tracking-normal">精英</span>宝石学家行列',
+                'hero-text': '从宝石鉴定到市场专业，ISAG在里昂市中心培养国际珠宝业的未来领导者。',
+                
+                // Admission
+                'admission-title': '入学流程',
+                'step1-title': '申请材料',
+                'step1-text': '通过我们的专用表格提交您的简历和动机信。我们仔细分析每个申请。',
+                'step2-title': '指导面谈',
+                'step2-text': '与我们的专家进行30分钟的交流，确定您的职业计划并验证先决条件。',
+                'step3-title': '融资与注册',
+                'step3-text': '为您的融资请求（CPF、OPCO）提供行政支持并完成注册。',
+                'did-you-know': '您知道吗？',
+                'fact-text': '"我们的培训课程限制为8名学生，以确保超个性化的支持和接触尖端设备。"',
+                
+                // Contact
+                'direct-contact': '直接联系',
+                'phone': '电话',
+                'email-label': '电子邮件',
+                'workshop-label': '里昂专业工作室',
+                
+                // Form
+                'form-title': '快速信息请求',
+                'name-label': '姓名',
+                'name-placeholder': '您的姓名',
+                'email-placeholder': 'name@example.com',
+                'program-label': '目标课程',
+                'program-option1': '宝石专家文凭',
+                'program-option2': '大师班：钻石与鉴定',
+                'program-option3': '宝石学入门',
+                'program-option4': '其他请求',
+                'funding-label': '融资方式',
+                'funding-option1': '个人培训账户（CPF）',
+                'funding-option2': '自费',
+                'funding-option3': '公司培训计划',
+                'funding-option4': '就业中心 / 公共援助',
+                'message-label': '您的信息',
+                'message-placeholder': '请说明您的计划...',
+                'submit-btn': '发送请求',
+                'form-consent': '发送此表格即表示您同意ISAG顾问与您联系。',
+                
+                // FAQ
+                'faq-title': '常见问题',
+                'faq1-question': '培训是否颁发文凭？',
+                'faq1-answer': '是的，我们的专业课程经过认证，并得到里昂和日内瓦最大的珠宝公司的认可。',
+                'faq2-question': '有什么先决条件？',
+                'faq2-answer': '对于专业课程，需要强烈的动力和对细节的关注。事先不需要高级科学背景。',
+                
+                // Map
+                'map-title': '参观ISAG',
+                'map-address': '历史珠宝商区<br>法国里昂 69002',
+                
+                // Footer - clés unifiées
+                'footer-desc': '里昂高等宝石艺术学院致力于通过现代和科学的方法传承古老的宝石知识。',
+                'footer_nav': '导航',
+                'location': '特殊地点',
+                'address': '里昂半岛<br>法国 69002<br><br>admissions@gemmologie-isag.com',
+                'copyright': '© 2025 ISAG 里昂。版权所有。',
+                'legal': '法律声明',
+                'privacy': '隐私政策',
+                
+                // Form messages
+                'sending': '发送中...',
+                'secure-connection': '安全连接中...',
+                'success': '消息已发送',
+                'success-message': '成功！顾问将在24小时内与您联系。'
+            }
+        };
+
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMenu) {
+            closeMenu.addEventListener('click', closeMobileMenu);
+        }
+
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                closeMobileMenu();
+            }
+        });
+
+        // Fonction pour changer la langue
+        function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
+            const currentLangSpan = document.getElementById('currentLang');
+            if (currentLangSpan) {
+                const langNames = {
+                    fr: 'Fr',
+                    en: 'En',
+                    ar: 'ع',
+                    zh: '中'
+                };
+                currentLangSpan.textContent = langNames[lang] || 'Fr';
+            }
+
+            // Mettre à jour tous les éléments avec data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
+            document.documentElement.lang = lang;
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                    if (btn.classList.contains('mobile-lang-btn')) {
+                        btn.classList.add('active');
+                    }
+                } else {
+                    btn.classList.remove('active');
+                    if (btn.classList.contains('mobile-lang-btn')) {
+                        btn.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        // Gestionnaires d'événements pour les liens de langue (desktop)
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            changeLanguage(savedLang);
+            
+            // Initialiser le formulaire
+            initForm();
+        });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
+
+        // Gestion du formulaire
+        function initForm() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const btn = this.querySelector('button[type="submit"]');
+                    const status = document.getElementById('formStatus');
+                    const currentLang = document.documentElement.lang;
+                    
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="inline-block animate-spin mr-2">◌</span> ' + (translations[currentLang]?.['sending'] || 'Envoi en cours...');
+                    status.classList.remove('hidden', 'text-green-500');
+                    status.innerText = translations[currentLang]?.['secure-connection'] || 'Sécurisation de la connexion...';
+                    status.classList.add('block', 'text-gold');
+
+                    setTimeout(() => {
+                        btn.style.background = "#10b981";
+                        btn.style.borderColor = "#10b981";
+                        btn.innerHTML = translations[currentLang]?.['success'] || 'Message Transmis';
+                        status.innerText = translations[currentLang]?.['success-message'] || 'Succès ! Un conseiller prendra contact avec vous dans les 24 heures.';
+                        status.classList.replace('text-gold', 'text-green-500');
+                        
+                        // Réinitialiser après 3 secondes
+                        setTimeout(() => {
+                            btn.disabled = false;
+                            btn.style.background = "";
+                            btn.innerHTML = translations[currentLang]?.['submit-btn'] || 'Envoyer ma demande';
+                            status.classList.add('hidden');
+                        }, 3000);
+                    }, 2000);
+                });
+            }
+        }
+
+        // Animation au scroll
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Gestion du scroll pour la navigation
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            if (scrollTop < 100) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        console.log('ISAG Contact - Site adapté pour mobile avec traduction multilingue');
+    </script>
+</body>
+</html>
