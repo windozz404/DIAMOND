@@ -2,8 +2,9 @@
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Cursus Académiques de Gemmologie | ISAG Lyon</title>
+        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -94,7 +95,7 @@
             background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.95));
         }
 
-        /* Style pour le sélecteur de langue (identique au index.html) */
+        /* Style pour le sélecteur de langue */
         .lang-selector {
             position: relative;
             display: inline-block;
@@ -130,7 +131,7 @@
             color: black;
         }
 
-        /* Style identique au index.html pour la navigation */
+        /* Style pour la navigation glass */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -155,23 +156,183 @@
             border-color: inherit !important;
             scale: 1 !important;
         }
+
+        /* Styles pour le menu mobile (identiques à index.html) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 80px 30px 30px;
+            border-left: 1px solid var(--gold);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            color: var(--gold);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Sélecteur de langue mobile */
+        .mobile-lang-selector {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .mobile-lang-title {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mobile-lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .mobile-lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .mobile-lang-btn.active {
+            background: var(--gold);
+            color: black;
+            border-color: var(--gold);
+        }
+
+        .mobile-lang-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Bouton hamburger */
+        .hamburger-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger-btn:active {
+            background: var(--gold);
+        }
+
+        .hamburger-btn:active svg {
+            stroke: black;
+        }
+
+        /* Améliorations responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            h2 {
+                font-size: 2rem !important;
+            }
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+            .container-padding {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .glass-card {
+                padding: 2rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation IDENTIQUE au index.html avec le logo en losange -->
-    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
-                <span class="transform -rotate-45 font-bold text-gold text-xs">ISAG</span>
+    <!-- Navigation avec menu mobile (identique à index.html) -->
+    <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
+                <span class="transform -rotate-45 font-bold text-gold text-[10px] sm:text-xs">ISAG</span>
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold tracking-[0.2em] text-sm uppercase">ISAG Lyon</span>
-                <span class="text-[10px] text-gold uppercase tracking-widest hidden sm:block">Institut Supérieur des Arts Gemmologiques</span>
+                <span class="font-semibold tracking-[0.2em] text-[10px] sm:text-sm uppercase">ISAG Lyon</span>
+                <span class="text-[8px] sm:text-[10px] text-gold uppercase tracking-widest hidden xs:block">Institut Supérieur</span>
             </div>
         </div>
         
-        <!-- Liens de navigation selon la demande -->
+        <!-- Liens de navigation desktop (cachés sur mobile) -->
         <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
             <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
             <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
@@ -180,10 +341,10 @@
             <a href="contact.html" class="hover:text-gold transition-colors duration-300" data-key="nav-contact">Contact & Admissions</a>
         </div>
 
-        <!-- Sélecteur de langue identique au index.html -->
-        <div class="lang-selector">
+        <!-- Sélecteur de langue desktop -->
+        <div class="lang-selector hidden sm:block">
             <button class="text-gold hover:text-white transition-colors p-2 rounded-full border border-gold/30 hover:border-gold flex items-center space-x-1" title="Choisir la langue">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
                 <span id="currentLang" class="text-xs uppercase hidden sm:inline">Fr</span>
@@ -196,223 +357,266 @@
             </div>
         </div>
 
-        <button class="lg:hidden text-gold p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Bouton menu hamburger pour mobile -->
+        <button class="lg:hidden text-gold hamburger-btn" id="menuToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-[70vh] flex flex-col justify-center items-center pt-32 pb-20 px-6">
+    <!-- Overlay du menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Menu mobile latéral -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu">×</div>
+        
+        <!-- Logo dans le menu -->
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-gold/30">
+            <div class="w-12 h-12 border-2 border-gold flex items-center justify-center transform rotate-45">
+                <span class="transform -rotate-45 font-bold text-gold">ISAG</span>
+            </div>
+            <div>
+                <span class="font-bold text-gold text-sm">ISAG Lyon</span>
+                <p class="text-[8px] text-gray-400">Institut Supérieur des Arts Gemmologiques</p>
+            </div>
+        </div>
+
+        <!-- Liens du menu mobile -->
+        <a href="index.html" data-key="nav-home">Accueil</a>
+        <a href="formations.html" data-key="nav-formations">Formations</a>
+        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
+        <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
+
+        <!-- Sélecteur de langue dans le menu mobile -->
+        <div class="mobile-lang-selector">
+            <div class="mobile-lang-title">Choisir la langue</div>
+            <div class="mobile-lang-grid">
+                <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+                <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="mobile-lang-btn" data-lang="ar">🇸🇦 AR</button>
+                <button class="mobile-lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+        </div>
+
+        <!-- Informations de contact dans le menu -->
+        <div class="mt-8 pt-4 text-center">
+            <p class="text-gold text-xs mb-2">contact@gemmologie-isag.com</p>
+            <p class="text-gray-500 text-[10px]">+33 06 52 89 39 43</p>
+        </div>
+    </div>
+
+    <!-- Hero Section (adaptée pour mobile) -->
+    <section class="relative min-h-[60vh] sm:min-h-[70vh] flex flex-col justify-center items-center pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 hero-overlay z-10"></div>
             <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover grayscale opacity-30" alt="Excellence Gemmologique">
         </div>
         
-        <div class="relative z-20 text-center max-w-4xl reveal">
-            <span class="text-gold text-xs uppercase tracking-[0.6em] mb-8 block" data-key="hero_supra">Programmes de Haute Expertise</span>
-            <h1 class="text-5xl md:text-8xl mb-8 leading-tight" data-key="hero_title">
+        <div class="relative z-20 text-center max-w-4xl reveal px-2">
+            <span class="text-gold text-[10px] sm:text-xs uppercase tracking-[0.4em] sm:tracking-[0.6em] mb-4 sm:mb-8 block" data-key="hero_supra">Programmes de Haute Expertise</span>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-4 sm:mb-8 leading-tight" data-key="hero_title">
                 Façonner votre <br>
                 <span class="italic font-light">Regard d'Expert</span>
             </h1>
-            <div class="line-accent w-64 mx-auto mb-10"></div>
-            <p class="text-gray-400 font-light text-lg leading-relaxed max-w-2xl mx-auto" data-key="hero_text">
+            <div class="line-accent w-32 sm:w-64 mx-auto mb-6 sm:mb-10"></div>
+            <p class="text-gray-400 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-2" data-key="hero_text">
                 De l'initiation aux secrets des inclusions minérales, nos formations certifiantes à Lyon marient rigueur scientifique et passion esthétique.
             </p>
         </div>
     </section>
 
-    <!-- Main Content Section -->
-    <section class="py-24 px-6 bg-dark-section">
+    <!-- Main Content Section (adaptée pour mobile) -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-dark-section">
         <div class="max-w-7xl mx-auto">
             
-            <!-- Intro Text Details -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-32 items-center reveal delay-1">
-                <div>
-                    <h2 class="text-3xl md:text-4xl mb-6 italic" data-key="sec_title">Une pédagogie de l'excellence</h2>
-                    <p class="text-gray-400 font-light leading-loose mb-6" data-key="sec_text">
+            <!-- Intro Text Details (adapté pour mobile) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 mb-16 sm:mb-32 items-center reveal delay-1">
+                <div class="px-2">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 italic" data-key="sec_title">Une pédagogie de l'excellence</h2>
+                    <p class="text-gray-400 font-light leading-loose text-xs sm:text-sm md:text-base mb-4 sm:mb-6" data-key="sec_text">
                         L'ISAG propose un parcours structuré en quatre étapes clés, permettant de passer de la découverte des gemmes à la maîtrise totale de l'expertise en laboratoire. Chaque niveau est validé par un examen théorique et pratique rigoureux.
                     </p>
-                    <div class="grid grid-cols-2 gap-8 text-[10px] uppercase tracking-widest text-gold font-semibold">
-                        <div class="flex flex-col border-l border-gold/30 pl-4">
+                    <div class="grid grid-cols-2 gap-4 sm:gap-8 text-[8px] sm:text-[10px] uppercase tracking-widest text-gold font-semibold">
+                        <div class="flex flex-col border-l border-gold/30 pl-2 sm:pl-4">
                             <span>+500 Pierres</span>
                             <span class="text-gray-600 font-normal" data-key="sec_stat1">Collection d'étude</span>
                         </div>
-                        <div class="flex flex-col border-l border-gold/30 pl-4">
+                        <div class="flex flex-col border-l border-gold/30 pl-2 sm:pl-4">
                             <span>Équipement GIA</span>
                             <span class="text-gray-600 font-normal" data-key="sec_stat2">Standards mondiaux</span>
                         </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/talnaz9bug0-768x512.jpg" class="rounded-sm grayscale border border-white/10 image-statique" alt="Étude de gemme">
-                    <div class="absolute -bottom-6 -right-6 glass-card p-6 hidden md:block">
-                        <p class="text-[10px] uppercase tracking-widest text-gold mb-2" data-key="next_session">Prochaine Session</p>
-                        <p class="text-xl">Septembre 2025</p>
+                <div class="relative px-2">
+                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/talnaz9bug0-768x512.jpg" class="rounded-sm grayscale border border-white/10 image-statique w-full" alt="Étude de gemme">
+                    <div class="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 glass-card p-3 sm:p-6 hidden md:block">
+                        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gold mb-1 sm:mb-2" data-key="next_session">Prochaine Session</p>
+                        <p class="text-sm sm:text-xl">Septembre 2025</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Enhanced Cursus Grid -->
-            <div class="grid grid-cols-1 gap-12">
+            <!-- Enhanced Cursus Grid (adapté pour mobile) -->
+            <div class="grid grid-cols-1 gap-6 sm:gap-12">
                 
-                <!-- NIVEAU 1 - ELARGIE -->
-                <div class="glass-card p-10 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 reveal delay-2">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <span class="text-4xl font-serif text-gold">01</span>
+                <!-- NIVEAU 1 - Adapté mobile -->
+                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-2">
+                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
+                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
+                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">01</span>
                             <div class="h-[1px] flex-grow bg-gold/30"></div>
                         </div>
-                        <h3 class="text-3xl mb-4 italic" data-key="n1_title">Les Fondamentaux</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-6" data-key="n1_sub">Introduction & Identification</p>
-                        <div class="space-y-2 text-sm text-gray-400">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n1_title">Les Fondamentaux</h3>
+                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n1_sub">Introduction & Identification</p>
+                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                             <p><strong data-key="duration">Durée :</strong> <span data-key="n1_duration">5 jours (35h)</span></p>
                             <p><strong data-key="audience">Public :</strong> <span data-key="n1_audience">Débutants, passionnés</span></p>
                             <p><strong data-key="objective">Objectif :</strong> <span data-key="n1_objective">Savoir utiliser la loupe 10x et le réfractomètre.</span></p>
                         </div>
                     </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                         <div>
-                            <h4 class="text-gold text-xs uppercase tracking-widest mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-sm text-gray-300 space-y-2 font-light">
-                                <li class="program-item" data-key="n1_list1">Cristallographie et systèmes cristallins</li>
-                                <li class="program-item" data-key="n1_list2">Propriétés physiques et optiques</li>
-                                <li class="program-item" data-key="n1_list3">Utilisation des instruments de base</li>
-                                <li class="program-item" data-key="n1_list4">Étude des "Big Three" (Rubis, Saphir, Émeraude)</li>
+                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
+                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list1">Cristallographie et systèmes cristallins</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list2">Propriétés physiques et optiques</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list3">Utilisation des instruments de base</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list4">Étude des "Big Three" (Rubis, Saphir, Émeraude)</li>
                             </ul>
                         </div>
-                        <div class="bg-white/5 p-6 rounded-sm">
-                            <h4 class="text-white text-xs uppercase tracking-widest mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed mb-4 italic" data-key="n1_quote">
+                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
+                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
+                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n1_quote">
                                 "À l'issue de ce niveau, l'étudiant est capable de distinguer une pierre naturelle d'une imitation plastique ou vitreuse simple."
                             </p>
-                            <button class="w-full py-3 bg-gold/10 border border-gold/50 text-gold text-[10px] uppercase tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n1_button">Télécharger la brochure</button>
+                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n1_button">Télécharger la brochure</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- NIVEAU 2 - ELARGIE -->
-                <div class="glass-card p-10 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 reveal delay-3">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <span class="text-4xl font-serif text-gold">02</span>
+                <!-- NIVEAU 2 - Adapté mobile -->
+                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-3">
+                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
+                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
+                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">02</span>
                             <div class="h-[1px] flex-grow bg-gold/30"></div>
                         </div>
-                        <h3 class="text-3xl mb-4 italic" data-key="n2_title">L'Inclusion</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-6" data-key="n2_sub">Laboratoire & Approfondissement</p>
-                        <div class="space-y-2 text-sm text-gray-400">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n2_title">L'Inclusion</h3>
+                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n2_sub">Laboratoire & Approfondissement</p>
+                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                             <p><strong data-key="duration">Durée :</strong> <span data-key="n2_duration">10 jours (70h)</span></p>
                             <p><strong data-key="prereq">Pré-requis :</strong> <span data-key="n2_prereq">Niveau 1 validé</span></p>
                             <p><strong data-key="objective">Objectif :</strong> <span data-key="n2_objective">Maîtrise du microscope binoculaire.</span></p>
                         </div>
                     </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                         <div>
-                            <h4 class="text-gold text-xs uppercase tracking-widest mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-sm text-gray-300 space-y-2 font-light">
-                                <li class="program-item" data-key="n2_list1">Inclusions solides, liquides et gazeuses</li>
-                                <li class="program-item" data-key="n2_list2">Polariscope et spectroscope à main</li>
-                                <li class="program-item" data-key="n2_list3">Identification des pierres fines (Tourmaline, Grenat, Topaze)</li>
-                                <li class="program-item" data-key="n2_list4">Méthodologie de rapport de laboratoire</li>
+                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
+                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list1">Inclusions solides, liquides et gazeuses</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list2">Polariscope et spectroscope à main</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list3">Identification des pierres fines (Tourmaline, Grenat, Topaze)</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list4">Méthodologie de rapport de laboratoire</li>
                             </ul>
                         </div>
-                        <div class="bg-white/5 p-6 rounded-sm">
-                            <h4 class="text-white text-xs uppercase tracking-widest mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed mb-4 italic" data-key="n2_quote">
+                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
+                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
+                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n2_quote">
                                 "Identification systématique des pierres de couleur et détection des synthèses historiques (Verneuil)."
                             </p>
-                            <button class="w-full py-3 bg-gold/10 border border-gold/50 text-gold text-[10px] uppercase tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n2_button">S'inscrire à l'examen</button>
+                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n2_button">S'inscrire à l'examen</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- NIVEAU 3 - ELARGIE -->
-                <div class="glass-card p-10 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 reveal delay-4">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <span class="text-4xl font-serif text-gold">03</span>
+                <!-- NIVEAU 3 - Adapté mobile -->
+                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-4">
+                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
+                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
+                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">03</span>
                             <div class="h-[1px] flex-grow bg-gold/30"></div>
                         </div>
-                        <h3 class="text-3xl mb-4 italic" data-key="n3_title">L'Expertise</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-6" data-key="n3_sub">Synthèses & Traitements</p>
-                        <div class="space-y-2 text-sm text-gray-400">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n3_title">L'Expertise</h3>
+                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n3_sub">Synthèses & Traitements</p>
+                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                             <p><strong data-key="duration">Durée :</strong> <span data-key="n3_duration">15 jours (105h)</span></p>
                             <p><strong data-key="profile">Profil :</strong> <span data-key="n3_profile">Futurs experts, négociants</span></p>
                             <p><strong data-key="objective">Objectif :</strong> <span data-key="n3_objective">Certification professionnelle ISAG.</span></p>
                         </div>
                     </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                         <div>
-                            <h4 class="text-gold text-xs uppercase tracking-widest mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-sm text-gray-300 space-y-2 font-light">
-                                <li class="program-item" data-key="n3_list1">Détection des traitements thermiques et chimiques</li>
-                                <li class="program-item" data-key="n3_list2">Synthèses modernes (Flux, Hydrothermale)</li>
-                                <li class="program-item" data-key="n3_list3">Expertise du diamant (Les 4C)</li>
-                                <li class="program-item" data-key="n3_list4">Marché mondial et cotations (Rapaport)</li>
+                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
+                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list1">Détection des traitements thermiques et chimiques</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list2">Synthèses modernes (Flux, Hydrothermale)</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list3">Expertise du diamant (Les 4C)</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list4">Marché mondial et cotations (Rapaport)</li>
                             </ul>
                         </div>
-                        <div class="bg-white/5 p-6 rounded-sm">
-                            <h4 class="text-white text-xs uppercase tracking-widest mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed mb-4 italic" data-key="n3_quote">
+                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
+                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
+                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n3_quote">
                                 "Capacité à authentifier des lots complexes et à rédiger des certificats d'expertise reconnus."
                             </p>
-                            <button class="w-full py-3 bg-gold/10 border border-gold/50 text-gold text-[10px] uppercase tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n3_button">Demander un entretien</button>
+                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n3_button">Demander un entretien</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- NIVEAU 4 - ELARGIE -->
-                <div class="glass-card p-10 md:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 reveal delay-4">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
-                        <div class="flex items-center space-x-4 mb-6">
-                            <span class="text-4xl font-serif text-gold">04</span>
+                <!-- NIVEAU 4 - Adapté mobile -->
+                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-4">
+                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
+                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
+                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">04</span>
                             <div class="h-[1px] flex-grow bg-gold/30"></div>
                         </div>
-                        <h3 class="text-3xl mb-4 italic" data-key="n4_title">Masterclass</h3>
-                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-6" data-key="n4_sub">Haute Joaillerie & Investissement</p>
-                        <div class="space-y-2 text-sm text-gray-400">
+                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n4_title">Masterclass</h3>
+                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n4_sub">Haute Joaillerie & Investissement</p>
+                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                             <p><strong data-key="format">Format :</strong> <span data-key="n4_format">Coaching individuel</span></p>
                             <p><strong data-key="target">Cible :</strong> <span data-key="n4_target">Directeurs de création, Collectionneurs</span></p>
                             <p><strong data-key="focus">Focus :</strong> <span data-key="n4_focus">Pierres d'exception.</span></p>
                         </div>
                     </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                         <div>
-                            <h4 class="text-gold text-xs uppercase tracking-widest mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-sm text-gray-300 space-y-2 font-light">
-                                <li class="program-item" data-key="n4_list1">Analyse des origines géographiques (Pigeon Blood, Royal Blue)</li>
-                                <li class="program-item" data-key="n4_list2">Gemmes organiques (Perles, Ambre, Corail)</li>
-                                <li class="program-item" data-key="n4_list3">Estimation en ventes aux enchères</li>
-                                <li class="program-item" data-key="n4_list4">Droit et éthique (Processus de Kimberley)</li>
+                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
+                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list1">Analyse des origines géographiques (Pigeon Blood, Royal Blue)</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list2">Gemmes organiques (Perles, Ambre, Corail)</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list3">Estimation en ventes aux enchères</li>
+                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list4">Droit et éthique (Processus de Kimberley)</li>
                             </ul>
                         </div>
-                        <div class="bg-gold/5 p-6 rounded-sm border border-gold/20">
-                            <h4 class="text-gold text-xs uppercase tracking-widest mb-4" data-key="exclusive">Exclusivité ISAG</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed mb-4" data-key="n4_exclusive">
+                        <div class="bg-gold/5 p-4 sm:p-6 rounded-sm border border-gold/20">
+                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="exclusive">Exclusivité ISAG</h4>
+                            <p class="text-[10px] sm:text-xs text-gray-400 leading-relaxed mb-3 sm:mb-4" data-key="n4_exclusive">
                                 Accès privé à notre collection de pierres de musées et immersion chez nos partenaires lapidaires.
                             </p>
-                            <button class="w-full py-3 bg-white text-black text-[10px] uppercase tracking-[0.2em] hover:bg-gold transition-all font-bold" data-key="n4_button">Contact Privé</button>
+                            <button class="w-full py-2 sm:py-3 bg-white text-black text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold transition-all font-bold" data-key="n4_button">Contact Privé</button>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-32 px-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
-            <div class="md:col-span-2">
-                <span class="text-3xl font-light tracking-[0.3em] text-gold block mb-8">ISAG</span>
-                <p class="text-gray-500 font-light max-w-sm leading-loose text-sm" data-key="footer_desc">
+    <!-- Footer adapté mobile -->
+    <footer class="bg-black py-16 sm:py-32 px-4 sm:px-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-16">
+            <div class="sm:col-span-2">
+                <span class="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] text-gold block mb-4 sm:mb-8">ISAG</span>
+                <p class="text-gray-500 font-light max-w-sm leading-loose text-xs sm:text-sm" data-key="footer_desc">
                     L'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.
                 </p>
             </div>
             <div>
-                <h5 class="text-white uppercase text-[10px] tracking-widest mb-8" data-key="footer_nav">Navigation</h5>
-                <ul class="text-gray-500 text-xs space-y-4 uppercase tracking-widest">
+                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="footer_nav">Navigation</h5>
+                <ul class="text-gray-500 text-[10px] sm:text-xs space-y-2 sm:space-y-4 uppercase tracking-widest">
                     <li><a href="index.html" class="hover:text-gold" data-key="nav-home">Accueil</a></li>
                     <li><a href="formations.html" class="hover:text-gold" data-key="nav-formations">Formations</a></li>
                     <li><a href="masterclass.html" class="hover:text-gold" data-key="nav-masterclass">Masterclass</a></li>
@@ -421,17 +625,17 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-white uppercase text-[10px] tracking-widest mb-8" data-key="location">Lieu d'Exception</h5>
-                <p class="text-gray-500 text-xs font-light leading-relaxed" data-key="address">
+                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="location">Lieu d'Exception</h5>
+                <p class="text-gray-500 text-[10px] sm:text-xs font-light leading-relaxed" data-key="address">
                     Presqu'île de Lyon<br>
                     69002 France<br><br>
                     admissions@gemmologie-isag.com
                 </p>
             </div>
         </div>
-        <div class="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] text-gray-700 uppercase tracking-[0.4em]">
+        <div class="mt-16 sm:mt-32 pt-4 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[7px] sm:text-[8px] text-gray-700 uppercase tracking-[0.2em] sm:tracking-[0.4em]">
             <span data-key="copyright">© 2025 ISAG Lyon. Tous droits réservés.</span>
-            <div class="flex space-x-8 mt-4 md:mt-0">
+            <div class="flex space-x-4 sm:space-x-8 mt-2 sm:mt-4 md:mt-0">
                 <a href="#" data-key="legal">Mentions Légales</a>
                 <a href="#" data-key="privacy">Confidentialité</a>
             </div>
@@ -439,7 +643,7 @@
     </footer>
 
     <script>
-        // Dictionnaire de traductions COMPLET avec tous les textes de la page
+        // Dictionnaire de traductions COMPLET (identique à celui fourni précédemment)
         const translations = {
             fr: {
                 // Navigation
@@ -768,44 +972,145 @@
             }
         };
 
-        // Gestionnaire de langue
-        const langOptions = document.querySelectorAll('.lang-dropdown a');
-        const currentLangSpan = document.getElementById('currentLang');
-        
-        function applyLanguage(lang) {
-            // Mettre à jour tous les éléments avec data-key
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    // Utiliser innerHTML pour les clés qui contiennent du HTML (comme hero_title)
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            
-            // Mettre à jour l'indicateur de langue
-            let langCode = 'Fr';
-            if (lang === 'ar') langCode = 'ع';
-            else if (lang === 'zh') langCode = '中';
-            else if (lang === 'en') langCode = 'En';
-            else langCode = 'Fr';
-            currentLangSpan.textContent = langCode;
-            
-            // Sauvegarder la préférence
-            localStorage.setItem('preferredLang', lang);
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        // Charger la langue sauvegardée ou français par défaut
-        const savedLang = localStorage.getItem('preferredLang') || 'fr';
-        applyLanguage(savedLang);
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-        // Écouter les clics sur les options de langue
-        langOptions.forEach(option => {
-            option.addEventListener('click', (e) => {
+        if (menuToggle) {
+            menuToggle.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMenu) {
+            closeMenu.addEventListener('click', closeMobileMenu);
+        }
+
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                closeMobileMenu();
+            }
+        });
+
+        // Fonction pour changer la langue
+        function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
+            const currentLangSpan = document.getElementById('currentLang');
+            if (currentLangSpan) {
+                const langNames = {
+                    fr: 'Fr',
+                    en: 'En',
+                    ar: 'ع',
+                    zh: '中'
+                };
+                currentLangSpan.textContent = langNames[lang] || 'Fr';
+            }
+
+            // Mettre à jour tous les éléments avec data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
+            document.documentElement.lang = lang;
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex, .space-x-*').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                    if (btn.classList.contains('mobile-lang-btn')) {
+                        btn.classList.add('active');
+                    }
+                } else {
+                    btn.classList.remove('active');
+                    if (btn.classList.contains('mobile-lang-btn')) {
+                        btn.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        // Gestionnaires d'événements pour les liens de langue (desktop)
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const lang = option.getAttribute('data-lang');
-                applyLanguage(lang);
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
             });
         });
+
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            changeLanguage(savedLang);
+        });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
 
         // Protection de Contenu
         document.addEventListener('contextmenu', e => e.preventDefault());
@@ -815,17 +1120,60 @@
             }
         };
 
-        // Scroll Reveal
-        const observerOptions = { threshold: 0.1 };
+        // Scroll Reveal amélioré
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Gestion du scroll pour la navigation
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            if (scrollTop < 100) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        console.log('ISAG Formations - Site adapté pour mobile avec traduction multilingue');
     </script>
 </body>
 </html>
