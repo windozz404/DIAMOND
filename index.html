@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Institut Supérieur Des Arts Gemmologique | Excellence & Luxe</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
+            --gold-light: #F1D592;
             --dark: #0a0a0a;
+            --dark-section: #050505;
         }
 
         body {
@@ -72,6 +75,42 @@
         .animate-up { animation: fadeIn 1.2s ease forwards; }
 
         @media print { body { display: none; } }
+
+        /* Style pour le sélecteur de langue */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            display: none;
+            min-width: 140px;
+            z-index: 100;
+        }
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .lang-dropdown a:hover {
+            background-color: var(--gold);
+            color: black;
+        }
 
         /* Style pour le menu mobile */
         .mobile-menu {
@@ -186,6 +225,23 @@
             transform: scale(0.95);
         }
 
+        /* Animation pour le bouton hamburger */
+        .hamburger-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger-btn:active {
+            background: var(--gold);
+        }
+
+        .hamburger-btn:active svg {
+            stroke: black;
+        }
+
         /* Améliorations responsive */
         @media (max-width: 768px) {
             h1 {
@@ -204,21 +260,13 @@
             }
         }
 
-        /* Animation pour le bouton hamburger */
-        .hamburger-btn {
-            background: transparent;
-            border: 1px solid var(--gold);
-            border-radius: 4px;
-            padding: 8px;
-            transition: all 0.3s;
-        }
-
-        .hamburger-btn:active {
-            background: var(--gold);
-        }
-
-        .hamburger-btn:active svg {
-            stroke: black;
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
         }
     </style>
 </head>
@@ -233,7 +281,7 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation (unifiée avec la première page) -->
     <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
         <div class="flex items-center space-x-2 sm:space-x-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
@@ -245,12 +293,12 @@
             </div>
         </div>
         
-        <!-- Liens de navigation desktop (cachés sur mobile) -->
+        <!-- Liens de navigation desktop -->
         <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
             <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
             <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
             <a href="masterclass.html" class="hover:text-gold transition-colors duration-300" data-key="nav-masterclass">Masterclass</a>
-            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L’Institut</a>
+            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L'Institut</a>
             <a href="contact.html" class="hover:text-gold transition-colors duration-300" data-key="nav-contact">Contact & Admissions</a>
         </div>
 
@@ -264,9 +312,9 @@
             </button>
             <div class="lang-dropdown">
                 <a data-lang="fr">🇫🇷 Français</a>
+                <a data-lang="en">🇬🇧 English</a>
                 <a data-lang="ar">🇸🇦 العربية</a>
                 <a data-lang="zh">🇨🇳  Mandarin</a>
-                <a data-lang="en">🇬🇧 English</a>
             </div>
         </div>
 
@@ -300,7 +348,7 @@
         <a href="index.html" data-key="nav-home">Accueil</a>
         <a href="formations.html" data-key="nav-formations">Formations</a>
         <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
-        <a href="propos.html" data-key="nav-about">À propos / L’Institut</a>
+        <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
         <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
 
         <!-- Sélecteur de langue dans le menu mobile -->
@@ -332,7 +380,7 @@
         </div>
         
         <p class="max-w-3xl text-xs sm:text-sm md:text-lg font-light text-gray-300 mb-8 sm:mb-12 leading-relaxed px-4 animate-up opacity-0" style="animation-delay: 0.4s" data-key="hero-description">
-            Un centre d’excellence dédié à la transmission des savoir-faire d'exception. Bienvenue à l’Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.
+            Un centre d'excellence dédié à la transmission des savoir-faire d'exception. Bienvenue à l'Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.
         </p>
 
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-6 w-full sm:w-auto px-4 animate-up opacity-0" style="animation-delay: 0.6s">
@@ -605,20 +653,20 @@
             link.addEventListener('click', closeMobileMenu);
         });
 
-        // Dictionnaire de traductions
+        // Dictionnaire de traductions (complet)
         const translations = {
             fr: {
                 // Navigation
                 'nav-home': 'Accueil',
                 'nav-formations': 'Formations',
                 'nav-masterclass': 'Masterclass',
-                'nav-about': 'À propos / L’Institut',
+                'nav-about': 'À propos / L\'Institut',
                 'nav-contact': 'Contact & Admissions',
                 
                 // Hero
                 'hero-subtitle': 'Lyon • Capitale de la Haute Joaillerie',
                 'hero-title': 'ISAG <span class="text-gold italic font-light">LYON</span>',
-                'hero-description': 'Un centre d\'excellence dédié à la transmission des savoir-faire d\'exception. Bienvenue à l’Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.',
+                'hero-description': 'Un centre d\'excellence dédié à la transmission des savoir-faire d\'exception. Bienvenue à l\'Institut Supérieur des Arts Gemmologique (ISAG), la référence lyonnaise pour les futurs experts des pierres précieuses et des métiers du luxe.',
                 'hero-btn1': 'Découvrir l\'Institut',
                 'hero-btn2': 'Consulter les Cursus',
                 
@@ -695,16 +743,21 @@
                 'footer-rgpd': 'RGPD'
             },
             en: {
+                // Navigation
                 'nav-home': 'Home',
                 'nav-formations': 'Courses',
                 'nav-masterclass': 'Masterclass',
                 'nav-about': 'About / The Institute',
                 'nav-contact': 'Contact & Admissions',
+                
+                // Hero
                 'hero-subtitle': 'Lyon • Capital of High Jewelry',
                 'hero-title': 'ISAG <span class="text-gold italic font-light">LYON</span>',
                 'hero-description': 'A center of excellence dedicated to the transmission of exceptional know-how. Welcome to the Institut Supérieur des Arts Gemmologique (ISAG), the Lyon reference for future experts in precious stones and luxury trades.',
                 'hero-btn1': 'Discover the Institute',
                 'hero-btn2': 'View Courses',
+                
+                // About
                 'about-title': 'Excellence as Heritage',
                 'about-text1': 'Located in the heart of Lyon, the historic center of French jewelry-making, ISAG offers a unique learning ecosystem. Our institution does not just train; it initiates its students into the most confidential codes of global luxury.',
                 'about-text2': '<strong>Our teaching:</strong> A perfect balance between scientific rigor (laboratory gemology) and field expertise (international markets). We train experts capable of certifying, evaluating and advising the most prestigious luxury houses.',
@@ -713,6 +766,8 @@
                 'about-stats2': 'Luxury District',
                 'about-badge1': 'Know-how',
                 'about-badge2': 'Transmission & Rigor',
+                
+                // Formations
                 'formations-title': 'A Curriculum <span class="text-gold italic">to Match</span> Your Ambitions',
                 'formations-subtitle': 'Master the 5 pillars of the luxury industry',
                 'formation1-title': 'Fundamental Gemology',
@@ -745,17 +800,23 @@
                 'formation6-list1': '• Auction house expert',
                 'formation6-list2': '• Stone buyer',
                 'formation6-list3': '• Luxury Boutique Manager',
+                
+                // Expert
                 'expert-title': 'A <span class="text-gold italic">World-Class</span> Laboratory',
                 'expert-desc': 'The study of gemology requires surgical precision. At ISAG, each student has a complete workstation to analyze hundreds of gems from our private collection.',
                 'expert-tech1': 'Spectroscopy',
                 'expert-tech1-desc': 'Analysis of light absorption to identify chromophore elements.',
                 'expert-tech2': 'Microscopy',
                 'expert-tech2-desc': 'Immersion in the heart of inclusions to determine geographical origin.',
+                
+                // CTA
                 'cta-subtitle': 'Applications Open 2025-2026',
                 'cta-title': 'Write your legend.',
                 'cta-text': 'Contact our advisors for a personalized orientation interview.',
                 'cta-btn1': 'Request Brochure',
                 'cta-btn2': 'Call Us',
+                
+                // Footer
                 'footer-desc': 'The Institut Supérieur des Arts Gemmologique is the reference center for education in the precious stones and luxury trades in the Auvergne-Rhône-Alpes region. Academic excellence and professional immersion.',
                 'footer-title1': 'The Institute',
                 'footer-link1': 'History',
@@ -769,16 +830,21 @@
                 'footer-rgpd': 'GDPR'
             },
             ar: {
+                // Navigation
                 'nav-home': 'الرئيسية',
                 'nav-formations': 'التكوينات',
                 'nav-masterclass': 'الدروس المتقدمة',
                 'nav-about': 'عن المعهد',
                 'nav-contact': 'الاتصال والتسجيل',
+                
+                // Hero
                 'hero-subtitle': 'ليون • عاصمة المجوهرات الراقية',
                 'hero-title': 'ISAG <span class="text-gold italic font-light">ليون</span>',
                 'hero-description': 'مركز التميز المخصص لنقل المعرفة الاستثنائية. مرحبا بكم في المعهد العالي لفنون علم الأحجار الكريمة (ISAG)، المرجع في ليون لخبراء الأحجار الكريمة ومهن الرفاهية في المستقبل.',
                 'hero-btn1': 'اكتشف المعهد',
                 'hero-btn2': 'اطلع على التكوينات',
+                
+                // About
                 'about-title': 'التميز كإرث',
                 'about-text1': 'يقع المعهد في قلب ليون، المركز التاريخي لصناعة المجوهرات الفرنسية، ويقدم نظامًا تعليميًا فريدًا. مؤسستنا لا تكتفي بالتكوين فقط؛ بل تقدم لطلابها أرقى رموز الرفاهية العالمية.',
                 'about-text2': '<strong>طريقتنا التعليمية:</strong> توازن مثالي بين الدقة العلمية (علم الأحجار المخبري) والخبرة الميدانية (الأسواق الدولية). نكون خبراء قادرين على التصديق والتقييم واستشارة أشهر دور الرفاهية.',
@@ -787,6 +853,8 @@
                 'about-stats2': 'حي الرفاهية',
                 'about-badge1': 'الخبرة',
                 'about-badge2': 'النقل والدقة',
+                
+                // Formations
                 'formations-title': 'تكوين <span class="text-gold italic">يليق</span> بطموحاتكم',
                 'formations-subtitle': 'أتقن الركائز الخمس لصناعة الرفاهية',
                 'formation1-title': 'علم الأحجار الأساسي',
@@ -819,17 +887,23 @@
                 'formation6-list1': '• خبير في دور المزادات',
                 'formation6-list2': '• مشتري أحجار كريمة',
                 'formation6-list3': '• مدير متجر رفاهية',
+                
+                // Expert
                 'expert-title': 'مختبر <span class="text-gold italic">عالمي المستوى</span>',
                 'expert-desc': 'دراسة علم الأحجار الكريمة تتطلب دقة جراحية. في ISAG، كل طالب لديه محطة عمل كاملة لتحليل مئات الأحجار من مجموعتنا الخاصة.',
                 'expert-tech1': 'التحليل الطيفي',
                 'expert-tech1-desc': 'تحليل امتصاص الضوء لتحديد العناصر الملونة.',
                 'expert-tech2': 'المجهري',
                 'expert-tech2-desc': 'الغوص في قلب الشوائب لتحديد المنشأ الجغرافي.',
+                
+                // CTA
                 'cta-subtitle': 'التسجيلات مفتوحة 2025-2026',
                 'cta-title': 'اكتب أسطورتك.',
                 'cta-text': 'اتصل بمستشارينا للحصول على مقابلة توجيهية شخصية.',
                 'cta-btn1': 'اطلب الكتيب',
                 'cta-btn2': 'اتصل بنا',
+                
+                // Footer
                 'footer-desc': 'المعهد العالي لفنون علم الأحجار الكريمة هو المركز المرجعي للتعليم في مهن الأحجار الكريمة والرفاهية في منطقة أوفيرن-رون-ألب. التميز الأكاديمي والانغماس المهني.',
                 'footer-title1': 'المعهد',
                 'footer-link1': 'التاريخ',
@@ -843,16 +917,21 @@
                 'footer-rgpd': 'حماية البيانات'
             },
             zh: {
+                // Navigation
                 'nav-home': '首页',
                 'nav-formations': '课程',
                 'nav-masterclass': '大师班',
                 'nav-about': '关于学院',
                 'nav-contact': '联系与入学',
+                
+                // Hero
                 'hero-subtitle': '里昂 • 高级珠宝之都',
                 'hero-title': 'ISAG <span class="text-gold italic font-light">里昂</span>',
                 'hero-description': '卓越中心，致力于传承非凡技艺。欢迎来到宝石艺术学院（ISAG），里昂未来宝石和奢侈品行业专家的参考机构。',
                 'hero-btn1': '发现学院',
                 'hero-btn2': '查看课程',
+                
+                // About
                 'about-title': '卓越传承',
                 'about-text1': 'ISAG位于里昂市中心，法国珠宝业的历史中心，提供独特的学习环境。我们的机构不仅提供培训，还向学生介绍全球奢侈品行业最保密的规则。',
                 'about-text2': '<strong>我们的教学法：</strong>科学严谨性（实验室宝石学）与实地专业知识（国际市场）的完美平衡。我们培养能够为最负盛名的奢侈品牌认证、评估和提供咨询的专家。',
@@ -861,6 +940,8 @@
                 'about-stats2': '奢侈品区',
                 'about-badge1': '技艺',
                 'about-badge2': '传承与严谨',
+                
+                // Formations
                 'formations-title': '<span class="text-gold italic">匹配</span>您抱负的课程',
                 'formations-subtitle': '掌握奢侈品行业的五大支柱',
                 'formation1-title': '基础宝石学',
@@ -893,17 +974,23 @@
                 'formation6-list1': '• 拍卖行专家',
                 'formation6-list2': '• 宝石采购',
                 'formation6-list3': '• 奢侈品店经理',
+                
+                // Expert
                 'expert-title': '<span class="text-gold italic">世界级</span>实验室',
                 'expert-desc': '宝石学研究需要手术般的精确度。在ISAG，每个学生都有一个完整的工作站，可以分析我们私人收藏中的数百颗宝石。',
                 'expert-tech1': '光谱学',
                 'expert-tech1-desc': '分析光吸收，识别显色元素。',
                 'expert-tech2': '显微镜',
                 'expert-tech2-desc': '深入内含物核心，确定地理来源。',
+                
+                // CTA
                 'cta-subtitle': '2025-2026学年招生开放',
                 'cta-title': '书写您的传奇。',
                 'cta-text': '联系我们的顾问，进行个性化入学咨询。',
                 'cta-btn1': '索取手册',
                 'cta-btn2': '致电我们',
+                
+                // Footer
                 'footer-desc': '宝石艺术学院是奥弗涅-罗讷-阿尔卑斯大区宝石和奢侈品行业教育的参考中心。学术卓越与专业实践相结合。',
                 'footer-title1': '学院',
                 'footer-link1': '历史',
@@ -948,17 +1035,8 @@
             document.documentElement.lang = lang;
             if (lang === 'ar') {
                 document.documentElement.dir = 'rtl';
-                // Ajustements pour le RTL
-                document.querySelectorAll('.flex, .space-x-*').forEach(el => {
-                    if (lang === 'ar') {
-                        el.style.flexDirection = 'row-reverse';
-                    }
-                });
             } else {
                 document.documentElement.dir = 'ltr';
-                document.querySelectorAll('.flex').forEach(el => {
-                    el.style.flexDirection = '';
-                });
             }
 
             // Sauvegarder la préférence
@@ -968,14 +1046,8 @@
             document.querySelectorAll('[data-lang]').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.add('active');
-                    }
                 } else {
                     btn.classList.remove('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.remove('active');
-                    }
                 }
             });
         }
@@ -995,9 +1067,6 @@
                 e.preventDefault();
                 const lang = this.getAttribute('data-lang');
                 changeLanguage(lang);
-                
-                // Fermer le menu mobile après changement de langue (optionnel)
-                // closeMobileMenu();
             });
         });
 
@@ -1006,6 +1075,17 @@
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
             changeLanguage(savedLang);
         });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
 
         // Désactivation des touches pour éviter l'inspection
         function disableKeys(e) {
@@ -1019,12 +1099,6 @@
             }
             return true;
         }
-
-        // Gestion du clic droit
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
 
         // Empêcher le glisser-déposer d'images
         document.querySelectorAll('img').forEach(img => {
@@ -1053,105 +1127,12 @@
             observer.observe(el);
         });
 
-        // Smooth scroll pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Gestion du redimensionnement pour fermer le menu mobile
         window.addEventListener('resize', function() {
             if (window.innerWidth > 1024) {
                 closeMobileMenu();
             }
         });
-
-        // Empêcher le défilement du body quand le menu mobile est ouvert
-        function toggleBodyScroll(disable) {
-            if (disable) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Override des fonctions du menu mobile pour gérer le scroll
-        const originalOpenMobileMenu = openMobileMenu;
-        openMobileMenu = function() {
-            originalOpenMobileMenu();
-            toggleBodyScroll(true);
-        };
-
-        const originalCloseMobileMenu = closeMobileMenu;
-        closeMobileMenu = function() {
-            originalCloseMobileMenu();
-            toggleBodyScroll(false);
-        };
-
-        // Rafraîchir les fonctions
-        if (menuToggle) {
-            menuToggle.removeEventListener('click', openMobileMenu);
-            menuToggle.addEventListener('click', openMobileMenu);
-        }
-
-        if (closeMenu) {
-            closeMenu.removeEventListener('click', closeMobileMenu);
-            closeMenu.addEventListener('click', closeMobileMenu);
-        }
-
-        if (menuOverlay) {
-            menuOverlay.removeEventListener('click', closeMobileMenu);
-            menuOverlay.addEventListener('click', closeMobileMenu);
-        }
-
-        mobileLinks.forEach(link => {
-            link.removeEventListener('click', closeMobileMenu);
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Préchargement des images pour améliorer les performances
-        const images = [
-            'https://gemmologie-isag.com/wp-content/uploads/2025/07/fsunvy7apes.jpg',
-            'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80'
-        ];
-
-        images.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-
-        // Gestion du formulaire de contact (si présent)
-        const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Ajoutez ici votre logique d'envoi de formulaire
-                alert('Message envoyé avec succès !');
-            });
-        }
-
-        // Analytics basique (vous pouvez remplacer par votre propre code)
-        console.log('Page chargée - ISAG Lyon');
-
-        // Détection de la langue du navigateur pour la première visite
-        if (!localStorage.getItem('preferredLanguage')) {
-            const browserLang = navigator.language.split('-')[0];
-            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
-            if (supportedLangs.includes(browserLang)) {
-                changeLanguage(browserLang);
-            } else {
-                changeLanguage('fr'); // Français par défaut
-            }
-        }
 
         // Gestion du scroll pour la navigation
         let lastScrollTop = 0;
@@ -1161,10 +1142,8 @@
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scroll vers le bas - cacher la navbar
                 navbar.style.transform = 'translateY(-100%)';
             } else {
-                // Scroll vers le haut - montrer la navbar
                 navbar.style.transform = 'translateY(0)';
             }
             
@@ -1173,45 +1152,6 @@
             }
             
             lastScrollTop = scrollTop;
-        });
-
-        // Initialisation des tooltips si nécessaire
-        const tooltips = document.querySelectorAll('[data-tooltip]');
-        tooltips.forEach(el => {
-            el.addEventListener('mouseenter', function(e) {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'tooltip';
-                tooltip.textContent = this.getAttribute('data-tooltip');
-                document.body.appendChild(tooltip);
-                
-                const rect = this.getBoundingClientRect();
-                tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
-                tooltip.style.left = rect.left + (rect.width - tooltip.offsetWidth) / 2 + 'px';
-            });
-            
-            el.addEventListener('mouseleave', function() {
-                document.querySelector('.tooltip')?.remove();
-            });
-        });
-
-        // Optimisation des performances pour les animations
-        if ('IntersectionObserver' in window) {
-            // Déjà configuré plus haut
-        } else {
-            // Fallback pour les anciens navigateurs
-            document.querySelectorAll('.animate-up').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
-        }
-
-        // Gestion des erreurs de chargement des images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function() {
-                console.warn(`Image failed to load: ${this.src}`);
-                // Optionnel: remplacer par une image par défaut
-                // this.src = 'fallback-image.jpg';
-            });
         });
 
         console.log('ISAG Lyon - Site adapté pour mobile avec traduction multilingue');
