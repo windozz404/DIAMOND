@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ISAG Lyon | Politique de confidentialité</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
+    <meta name="description" content="Politique de confidentialité de l'ISAG - Protection de vos données personnelles.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F1D592;
+            --dark: #0a0a0a;
+            --dark-section: #050505;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .video-docker video {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: fadeIn 1.2s ease forwards; }
+
+        @media print { body { display: none; } }
+
+        /* Style pour le sélecteur de langue */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            display: none;
+            min-width: 140px;
+            z-index: 100;
+        }
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .lang-dropdown a:hover {
+            background-color: var(--gold);
+            color: black;
+        }
+
+        /* Style pour le menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 80px 30px 30px;
+            border-left: 1px solid var(--gold);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            color: var(--gold);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Style pour le sélecteur de langue sur mobile */
+        .mobile-lang-selector {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .mobile-lang-title {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mobile-lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .mobile-lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .mobile-lang-btn.active {
+            background: var(--gold);
+            color: black;
+            border-color: var(--gold);
+        }
+
+        .mobile-lang-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Animation pour le bouton hamburger */
+        .hamburger-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger-btn:active {
+            background: var(--gold);
+        }
+
+        .hamburger-btn:active svg {
+            stroke: black;
+        }
+
+        /* Améliorations responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            h2 {
+                font-size: 2rem !important;
+            }
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+            .container-padding {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" onkeydown="return disableKeys(event)">
+
+    <!-- Vidéo en arrière-plan -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker">
+        <video autoplay muted loop playsinline class="absolute">
+            <source src="video.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80" alt="Fond Diamants">
+        </video>
+        <div class="absolute inset-0 video-overlay"></div>
+    </div>
+
+    <!-- Navigation (identique aux autres pages) -->
+    <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
+                <span class="transform -rotate-45 font-bold text-gold text-[10px] sm:text-xs">ISAG</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-semibold tracking-[0.2em] text-[10px] sm:text-sm uppercase">ISAG Lyon</span>
+                <span class="text-[8px] sm:text-[10px] text-gold uppercase tracking-widest hidden xs:block">Institut Supérieur</span>
+            </div>
+        </div>
+        
+        <!-- Liens de navigation desktop -->
+        <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
+            <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
+            <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
+            <a href="masterclass.html" class="hover:text-gold transition-colors duration-300" data-key="nav-masterclass">Masterclass</a>
+            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L'Institut</a>
+            <a href="contact.html" class="hover:text-gold transition-colors duration-300" data-key="nav-contact">Contact & Admissions</a>
+        </div>
+
+        <!-- Sélecteur de langue desktop -->
+        <div class="lang-selector hidden sm:block">
+            <button class="text-gold hover:text-white transition-colors p-2 rounded-full border border-gold/30 hover:border-gold flex items-center space-x-1" title="Choisir la langue">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <span id="currentLang" class="text-xs uppercase hidden sm:inline">Fr</span>
+            </button>
+            <div class="lang-dropdown">
+                <a data-lang="fr">🇫🇷 Français</a>
+                <a data-lang="en">🇬🇧 English</a>
+                <a data-lang="ar">🇸🇦 العربية</a>
+                <a data-lang="zh">🇨🇳  Mandarin</a>
+            </div>
+        </div>
+
+        <!-- Bouton menu hamburger pour mobile -->
+        <button class="lg:hidden text-gold hamburger-btn" id="menuToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Overlay du menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Menu mobile latéral -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu">×</div>
+        
+        <!-- Logo dans le menu -->
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-gold/30">
+            <div class="w-12 h-12 border-2 border-gold flex items-center justify-center transform rotate-45">
+                <span class="transform -rotate-45 font-bold text-gold">ISAG</span>
+            </div>
+            <div>
+                <span class="font-bold text-gold text-sm">ISAG Lyon</span>
+                <p class="text-[8px] text-gray-400">Institut Supérieur des Arts Gemmologiques</p>
+            </div>
+        </div>
+
+        <!-- Liens du menu mobile -->
+        <a href="index.html" data-key="nav-home">Accueil</a>
+        <a href="formations.html" data-key="nav-formations">Formations</a>
+        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
+        <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
+
+        <!-- Sélecteur de langue dans le menu mobile -->
+        <div class="mobile-lang-selector">
+            <div class="mobile-lang-title" data-key="lang-choose">Choisir la langue</div>
+            <div class="mobile-lang-grid">
+                <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+                <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="mobile-lang-btn" data-lang="ar">🇸🇦 AR</button>
+                <button class="mobile-lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+        </div>
+
+        <!-- Informations de contact dans le menu -->
+        <div class="mt-8 pt-4 text-center">
+            <p class="text-gold text-xs mb-2">contact-admin@gemmologie-isag.com</p>
+            <p class="text-gray-500 text-[10px]">+33 06 52 89 39 43</p>
+        </div>
+    </div>
+
+    <!-- ========== CONTENU SPÉCIFIQUE POLITIQUE.HTML ========== -->
+    <main class="relative z-10 pt-32 pb-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- HERO : titre avec l'image fournie -->
+            <div class="relative w-full h-[350px] md:h-[450px] mb-16 rounded-lg overflow-hidden glass">
+                <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/bieeyjndaau-1536x1024.jpg" alt="Politique de confidentialité" class="absolute inset-0 w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;" data-key="politique-hero-title">
+                        Politique de <span class="text-gold italic">confidentialité</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Contenu principal : Politique de confidentialité détaillée -->
+            <div class="glass p-8 md:p-12">
+                <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="politique-title">Politique de confidentialité</h2>
+                
+                <div class="prose prose-invert prose-lg max-w-none text-gray-300 space-y-6">
+                    <p data-key="politique-intro">
+                        La protection de vos données personnelles est une priorité pour l'Institut Supérieur des Arts Gemmologique (ISAG). La présente politique de confidentialité vous informe de la manière dont nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre site web et nos services.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-responsable-title">1. Responsable du traitement</h3>
+                    <p data-key="politique-responsable-text">
+                        Le responsable du traitement des données personnelles est l'ISAG, situé au 13 Bd John Fitzgerald Kennedy, 69600 Oullins-Pierre-Bénite, France. Pour toute question concernant vos données, vous pouvez nous contacter à : contact-admin@gemmologie-isag.com.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-donnees-title">2. Données collectées</h3>
+                    <p data-key="politique-donnees-intro">Nous collectons les données suivantes :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li data-key="politique-donnees1">Données d'identification : nom, prénom, adresse email, numéro de téléphone.</li>
+                        <li data-key="politique-donnees2">Données de navigation : adresse IP, cookies, pages visitées.</li>
+                        <li data-key="politique-donnees3">Données relatives à votre parcours professionnel : CV, lettre de motivation (via formulaire de candidature).</li>
+                    </ul>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-finalites-title">3. Finalités de la collecte</h3>
+                    <p data-key="politique-finalites-intro">Vos données sont collectées pour :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li data-key="politique-finalites1">La gestion des demandes d'information et des inscriptions.</li>
+                        <li data-key="politique-finalites2">L'amélioration de votre expérience utilisateur sur notre site.</li>
+                        <li data-key="politique-finalites3">L'envoi de newsletters et d'informations pédagogiques (avec votre consentement).</li>
+                        <li data-key="politique-finalites4">Le suivi de votre dossier de candidature.</li>
+                    </ul>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-legal-title">4. Base légale</h3>
+                    <p data-key="politique-legal-intro">Le traitement de vos données repose sur :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li data-key="politique-legal1">Votre consentement (pour les cookies et communications marketing).</li>
+                        <li data-key="politique-legal2">L'exécution de mesures précontractuelles (gestion des candidatures).</li>
+                        <li data-key="politique-legal3">Notre intérêt légitime à améliorer nos services.</li>
+                    </ul>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-destinataires-title">5. Destinataires des données</h3>
+                    <p data-key="politique-destinataires-text">
+                        Vos données sont destinées aux services internes de l'ISAG (administration, pédagogie). Elles ne sont pas transmises à des tiers sans votre accord, sauf obligation légale.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-conservation-title">6. Durée de conservation</h3>
+                    <p data-key="politique-conservation-intro">Vos données sont conservées :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li data-key="politique-conservation1">Pour les prospects : 3 ans à compter du dernier contact.</li>
+                        <li data-key="politique-conservation2">Pour les candidats : 2 ans après la dernière candidature.</li>
+                        <li data-key="politique-conservation3">Pour les cookies : 13 mois maximum.</li>
+                    </ul>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-droits-title">7. Vos droits</h3>
+                    <p data-key="politique-droits-intro">Conformément au RGPD, vous disposez des droits suivants :</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li data-key="politique-droits1">Droit d'accès, de rectification et d'effacement.</li>
+                        <li data-key="politique-droits2">Droit à la limitation du traitement.</li>
+                        <li data-key="politique-droits3">Droit d'opposition.</li>
+                        <li data-key="politique-droits4">Droit à la portabilité.</li>
+                    </ul>
+                    <p class="mt-4" data-key="politique-droits-exercice">
+                        Pour exercer ces droits, contactez-nous à : contact-admin@gemmologie-isag.com. Vous avez également le droit d'introduire une réclamation auprès de la CNIL.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-securite-title">8. Sécurité</h3>
+                    <p data-key="politique-securite-text">
+                        Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour garantir la sécurité et la confidentialité de vos données personnelles.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-cookies-title">9. Cookies</h3>
+                    <p data-key="politique-cookies-text">
+                        Notre site utilise des cookies pour améliorer votre expérience de navigation. Vous pouvez paramétrer vos préférences via le bandeau cookies ou les paramètres de votre navigateur.
+                    </p>
+
+                    <h3 class="text-xl text-gold mt-8 mb-4" data-key="politique-miseajour-title">10. Mise à jour</h3>
+                    <p data-key="politique-miseajour-text">
+                        La présente politique peut être mise à jour. Nous vous invitons à consulter régulièrement cette page. Dernière mise à jour : mars 2026.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lien de retour (optionnel) -->
+            <div class="text-center mt-12">
+                <a href="index.html" class="inline-block border border-gold text-gold px-8 py-3 text-sm uppercase tracking-widest hover:bg-gold hover:text-black transition" data-key="politique-back-link">
+                    Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER UNIFIÉ ========== -->
+    <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Première ligne : adresse, contact, autres liens -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <!-- Adresse -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite, France
+                    </p>
+                </div>
+                <!-- Contact avec liens cliquables -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-contact">Contact</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        Téléphone : <a href="tel:+33652893943" class="text-gray-400 hover:text-white transition">06 52 89 39 43</a><br>
+                        E-mail : <a href="mailto:contact-admin@gemmologie-isag.com" class="text-gray-400 hover:text-white transition">contact-admin@gemmologie-isag.com</a>
+                    </p>
+                </div>
+                <!-- Autres liens -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-links">Autres liens</span>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Deuxième ligne : copyright -->
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] sm:text-[10px] text-gray-700 uppercase tracking-widest">
+                <p data-key="footer-copyright">© 2025 Institut Supérieur Des Arts Gemmologique</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // Dictionnaire de traductions pour Politique.html
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L\'Institut',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choisir la langue',
+                
+                // Hero
+                'politique-hero-title': 'Politique de <span class="text-gold italic">confidentialité</span>',
+                
+                // Titre principal
+                'politique-title': 'Politique de confidentialité',
+                
+                // Contenu
+                'politique-intro': 'La protection de vos données personnelles est une priorité pour l\'Institut Supérieur des Arts Gemmologique (ISAG). La présente politique de confidentialité vous informe de la manière dont nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre site web et nos services.',
+                
+                'politique-responsable-title': '1. Responsable du traitement',
+                'politique-responsable-text': 'Le responsable du traitement des données personnelles est l\'ISAG, situé au 13 Bd John Fitzgerald Kennedy, 69600 Oullins-Pierre-Bénite, France. Pour toute question concernant vos données, vous pouvez nous contacter à : contact-admin@gemmologie-isag.com.',
+                
+                'politique-donnees-title': '2. Données collectées',
+                'politique-donnees-intro': 'Nous collectons les données suivantes :',
+                'politique-donnees1': 'Données d\'identification : nom, prénom, adresse email, numéro de téléphone.',
+                'politique-donnees2': 'Données de navigation : adresse IP, cookies, pages visitées.',
+                'politique-donnees3': 'Données relatives à votre parcours professionnel : CV, lettre de motivation (via formulaire de candidature).',
+                
+                'politique-finalites-title': '3. Finalités de la collecte',
+                'politique-finalites-intro': 'Vos données sont collectées pour :',
+                'politique-finalites1': 'La gestion des demandes d\'information et des inscriptions.',
+                'politique-finalites2': 'L\'amélioration de votre expérience utilisateur sur notre site.',
+                'politique-finalites3': 'L\'envoi de newsletters et d\'informations pédagogiques (avec votre consentement).',
+                'politique-finalites4': 'Le suivi de votre dossier de candidature.',
+                
+                'politique-legal-title': '4. Base légale',
+                'politique-legal-intro': 'Le traitement de vos données repose sur :',
+                'politique-legal1': 'Votre consentement (pour les cookies et communications marketing).',
+                'politique-legal2': 'L\'exécution de mesures précontractuelles (gestion des candidatures).',
+                'politique-legal3': 'Notre intérêt légitime à améliorer nos services.',
+                
+                'politique-destinataires-title': '5. Destinataires des données',
+                'politique-destinataires-text': 'Vos données sont destinées aux services internes de l\'ISAG (administration, pédagogie). Elles ne sont pas transmises à des tiers sans votre accord, sauf obligation légale.',
+                
+                'politique-conservation-title': '6. Durée de conservation',
+                'politique-conservation-intro': 'Vos données sont conservées :',
+                'politique-conservation1': 'Pour les prospects : 3 ans à compter du dernier contact.',
+                'politique-conservation2': 'Pour les candidats : 2 ans après la dernière candidature.',
+                'politique-conservation3': 'Pour les cookies : 13 mois maximum.',
+                
+                'politique-droits-title': '7. Vos droits',
+                'politique-droits-intro': 'Conformément au RGPD, vous disposez des droits suivants :',
+                'politique-droits1': 'Droit d\'accès, de rectification et d\'effacement.',
+                'politique-droits2': 'Droit à la limitation du traitement.',
+                'politique-droits3': 'Droit d\'opposition.',
+                'politique-droits4': 'Droit à la portabilité.',
+                'politique-droits-exercice': 'Pour exercer ces droits, contactez-nous à : contact-admin@gemmologie-isag.com. Vous avez également le droit d\'introduire une réclamation auprès de la CNIL.',
+                
+                'politique-securite-title': '8. Sécurité',
+                'politique-securite-text': 'Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour garantir la sécurité et la confidentialité de vos données personnelles.',
+                
+                'politique-cookies-title': '9. Cookies',
+                'politique-cookies-text': 'Notre site utilise des cookies pour améliorer votre expérience de navigation. Vous pouvez paramétrer vos préférences via le bandeau cookies ou les paramètres de votre navigateur.',
+                
+                'politique-miseajour-title': '10. Mise à jour',
+                'politique-miseajour-text': 'La présente politique peut être mise à jour. Nous vous invitons à consulter régulièrement cette page. Dernière mise à jour : mars 2026.',
+                
+                'politique-back-link': 'Retour à l\'accueil',
+                
+                // Footer
+                'footer-title-address': 'Adresse',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Autres liens',
+                'footer-legal': 'Mentions légales',
+                'footer-privacy': 'Politique de confidentialité',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-formations': 'Courses',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choose language',
+                
+                // Hero
+                'politique-hero-title': 'Privacy <span class="text-gold italic">Policy</span>',
+                
+                // Title
+                'politique-title': 'Privacy Policy',
+                
+                // Content
+                'politique-intro': 'The protection of your personal data is a priority for the Institut Supérieur des Arts Gemmologique (ISAG). This privacy policy informs you about how we collect, use and protect your information when you use our website and services.',
+                
+                'politique-responsable-title': '1. Data Controller',
+                'politique-responsable-text': 'The data controller is ISAG, located at 13 Bd John Fitzgerald Kennedy, 69600 Oullins-Pierre-Bénite, France. For any questions regarding your data, you can contact us at: contact-admin@gemmologie-isag.com.',
+                
+                'politique-donnees-title': '2. Data Collected',
+                'politique-donnees-intro': 'We collect the following data:',
+                'politique-donnees1': 'Identification data: last name, first name, email address, phone number.',
+                'politique-donnees2': 'Browsing data: IP address, cookies, pages visited.',
+                'politique-donnees3': 'Data relating to your professional background: CV, cover letter (via application form).',
+                
+                'politique-finalites-title': '3. Purposes of Collection',
+                'politique-finalites-intro': 'Your data is collected for:',
+                'politique-finalites1': 'Management of information requests and registrations.',
+                'politique-finalites2': 'Improving your user experience on our site.',
+                'politique-finalites3': 'Sending newsletters and educational information (with your consent).',
+                'politique-finalites4': 'Monitoring your application file.',
+                
+                'politique-legal-title': '4. Legal Basis',
+                'politique-legal-intro': 'The processing of your data is based on:',
+                'politique-legal1': 'Your consent (for cookies and marketing communications).',
+                'politique-legal2': 'The performance of pre-contractual measures (application management).',
+                'politique-legal3': 'Our legitimate interest in improving our services.',
+                
+                'politique-destinataires-title': '5. Data Recipients',
+                'politique-destinataires-text': 'Your data is intended for ISAG\'s internal departments (administration, teaching). They are not transmitted to third parties without your agreement, except legal obligation.',
+                
+                'politique-conservation-title': '6. Retention Period',
+                'politique-conservation-intro': 'Your data is kept:',
+                'politique-conservation1': 'For prospects: 3 years from the last contact.',
+                'politique-conservation2': 'For candidates: 2 years after the last application.',
+                'politique-conservation3': 'For cookies: 13 months maximum.',
+                
+                'politique-droits-title': '7. Your Rights',
+                'politique-droits-intro': 'In accordance with the GDPR, you have the following rights:',
+                'politique-droits1': 'Right of access, rectification and erasure.',
+                'politique-droits2': 'Right to restriction of processing.',
+                'politique-droits3': 'Right to object.',
+                'politique-droits4': 'Right to data portability.',
+                'politique-droits-exercice': 'To exercise these rights, contact us at: contact-admin@gemmologie-isag.com. You also have the right to lodge a complaint with the CNIL.',
+                
+                'politique-securite-title': '8. Security',
+                'politique-securite-text': 'We implement all appropriate technical and organizational measures to ensure the security and confidentiality of your personal data.',
+                
+                'politique-cookies-title': '9. Cookies',
+                'politique-cookies-text': 'Our site uses cookies to improve your browsing experience. You can set your preferences via the cookie banner or your browser settings.',
+                
+                'politique-miseajour-title': '10. Updates',
+                'politique-miseajour-text': 'This policy may be updated. We invite you to check this page regularly. Last updated: March 2026.',
+                
+                'politique-back-link': 'Back to home',
+                
+                // Footer
+                'footer-title-address': 'Address',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Other links',
+                'footer-legal': 'Legal notice',
+                'footer-privacy': 'Privacy policy',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            ar: {
+                // Navigation
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'التكوينات',
+                'nav-masterclass': 'الدروس المتقدمة',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'politique-hero-title': 'سياسة <span class="text-gold italic">الخصوصية</span>',
+                
+                // Title
+                'politique-title': 'سياسة الخصوصية',
+                
+                // Introduction simplifiée
+                'politique-intro': 'حماية بياناتك الشخصية هي أولوية للمعهد العالي لفنون علم الأحجار الكريمة (ISAG). تُعلمك سياسة الخصوصية هذه بكيفية جمع واستخدام وحماية معلوماتك عند استخدام موقعنا وخدماتنا.',
+                
+                'politique-responsable-title': '1. المسؤول عن المعالجة',
+                'politique-donnees-title': '2. البيانات التي يتم جمعها',
+                'politique-finalites-title': '3. أهداف الجمع',
+                'politique-legal-title': '4. الأساس القانوني',
+                'politique-destinataires-title': '5. مستلمو البيانات',
+                'politique-conservation-title': '6. مدة الحفظ',
+                'politique-droits-title': '7. حقوقك',
+                'politique-securite-title': '8. الأمان',
+                'politique-cookies-title': '9. ملفات تعريف الارتباط',
+                'politique-miseajour-title': '10. التحديثات',
+                
+                'politique-back-link': 'العودة إلى الصفحة الرئيسية',
+                
+                // Footer
+                'footer-title-address': 'العنوان',
+                'footer-title-contact': 'الاتصال',
+                'footer-title-links': 'روابط أخرى',
+                'footer-legal': 'الإشعارات القانونية',
+                'footer-privacy': 'سياسة الخصوصية',
+                'footer-copyright': '© 2025 المعهد العالي لفنون علم الأحجار الكريمة'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'politique-hero-title': '<span class="text-gold italic">隐私</span>政策',
+                
+                // Title
+                'politique-title': '隐私政策',
+                
+                // Introduction simplifiée
+                'politique-intro': '保护您的个人数据是宝石艺术学院（ISAG）的首要任务。本隐私政策告知您在使用我们的网站和服务时，我们如何收集、使用和保护您的信息。',
+                
+                'politique-responsable-title': '1. 数据控制者',
+                'politique-donnees-title': '2. 收集的数据',
+                'politique-finalites-title': '3. 收集目的',
+                'politique-legal-title': '4. 法律依据',
+                'politique-destinataires-title': '5. 数据接收者',
+                'politique-conservation-title': '6. 保留期限',
+                'politique-droits-title': '7. 您的权利',
+                'politique-securite-title': '8. 安全',
+                'politique-cookies-title': '9. Cookie',
+                'politique-miseajour-title': '10. 更新',
+                
+                'politique-back-link': '返回首页',
+                
+                // Footer
+                'footer-title-address': '地址',
+                'footer-title-contact': '联系方式',
+                'footer-title-links': '其他链接',
+                'footer-legal': '法律声明',
+                'footer-privacy': '隐私政策',
+                'footer-copyright': '© 2025 宝石艺术学院'
+            }
+        };
+
+        // Fonction pour changer la langue
+        function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
+            const currentLangSpan = document.getElementById('currentLang');
+            if (currentLangSpan) {
+                const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
+                currentLangSpan.textContent = langNames[lang] || 'Fr';
+            }
+
+            // Mettre à jour tous les éléments avec data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
+            document.documentElement.lang = lang;
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Gestionnaires d'événements pour les liens de langue (desktop)
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            changeLanguage(savedLang);
+        });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
+
+        function disableKeys(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        // Animation au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.glass').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Navbar hide on scroll
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) navbar.style.transform = 'translateY(-100%)';
+            else navbar.style.transform = 'translateY(0)';
+            if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
+            lastScrollTop = scrollTop;
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) closeMobileMenu();
+        });
+    </script>
+</body>
+</html>
