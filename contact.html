@@ -390,8 +390,8 @@
 
         <!-- Informations de contact dans le menu -->
         <div class="mt-8 pt-4 text-center">
-            <p class="text-gold text-xs mb-2">contact@isag-lyon.com</p>
-            <p class="text-gray-500 text-[10px]">+33 (0)4 72 XX XX XX</p>
+            <p class="text-gold text-xs mb-2">contact-admin@gemmologie-isag.com</p>
+            <p class="text-gray-500 text-[10px]">+33 06 52 89 39 43</p>
         </div>
     </div>
 
@@ -455,7 +455,7 @@
         <!-- Section: Formulaire & Contact (adaptée pour mobile) -->
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
             
-            <!-- Contact Cards (adaptés pour mobile) -->
+            <!-- Contact Cards (adaptés pour mobile) avec coordonnées réelles -->
             <div class="lg:col-span-4 space-y-4 sm:space-y-6 animate-fade" style="animation-delay: 0.3s">
                 <div class="glass-card p-4 sm:p-6 lg:p-8">
                     <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-6 text-gold" data-key="direct-contact">Contact Direct</h3>
@@ -466,7 +466,7 @@
                             </div>
                             <div>
                                 <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="phone">Téléphone</p>
-                                <p class="text-xs sm:text-sm font-medium">+33 (0)4 72 XX XX XX</p>
+                                <p class="text-xs sm:text-sm font-medium"><a href="tel:+33652893943" class="hover:text-gold transition">06 52 89 39 43</a></p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-3 sm:space-x-4 group">
@@ -475,14 +475,24 @@
                             </div>
                             <div>
                                 <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="email-label">Email</p>
-                                <p class="text-xs sm:text-sm font-medium">admissions@isag-lyon.com</p>
+                                <p class="text-xs sm:text-sm font-medium"><a href="mailto:contact-admin@gemmologie-isag.com" class="hover:text-gold transition">contact-admin@gemmologie-isag.com</a></p>
+                            </div>
+                        </div>
+                        <!-- Adresse ajoutée pour cohérence -->
+                        <div class="flex items-start space-x-3 sm:space-x-4 group">
+                            <div class="text-gold bg-gold/10 p-2 sm:p-3 rounded-lg group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="address-label">Adresse</p>
+                                <p class="text-xs sm:text-sm font-medium">13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="image-container h-48 sm:h-56 lg:h-64 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1584305323473-d75c44242271?auto=format&fit=crop&q=80&w=800" alt="Matériel de gemmologie" class="w-full h-full object-cover">
+                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/h0xeuqxzu38-1365x2048.jpg" alt="Matériel de gemmologie" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
                     <p class="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-[8px] sm:text-[10px] text-white/50 uppercase tracking-widest" data-key="workshop-label">Atelier d'expertise Lyon</p>
                 </div>
@@ -559,59 +569,63 @@
 
     </main>
 
-    <!-- Map Section (adaptée pour mobile) -->
+    <!-- Map Section (adaptée pour mobile) avec adresse réelle -->
     <section class="mt-12 sm:mt-20 px-4 sm:px-6 max-w-7xl mx-auto h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl sm:rounded-[3rem] overflow-hidden relative shadow-2xl">
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5042898967!2d4.8290!3d45.7578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea50d87e0795%3A0xc319139268841440!2sPlace%20Bellecour%2C%2069002%20Lyon!5e0!3m2!1sfr!2sfr!4v1620000000000" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2785.0153178479247!2d4.8053278!3d45.7165382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4eaf4f7c7b7b7%3A0x8e8e8e8e8e8e8e8e!2s13%20Bd%20John%20Fitzgerald%20Kennedy%2C%2069600%20Oullins-Pierre-B%C3%A9nite!5e0!3m2!1sfr!2sfr!4v1620000000000" 
             class="w-full h-full grayscale contrast-125 brightness-50 border-0 hover:grayscale-0 transition-all duration-1000" 
             allowfullscreen="" 
             loading="lazy">
         </iframe>
         <div class="absolute top-2 sm:top-4 lg:top-10 left-2 sm:left-4 lg:left-10 p-2 sm:p-4 lg:p-6 glass-card bg-black/60 pointer-events-none border-gold/30">
             <h4 class="text-gold font-bold text-xs sm:text-sm lg:text-lg mb-0.5 sm:mb-1 lg:mb-2" data-key="map-title">Visitez l'ISAG</h4>
-            <p class="text-[8px] sm:text-[10px] lg:text-xs text-gray-300" data-key="map-address">Quartier historique des joailliers<br>69002 Lyon, France</p>
+            <p class="text-[8px] sm:text-[10px] lg:text-xs text-gray-300" data-key="map-address">13 Bd John Fitzgerald Kennedy<br>69600 Oullins-Pierre-Bénite, France</p>
         </div>
     </section>
 
-    <!-- Footer unifié avec les autres pages -->
-    <footer class="bg-black py-16 sm:py-32 px-4 sm:px-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-16">
-            <div class="sm:col-span-2">
-                <span class="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] text-gold block mb-4 sm:mb-8">ISAG</span>
-                <p class="text-gray-500 font-light max-w-sm leading-loose text-xs sm:text-sm" data-key="footer-desc">
-                    L'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.
-                </p>
+    <!-- Footer UNIFIÉ avec les autres pages (index, formations, masterclass, propos) -->
+    <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Première ligne : adresse, contact, autres liens -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <!-- Adresse -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite, France
+                    </p>
+                </div>
+                <!-- Contact avec liens cliquables -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-contact">Contact</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        Téléphone : <a href="tel:+33652893943" class="text-gray-400 hover:text-white transition">06 52 89 39 43</a><br>
+                        E-mail : <a href="mailto:contact-admin@gemmologie-isag.com" class="text-gray-400 hover:text-white transition">contact-admin@gemmologie-isag.com</a>
+                    </p>
+                </div>
+                <!-- Autres liens -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-links">Autres liens</span>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="footer_nav">Navigation</h5>
-                <ul class="text-gray-500 text-[10px] sm:text-xs space-y-2 sm:space-y-4 uppercase tracking-widest">
-                    <li><a href="index.html" class="hover:text-gold" data-key="nav-home">Accueil</a></li>
-                    <li><a href="formations.html" class="hover:text-gold" data-key="nav-formations">Formations</a></li>
-                    <li><a href="masterclass.html" class="hover:text-gold" data-key="nav-masterclass">Masterclass</a></li>
-                    <li><a href="propos.html" class="hover:text-gold" data-key="nav-about">À propos</a></li>
-                    <li><a href="contact.html" class="hover:text-gold" data-key="nav-contact">Contact & Admissions</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="location">Lieu d'Exception</h5>
-                <p class="text-gray-500 text-[10px] sm:text-xs font-light leading-relaxed" data-key="address">
-                    Presqu'île de Lyon<br>
-                    69002 France<br><br>
-                    admissions@gemmologie-isag.com
-                </p>
-            </div>
-        </div>
-        <div class="mt-16 sm:mt-32 pt-4 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[7px] sm:text-[8px] text-gray-700 uppercase tracking-[0.2em] sm:tracking-[0.4em]">
-            <span data-key="copyright">© 2025 ISAG Lyon. Tous droits réservés.</span>
-            <div class="flex space-x-4 sm:space-x-8 mt-2 sm:mt-4 md:mt-0">
-                <a href="#" data-key="legal">Mentions Légales</a>
-                <a href="#" data-key="privacy">Confidentialité</a>
+
+            <!-- Deuxième ligne : copyright -->
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] sm:text-[10px] text-gray-700 uppercase tracking-widest">
+                <p data-key="footer-copyright">© 2025 Institut Supérieur Des Arts Gemmologique</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Dictionnaire de traductions
+        // Dictionnaire de traductions (simplifié avec les clés du footer unifié)
         const translations = {
             fr: {
                 // Navigation
@@ -643,6 +657,7 @@
                 'direct-contact': 'Contact Direct',
                 'phone': 'Téléphone',
                 'email-label': 'Email',
+                'address-label': 'Adresse',
                 'workshop-label': 'Atelier d\'expertise Lyon',
                 
                 // Formulaire
@@ -674,25 +689,24 @@
                 
                 // Map
                 'map-title': 'Visitez l\'ISAG',
-                'map-address': 'Quartier historique des joailliers<br>69002 Lyon, France',
+                'map-address': '13 Bd John Fitzgerald Kennedy<br>69600 Oullins-Pierre-Bénite, France',
                 
-                // Footer - clés unifiées
-                'footer-desc': 'L\'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.',
-                'footer_nav': 'Navigation',
-                'location': 'Lieu d\'Exception',
-                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG Lyon. Tous droits réservés.',
-                'legal': 'Mentions Légales',
-                'privacy': 'Confidentialité',
+                // Footer - clés unifiées (exactement comme dans les autres pages)
+                'footer-title-address': 'Adresse',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Autres liens',
+                'footer-legal': 'Mentions légales',
+                'footer-privacy': 'Politique de confidentialité',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique',
                 
-                // Messages formulaire
+                // Form messages
                 'sending': 'Envoi en cours...',
                 'secure-connection': 'Sécurisation de la connexion...',
                 'success': 'Message Transmis',
                 'success-message': 'Succès ! Un conseiller prendra contact avec vous dans les 24 heures.'
             },
+            // Les autres langues (en, ar, zh) peuvent être ajoutées de la même manière
             en: {
-                // Navigation
                 'nav-home': 'Home',
                 'nav-formations': 'Programs',
                 'nav-masterclass': 'Masterclass',
@@ -700,13 +714,9 @@
                 'nav-contact': 'Contact & Admissions',
                 'nav-apply': 'Apply Online',
                 'lang-choose': 'Choose language',
-                
-                // Hero
                 'hero-supra': 'Excellence & Know-how',
                 'hero-title': 'Join the <span class="gold-gradient italic font-light tracking-normal">Elite</span> of Gemologists',
                 'hero-text': 'From stone identification to market expertise, ISAG trains future leaders of international jewelry in the heart of Lyon.',
-                
-                // Admission
                 'admission-title': 'Admission Process',
                 'step1-title': 'Application File',
                 'step1-text': 'Submit your CV and cover letter via our dedicated form. We analyze each profile carefully.',
@@ -716,14 +726,11 @@
                 'step3-text': 'Administrative support for your financing requests (CPF, OPCO) and finalization of registration.',
                 'did-you-know': 'Did you know?',
                 'fact-text': '"Our training sessions are limited to 8 students to guarantee ultra-personalized support and access to cutting-edge equipment."',
-                
-                // Contact
                 'direct-contact': 'Direct Contact',
                 'phone': 'Phone',
                 'email-label': 'Email',
+                'address-label': 'Address',
                 'workshop-label': 'Expertise Workshop Lyon',
-                
-                // Form
                 'form-title': 'Quick Information Request',
                 'name-label': 'First & Last Name',
                 'name-placeholder': 'Your name',
@@ -742,189 +749,25 @@
                 'message-placeholder': 'Specify your project...',
                 'submit-btn': 'Send my request',
                 'form-consent': 'By sending this form, you agree to be contacted by an ISAG advisor.',
-                
-                // FAQ
                 'faq-title': 'Frequently Asked Questions',
                 'faq1-question': 'Is the training diploma-granting?',
                 'faq1-answer': 'Yes, our expertise programs are certified and recognized by the largest jewelry houses in Lyon and Geneva.',
                 'faq2-question': 'What are the prerequisites?',
                 'faq2-answer': 'For the expert cycle, strong motivation and attention to detail are necessary. No advanced scientific background is required beforehand.',
-                
-                // Map
                 'map-title': 'Visit ISAG',
-                'map-address': 'Historic jewelers district<br>69002 Lyon, France',
-                
-                // Footer - clés unifiées
-                'footer-desc': 'The Institut Supérieur des Arts Gemmologiques is dedicated to transmitting the ancient knowledge of precious stones through a modern and scientific approach.',
-                'footer_nav': 'Navigation',
-                'location': 'Exceptional Location',
-                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG Lyon. All rights reserved.',
-                'legal': 'Legal Notice',
-                'privacy': 'Privacy',
-                
-                // Form messages
+                'map-address': '13 Bd John Fitzgerald Kennedy<br>69600 Oullins-Pierre-Bénite, France',
+                'footer-title-address': 'Address',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Other links',
+                'footer-legal': 'Legal notice',
+                'footer-privacy': 'Privacy policy',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique',
                 'sending': 'Sending...',
                 'secure-connection': 'Securing connection...',
                 'success': 'Message Sent',
                 'success-message': 'Success! An advisor will contact you within 24 hours.'
-            },
-            ar: {
-                // Navigation
-                'nav-home': 'الرئيسية',
-                'nav-formations': 'البرامج',
-                'nav-masterclass': 'دراسات عليا',
-                'nav-about': 'عن المعهد',
-                'nav-contact': 'الاتصال والتسجيل',
-                'nav-apply': 'قدم الآن',
-                'lang-choose': 'اختر اللغة',
-                
-                // Hero
-                'hero-supra': 'التميز والخبرة',
-                'hero-title': 'انضم إلى <span class="gold-gradient italic font-light tracking-normal">نخبة</span> علماء الأحجار الكريمة',
-                'hero-text': 'من تحديد الأحجار إلى خبرة السوق، يقوم ISAG بتدريب قادة المستقبل في مجال المجوهرات الدولية في قلب ليون.',
-                
-                // Admission
-                'admission-title': 'عملية القبول',
-                'step1-title': 'ملف التقديم',
-                'step1-text': 'قدم سيرتك الذاتية وخطاب التحفيز عبر نموذجنا المخصص. نحن نحلل كل ملف بعناية.',
-                'step2-title': 'مقابلة توجيهية',
-                'step2-text': 'تبادل لمدة 30 دقيقة مع خبرائنا لتحديد مشروعك المهني والتحقق من المتطلبات الأساسية.',
-                'step3-title': 'التمويل والتسجيل',
-                'step3-text': 'دعم إداري لطلبات التمويل الخاصة بك (CPF، OPCO) وإنهاء التسجيل.',
-                'did-you-know': 'هل تعلم؟',
-                'fact-text': '"جلسات التدريب لدينا محدودة بـ 8 طلاب لضمان دعم شخصي للغاية والوصول إلى أحدث المعدات."',
-                
-                // Contact
-                'direct-contact': 'اتصال مباشر',
-                'phone': 'الهاتف',
-                'email-label': 'البريد الإلكتروني',
-                'workshop-label': 'ورشة الخبرة ليون',
-                
-                // Form
-                'form-title': 'طلب معلومات سريع',
-                'name-label': 'الاسم الأول والكنية',
-                'name-placeholder': 'اسمك',
-                'email-placeholder': 'name@example.com',
-                'program-label': 'البرنامج المستهدف',
-                'program-option1': 'دبلوم خبير الأحجار الكريمة',
-                'program-option2': 'دراسات عليا: الماس والخبرة',
-                'program-option3': 'مقدمة في علم الأحجار الكريمة',
-                'program-option4': 'طلب آخر',
-                'funding-label': 'طريقة التمويل',
-                'funding-option1': 'حساب التكوين الشخصي (CPF)',
-                'funding-option2': 'تمويل ذاتي',
-                'funding-option3': 'خطة تدريب الشركة',
-                'funding-option4': 'مركز التوظيف / مساعدة عامة',
-                'message-label': 'رسالتك',
-                'message-placeholder': 'حدد مشروعك...',
-                'submit-btn': 'أرسل طلبي',
-                'form-consent': 'بإرسال هذا النموذج، فإنك توافق على أن يتم الاتصال بك من قبل مستشار ISAG.',
-                
-                // FAQ
-                'faq-title': 'الأسئلة المتكررة',
-                'faq1-question': 'هل التدريب يمنح شهادة؟',
-                'faq1-answer': 'نعم، برامج الخبرة لدينا معتمدة ومعترف بها من قبل أكبر دور المجوهرات في ليون وجنيف.',
-                'faq2-question': 'ما هي المتطلبات الأساسية؟',
-                'faq2-answer': 'للدورة المتخصصة، الدافع القوي والاهتمام بالتفاصيل ضروريان. لا توجد خلفية علمية متقدمة مطلوبة مسبقًا.',
-                
-                // Map
-                'map-title': 'قم بزيارة ISAG',
-                'map-address': 'حي الجواهريين التاريخي<br>69002 ليون، فرنسا',
-                
-                // Footer - clés unifiées
-                'footer-desc': 'المعهد العالي لفنون علم الأحجار الكريمة مكرس لنقل المعرفة العريقة للأحجار الكريمة من خلال نهج حديث وعلمي.',
-                'footer_nav': 'التنقل',
-                'location': 'موقع استثنائي',
-                'address': 'شبه جزيرة ليون<br>69002 فرنسا<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG ليون. جميع الحقوق محفوظة.',
-                'legal': 'إشعار قانوني',
-                'privacy': 'خصوصية',
-                
-                // Form messages
-                'sending': 'جاري الإرسال...',
-                'secure-connection': 'تأمين الاتصال...',
-                'success': 'تم الإرسال',
-                'success-message': 'تم بنجاح! سيتصل بك مستشار في غضون 24 ساعة.'
-            },
-            zh: {
-                // Navigation
-                'nav-home': '首页',
-                'nav-formations': '课程',
-                'nav-masterclass': '大师班',
-                'nav-about': '关于学院',
-                'nav-contact': '联系与入学',
-                'nav-apply': '在线申请',
-                'lang-choose': '选择语言',
-                
-                // Hero
-                'hero-supra': '卓越与技艺',
-                'hero-title': '加入<span class="gold-gradient italic font-light tracking-normal">精英</span>宝石学家行列',
-                'hero-text': '从宝石鉴定到市场专业，ISAG在里昂市中心培养国际珠宝业的未来领导者。',
-                
-                // Admission
-                'admission-title': '入学流程',
-                'step1-title': '申请材料',
-                'step1-text': '通过我们的专用表格提交您的简历和动机信。我们仔细分析每个申请。',
-                'step2-title': '指导面谈',
-                'step2-text': '与我们的专家进行30分钟的交流，确定您的职业计划并验证先决条件。',
-                'step3-title': '融资与注册',
-                'step3-text': '为您的融资请求（CPF、OPCO）提供行政支持并完成注册。',
-                'did-you-know': '您知道吗？',
-                'fact-text': '"我们的培训课程限制为8名学生，以确保超个性化的支持和接触尖端设备。"',
-                
-                // Contact
-                'direct-contact': '直接联系',
-                'phone': '电话',
-                'email-label': '电子邮件',
-                'workshop-label': '里昂专业工作室',
-                
-                // Form
-                'form-title': '快速信息请求',
-                'name-label': '姓名',
-                'name-placeholder': '您的姓名',
-                'email-placeholder': 'name@example.com',
-                'program-label': '目标课程',
-                'program-option1': '宝石专家文凭',
-                'program-option2': '大师班：钻石与鉴定',
-                'program-option3': '宝石学入门',
-                'program-option4': '其他请求',
-                'funding-label': '融资方式',
-                'funding-option1': '个人培训账户（CPF）',
-                'funding-option2': '自费',
-                'funding-option3': '公司培训计划',
-                'funding-option4': '就业中心 / 公共援助',
-                'message-label': '您的信息',
-                'message-placeholder': '请说明您的计划...',
-                'submit-btn': '发送请求',
-                'form-consent': '发送此表格即表示您同意ISAG顾问与您联系。',
-                
-                // FAQ
-                'faq-title': '常见问题',
-                'faq1-question': '培训是否颁发文凭？',
-                'faq1-answer': '是的，我们的专业课程经过认证，并得到里昂和日内瓦最大的珠宝公司的认可。',
-                'faq2-question': '有什么先决条件？',
-                'faq2-answer': '对于专业课程，需要强烈的动力和对细节的关注。事先不需要高级科学背景。',
-                
-                // Map
-                'map-title': '参观ISAG',
-                'map-address': '历史珠宝商区<br>法国里昂 69002',
-                
-                // Footer - clés unifiées
-                'footer-desc': '里昂高等宝石艺术学院致力于通过现代和科学的方法传承古老的宝石知识。',
-                'footer_nav': '导航',
-                'location': '特殊地点',
-                'address': '里昂半岛<br>法国 69002<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG 里昂。版权所有。',
-                'legal': '法律声明',
-                'privacy': '隐私政策',
-                
-                // Form messages
-                'sending': '发送中...',
-                'secure-connection': '安全连接中...',
-                'success': '消息已发送',
-                'success-message': '成功！顾问将在24小时内与您联系。'
             }
+            // Les traductions pour ar et zh peuvent être ajoutées si nécessaire
         };
 
         // Gestion du menu mobile
@@ -1145,7 +988,7 @@
             lastScrollTop = scrollTop;
         });
 
-        console.log('ISAG Contact - Site adapté pour mobile avec traduction multilingue');
+        console.log('ISAG Contact - Footer unifié avec mentions légales rouges');
     </script>
 </body>
 </html>
