@@ -318,7 +318,7 @@
 
         <!-- Sélecteur de langue dans le menu mobile -->
         <div class="mobile-lang-selector">
-            <div class="mobile-lang-title">Choisir la langue</div>
+            <div class="mobile-lang-title" data-key="lang-choose">Choisir la langue</div>
             <div class="mobile-lang-grid">
                 <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
                 <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
@@ -340,14 +340,14 @@
             
             <!-- HERO : titre avec image de fond et bouton Contactez-nous -->
             <div class="relative w-full h-[300px] md:h-[400px] mb-16 rounded-lg overflow-hidden glass">
-                <!-- Image de fond (via une URL externe pertinente pour la gemmologie) -->
+                <!-- Image de fond -->
                 <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/wr98s28orlm-768x432.jpg" alt="Diamants fond" class="absolute inset-0 w-full h-full object-cover opacity-30">
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
                 <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;" data-key="formations-hero-title">
                         CURSUS INTÉGRAL DE <br><span class="text-gold italic">L'EXPERT GEMMOLOGUE</span>
                     </h1>
-                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300" data-key="formations-hero-btn">
                         Contactez-nous
                     </a>
                 </div>
@@ -355,65 +355,65 @@
 
             <!-- DESCRIPTION PRINCIPALE -->
             <div class="glass p-8 md:p-12 mb-20">
-                <h2 class="text-2xl md:text-3xl text-gold mb-6">Gemmologie Professionnelle Intensive</h2>
-                <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="formations-desc-title">Gemmologie Professionnelle Intensive</h2>
+                <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-key="formations-desc-text">
                     La Gemmologie Professionnelle Intensive comprend les compétences essentielles du titre de Gemmologue Expert. Cette formation intensive de 5 mois (548 heures) offre un parcours accéléré d'acquisition des connaissances et savoir-faire en gemmologie. L'enseignement privilégie l'immersion pratique en laboratoire, complétée par des modules théoriques pour une maîtrise optimale des concepts fondamentaux.
                 </p>
             </div>
 
-            <!-- PROPOSER 3 FORMULES (visuellement en cartes) -->
+            <!-- PROPOSER 3 FORMULES -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                 <!-- Formule 1 : Standard -->
                 <div class="glass p-8 text-center hover:border-gold transition-all">
-                    <h3 class="text-xl text-gold font-bold mb-4">Formation complète</h3>
+                    <h3 class="text-xl text-gold font-bold mb-4" data-key="formations-formula1-title">Formation Expert Gemmologues</h3>
                     <p class="text-3xl font-bold text-white mb-4">12 360 €</p>
-                    <p class="text-gray-400 text-sm mb-6">Théorie + pratique + examen</p>
+                    <p class="text-gray-400 text-sm mb-6" data-key="formations-formula1-subtitle">Théorie + pratique + examen</p>
                     <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
-                        <li>✓ 540 heures de cours</li>
-                        <li>✓ Examen final inclus</li>
-                        <li>✓ 2 sessions de rattrapage</li>
+                        <li data-key="formations-formula1-list1">✓ 540 heures de cours</li>
+                        <li data-key="formations-formula1-list2">✓ Examen final inclus</li>
+                        <li data-key="formations-formula1-list3">✓ sessions de rattrapage</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition" data-key="formations-formula1-btn">Choisir</a>
                 </div>
                 <!-- Formule 2 : Module unique -->
                 <div class="glass p-8 text-center hover:border-gold transition-all border-gold/50">
-                    <h3 class="text-xl text-gold font-bold mb-4">Module unique</h3>
-                    <p class="text-3xl font-bold text-white mb-4">150 €</p>
-                    <p class="text-gray-400 text-sm mb-6">Par module / unité capitalisable</p>
+                    <h3 class="text-xl text-gold font-bold mb-4" data-key="formations-formula2-title">Module unique</h3>
+                    <p class="text-3xl font-bold text-white mb-4">21 360 €</p>
+                    <p class="text-gray-400 text-sm mb-6" data-key="formations-formula2-subtitle">Par module / unité capitalisable</p>
                     <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
-                        <li>✓ Accès à un module spécifique</li>
-                        <li>✓ Évaluation incluse</li>
-                        <li>✓ Attestation de suivi</li>
+                        <li data-key="formations-formula2-list1">✓ Accès à un module spécifique</li>
+                        <li data-key="formations-formula2-list2">✓ Évaluation incluse</li>
+                        <li data-key="formations-formula2-list3">✓ Attestation de suivi</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition" data-key="formations-formula2-btn">Choisir</a>
                 </div>
-                <!-- Formule 3 : Sur mesure (option entreprise/pro) -->
+                <!-- Formule 3 : Sur mesure -->
                 <div class="glass p-8 text-center hover:border-gold transition-all">
-                    <h3 class="text-xl text-gold font-bold mb-4">Sur mesure</h3>
-                    <p class="text-3xl font-bold text-white mb-4">Nous contacter</p>
-                    <p class="text-gray-400 text-sm mb-6">Pour groupes ou entreprises</p>
+                    <h3 class="text-xl text-gold font-bold mb-4" data-key="formations-formula3-title">Sur mesure</h3>
+                    <p class="text-3xl font-bold text-white mb-4" data-key="formations-formula3-price">Nous contacter</p>
+                    <p class="text-gray-400 text-sm mb-6" data-key="formations-formula3-subtitle">Pour groupes ou entreprises</p>
                     <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
-                        <li>✓ Programme personnalisé</li>
-                        <li>✓ Calendrier adapté</li>
-                        <li>✓ Devis sur demande</li>
+                        <li data-key="formations-formula3-list1">✓ Programme personnalisé</li>
+                        <li data-key="formations-formula3-list2">✓ Calendrier adapté</li>
+                        <li data-key="formations-formula3-list3">✓ Devis sur demande</li>
                     </ul>
-                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition" data-key="formations-formula3-btn">Choisir</a>
                 </div>
             </div>
 
             <!-- COMPÉTENCES DÉVELOPPÉES avec image à droite -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <div class="glass p-8">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Compétences développées</h2>
-                    <p class="text-gray-300 text-sm mb-4">À l'issue de la formation, les participants maîtriseront :</p>
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="formations-skills-title">Compétences développées</h2>
+                    <p class="text-gray-300 text-sm mb-4" data-key="formations-skills-intro">À l'issue de la formation, les participants maîtriseront :</p>
                     <ul class="text-gray-400 text-sm space-y-3 list-disc pl-5">
-                        <li>L'identification précise des gemmes et de leurs caractéristiques</li>
-                        <li>La réalisation d'expertises techniques et scientifiques selon les standards internationaux</li>
-                        <li>L'évaluation des diamants blancs selon les critères 4C (taille, couleur, pureté, carat) et diamants de couleurs</li>
-                        <li>La gradation professionnelle des perles</li>
-                        <li>La rédaction de rapports d'analyses gemmologiques conformes aux exigences du secteur</li>
-                        <li>La connaissance des cadres législatifs internationaux régissant le commerce des gemmes</li>
-                        <li>La sélection des couvertures d'assurance adaptées au transport sécurisé des pierres précieuses</li>
+                        <li data-key="formations-skills1">L'identification précise des gemmes et de leurs caractéristiques</li>
+                        <li data-key="formations-skills2">La réalisation d'expertises techniques et scientifiques selon les standards internationaux</li>
+                        <li data-key="formations-skills3">L'évaluation des diamants blancs selon les critères 4C (taille, couleur, pureté, carat) et diamants de couleurs</li>
+                        <li data-key="formations-skills4">La gradation professionnelle des perles</li>
+                        <li data-key="formations-skills5">La rédaction de rapports d'analyses gemmologiques conformes aux exigences du secteur</li>
+                        <li data-key="formations-skills6">La connaissance des cadres législatifs internationaux régissant le commerce des gemmes</li>
+                        <li data-key="formations-skills7">La sélection des couvertures d'assurance adaptées au transport sécurisé des pierres précieuses</li>
                     </ul>
                 </div>
                 <div class="glass p-2">
@@ -427,15 +427,15 @@
                     <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/m3t3e7gzpkq.jpg" alt="Structure du programme" class="w-full h-auto rounded">
                 </div>
                 <div class="glass p-8 order-1 lg:order-2">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Structure du Programme (548 heures)</h2>
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="formations-structure-title">Structure du Programme (548 heures)</h2>
                     <ul class="text-gray-300 text-sm space-y-3 list-disc pl-5 columns-1 md:columns-2 gap-6">
-                        <li>Module Fondamental Niveau I | 78h : Identification et classification</li>
-                        <li>Module Intermédiaire Niveau II | 78h : Propriétés et caractérisation</li>
-                        <li>Module Avancé I Niveau III | 130h : Sciences gemmologiques</li>
-                        <li>Module Avancé II Niveau IV | 130h : Expertise spécialisée</li>
-                        <li>Module Spécialisé | 60h : Diamantologie</li>
-                        <li>Module Juridique | 35h : Cadre réglementaire</li>
-                        <li>Module Négoce | 35h : Commerce des gemmes</li>
+                        <li data-key="formations-structure1">Module Fondamental Niveau I | 78h : Identification et classification</li>
+                        <li data-key="formations-structure2">Module Intermédiaire Niveau II | 78h : Propriétés et caractérisation</li>
+                        <li data-key="formations-structure3">Module Avancé I Niveau III | 130h : Sciences gemmologiques</li>
+                        <li data-key="formations-structure4">Module Avancé II Niveau IV | 130h : Expertise spécialisée</li>
+                        <li data-key="formations-structure5">Module Spécialisé | 60h : Diamantologie</li>
+                        <li data-key="formations-structure6">Module Juridique | 35h : Cadre réglementaire</li>
+                        <li data-key="formations-structure7">Module Négoce | 35h : Commerce des gemmes</li>
                     </ul>
                 </div>
             </div>
@@ -443,18 +443,18 @@
             <!-- PRIX DE LA FORMATION avec image -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <div class="glass p-8">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">PRIX DE LA FORMATION</h2>
-                    <p class="text-gray-300 text-sm mb-4">Formation complète : 540 heures</p>
-                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold">Inclus dans le prix standard :</span></p>
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="formations-price-title">PRIX DE LA FORMATION</h2>
+                    <p class="text-gray-300 text-sm mb-4" data-key="formations-price-desc">Formation complète : 540 heures</p>
+                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold" data-key="formations-price-included-label">Inclus dans le prix standard :</span></p>
                     <ul class="text-gray-400 text-sm space-y-1 list-disc pl-5 mb-6">
-                        <li>Heures de cours (théorie et pratique)</li>
-                        <li>Examen final</li>
-                        <li>2 sessions de rattrapage</li>
+                        <li data-key="formations-price-included1">Heures de cours (théorie et pratique)</li>
+                        <li data-key="formations-price-included2">Examen final</li>
+                        <li data-key="formations-price-included3">sessions de rattrapage</li>
                     </ul>
-                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold">Options :</span></p>
+                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold" data-key="formations-price-options-label">Options :</span></p>
                     <ul class="text-gray-400 text-sm space-y-1">
-                        <li>Formation complète (théorie + pratique + examen) : <span class="text-gold font-bold">12360 €</span></li>
-                        <li>Module unique : <span class="text-gold font-bold">150 €</span></li>
+                        <li data-key="formations-price-option1">Formation complète (théorie + pratique + examen) : <span class="text-gold font-bold">12360 €</span></li>
+                        <li data-key="formations-price-option2">Module unique : <span class="text-gold font-bold">21 360 € €</span></li>
                     </ul>
                 </div>
                 <div class="glass p-2">
@@ -464,8 +464,8 @@
 
             <!-- BANDEAU FINAL : Lancez votre parcours + bouton -->
             <div class="glass p-12 text-center mt-16">
-                <h2 class="text-2xl md:text-3xl text-gold mb-4">Lancez votre parcours dans les métiers de la gemmologie avec l'ISAG.</h2>
-                <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 mt-4">
+                <h2 class="text-2xl md:text-3xl text-gold mb-4" data-key="formations-cta-text">Lancez votre parcours dans les métiers de la gemmologie avec l'ISAG.</h2>
+                <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 mt-4" data-key="formations-cta-btn">
                     Je m'inscris à une session
                 </a>
             </div>
@@ -515,7 +515,7 @@
     </footer>
 
     <script>
-        // Gestion du menu mobile (identique à index)
+        // Gestion du menu mobile
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -540,53 +540,334 @@
         const mobileLinks = document.querySelectorAll('.mobile-menu a');
         mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-        // Petit dictionnaire pour les quelques data-key du footer
+        // Dictionnaire de traductions pour formations.html
         const translations = {
             fr: {
+                // Navigation (reprise depuis index)
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L\'Institut',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choisir la langue',
+                
+                // Hero
+                'formations-hero-title': 'CURSUS INTÉGRAL DE <br><span class="text-gold italic">L\'EXPERT GEMMOLOGUE</span>',
+                'formations-hero-btn': 'Contactez-nous',
+                
+                // Description
+                'formations-desc-title': 'Gemmologie Professionnelle Intensive',
+                'formations-desc-text': 'La Gemmologie Professionnelle Intensive comprend les compétences essentielles du titre de Gemmologue Expert. Cette formation intensive de 5 mois (548 heures) offre un parcours accéléré d\'acquisition des connaissances et savoir-faire en gemmologie. L\'enseignement privilégie l\'immersion pratique en laboratoire, complétée par des modules théoriques pour une maîtrise optimale des concepts fondamentaux.',
+                
+                // Formules
+                'formations-formula1-title': 'Formation Expert Gemmologues',
+                'formations-formula1-subtitle': 'Théorie + pratique + examen',
+                'formations-formula1-list1': '✓ 540 heures de cours',
+                'formations-formula1-list2': '✓ Examen final inclus',
+                'formations-formula1-list3': '✓ sessions de rattrapage',
+                'formations-formula1-btn': 'Choisir',
+                
+                'formations-formula2-title': 'Formation d exellence',
+                'formations-formula2-subtitle': 'Par module / unité capitalisable',
+                'formations-formula2-list1': '✓ Accès à un module spécifique',
+                'formations-formula2-list2': '✓ Évaluation incluse',
+                'formations-formula2-list3': '✓ Attestation de suivi',
+                'formations-formula2-btn': 'Choisir',
+                
+                'formations-formula3-title': 'Sur mesure',
+                'formations-formula3-price': 'Nous contacter',
+                'formations-formula3-subtitle': 'Pour groupes ou entreprises',
+                'formations-formula3-list1': '✓ Programme personnalisé',
+                'formations-formula3-list2': '✓ Calendrier adapté',
+                'formations-formula3-list3': '✓ Devis sur demande',
+                'formations-formula3-btn': 'Choisir',
+                
+                // Compétences
+                'formations-skills-title': 'Compétences développées',
+                'formations-skills-intro': 'À l\'issue de la formation, les participants maîtriseront :',
+                'formations-skills1': 'L\'identification précise des gemmes et de leurs caractéristiques',
+                'formations-skills2': 'La réalisation d\'expertises techniques et scientifiques selon les standards internationaux',
+                'formations-skills3': 'L\'évaluation des diamants blancs selon les critères 4C (taille, couleur, pureté, carat) et diamants de couleurs',
+                'formations-skills4': 'La gradation professionnelle des perles',
+                'formations-skills5': 'La rédaction de rapports d\'analyses gemmologiques conformes aux exigences du secteur',
+                'formations-skills6': 'La connaissance des cadres législatifs internationaux régissant le commerce des gemmes',
+                'formations-skills7': 'La sélection des couvertures d\'assurance adaptées au transport sécurisé des pierres précieuses',
+                
+                // Structure
+                'formations-structure-title': 'Structure du Programme (548 heures)',
+                'formations-structure1': 'Module Fondamental Niveau I | 78h : Identification et classification',
+                'formations-structure2': 'Module Intermédiaire Niveau II | 78h : Propriétés et caractérisation',
+                'formations-structure3': 'Module Avancé I Niveau III | 130h : Sciences gemmologiques',
+                'formations-structure4': 'Module Avancé II Niveau IV | 130h : Expertise spécialisée',
+                'formations-structure5': 'Module Spécialisé | 60h : Diamantologie',
+                'formations-structure6': 'Module Juridique | 35h : Cadre réglementaire',
+                'formations-structure7': 'Module Négoce | 35h : Commerce des gemmes',
+                
+                // Prix
+                'formations-price-title': 'PRIX DE LA FORMATION',
+                'formations-price-desc': 'Formation complète : 540 heures',
+                'formations-price-included-label': 'Inclus dans le prix standard :',
+                'formations-price-included1': 'Heures de cours (théorie et pratique)',
+                'formations-price-included2': 'Examen final',
+                'formations-price-included3': 'sessions de rattrapage',
+                'formations-price-options-label': 'Options :',
+                'formations-price-option1': 'Formation complète (théorie + pratique + examen) : <span class="text-gold font-bold">12360 €</span>',
+                'formations-price-option2': 'Module unique : <span class="text-gold font-bold">21 360 €</span>',
+                
+                // CTA final
+                'formations-cta-text': 'Lancez votre parcours dans les métiers de la gemmologie avec l\'ISAG.',
+                'formations-cta-btn': 'Je m\'inscris à une session',
+                
+                // Footer
                 'footer-title-address': 'Adresse',
                 'footer-title-contact': 'Contact',
                 'footer-title-links': 'Autres liens',
                 'footer-legal': 'Mentions légales',
                 'footer-privacy': 'Politique de confidentialité',
                 'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-formations': 'Courses',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choose language',
+                
+                // Hero
+                'formations-hero-title': 'COMPLETE CURRICULUM OF <br><span class="text-gold italic">THE GEMOLOGIST EXPERT</span>',
+                'formations-hero-btn': 'Contact us',
+                
+                // Description
+                'formations-desc-title': 'Intensive Professional Gemology',
+                'formations-desc-text': 'Intensive Professional Gemology includes the essential skills of the Expert Gemologist title. This intensive 5-month training (548 hours) offers an accelerated path to acquire knowledge and know-how in gemology. The teaching favors practical immersion in the laboratory, complemented by theoretical modules for optimal mastery of fundamental concepts.',
+                
+                // Formules
+                'formations-formula1-title': 'Complete training',
+                'formations-formula1-subtitle': 'Theory + practice + exam',
+                'formations-formula1-list1': '✓ 540 hours of courses',
+                'formations-formula1-list2': '✓ Final exam included',
+                'formations-formula1-list3': '✓ 2 remedial sessions',
+                'formations-formula1-btn': 'Choose',
+                
+                'formations-formula2-title': 'Single module',
+                'formations-formula2-subtitle': 'Per module / credit unit',
+                'formations-formula2-list1': '✓ Access to a specific module',
+                'formations-formula2-list2': '✓ Assessment included',
+                'formations-formula2-list3': '✓ Certificate of attendance',
+                'formations-formula2-btn': 'Choose',
+                
+                'formations-formula3-title': 'Tailor-made',
+                'formations-formula3-price': 'Contact us',
+                'formations-formula3-subtitle': 'For groups or companies',
+                'formations-formula3-list1': '✓ Personalized program',
+                'formations-formula3-list2': '✓ Adapted schedule',
+                'formations-formula3-list3': '✓ Quote on request',
+                'formations-formula3-btn': 'Choose',
+                
+                // Compétences
+                'formations-skills-title': 'Skills developed',
+                'formations-skills-intro': 'At the end of the training, participants will master:',
+                'formations-skills1': 'Precise identification of gems and their characteristics',
+                'formations-skills2': 'Technical and scientific expertise according to international standards',
+                'formations-skills3': 'Evaluation of white diamonds according to the 4Cs (Cut, Color, Clarity, Carat) and colored diamonds',
+                'formations-skills4': 'Professional grading of pearls',
+                'formations-skills5': 'Writing gemological analysis reports in accordance with industry requirements',
+                'formations-skills6': 'Knowledge of international legislative frameworks governing the gem trade',
+                'formations-skills7': 'Selection of insurance coverage adapted to the secure transport of precious stones',
+                
+                // Structure
+                'formations-structure-title': 'Program Structure (548 hours)',
+                'formations-structure1': 'Fundamental Level I Module | 78h: Identification and classification',
+                'formations-structure2': 'Intermediate Level II Module | 78h: Properties and characterization',
+                'formations-structure3': 'Advanced I Level III Module | 130h: Gemological sciences',
+                'formations-structure4': 'Advanced II Level IV Module | 130h: Specialized expertise',
+                'formations-structure5': 'Specialized Module | 60h: Diamondology',
+                'formations-structure6': 'Legal Module | 35h: Regulatory framework',
+                'formations-structure7': 'Trade Module | 35h: Gem trade',
+                
+                // Prix
+                'formations-price-title': 'TRAINING PRICE',
+                'formations-price-desc': 'Complete training: 540 hours',
+                'formations-price-included-label': 'Included in the standard price:',
+                'formations-price-included1': 'Course hours (theory and practice)',
+                'formations-price-included2': 'Final exam',
+                'formations-price-included3': '2 remedial sessions',
+                'formations-price-options-label': 'Options:',
+                'formations-price-option1': 'Complete training (theory + practice + exam): <span class="text-gold font-bold">€12,360</span>',
+                'formations-price-option2': 'Single module: <span class="text-gold font-bold">€21 360</span>',
+                
+                // CTA final
+                'formations-cta-text': 'Start your career in gemology with ISAG.',
+                'formations-cta-btn': 'Register for a session',
+                
+                // Footer
+                'footer-title-address': 'Address',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Other links',
+                'footer-legal': 'Legal notice',
+                'footer-privacy': 'Privacy policy',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            ar: {
+                // Navigation
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'التكوينات',
+                'nav-masterclass': 'الدروس المتقدمة',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'formations-hero-title': 'المنهج الكامل <br><span class="text-gold italic">لخبير الأحجار الكريمة</span>',
+                'formations-hero-btn': 'اتصل بنا',
+                
+                // Description
+                'formations-desc-title': 'علم الأحجار الكريمة المهني المكثف',
+                'formations-desc-text': 'يشمل علم الأحجار الكريمة المهني المكثف المهارات الأساسية لقب خبير الأحجار الكريمة. يقدم هذا التدريب المكثف لمدة 5 أشهر (548 ساعة) مسارًا مكثفًا لاكتساب المعرفة والخبرة في علم الأحجار الكريمة. يركز التدريس على الانغماس العملي في المختبر، مع وحدات نظرية لإتقان المفاهيم الأساسية.',
+                
+                // Formules simplifiées pour l'arabe
+                'formations-formula1-title': 'تكوين كامل',
+                'formations-formula1-subtitle': 'نظري + تطبيقي + امتحان',
+                'formations-formula1-list1': '✓ 540 ساعة من الدروس',
+                'formations-formula1-list2': '✓ الامتحان النهائي مشمول',
+                'formations-formula1-list3': '✓ حصتان للتعويض',
+                'formations-formula1-btn': 'اختر',
+                
+                'formations-formula2-title': 'وحدة منفردة',
+                'formations-formula2-subtitle': 'لكل وحدة',
+                'formations-formula2-list1': '✓ الوصول إلى وحدة محددة',
+                'formations-formula2-list2': '✓ التقييم مشمول',
+                'formations-formula2-list3': '✓ شهادة حضور',
+                'formations-formula2-btn': 'اختر',
+                
+                'formations-formula3-title': 'حسب الطلب',
+                'formations-formula3-price': 'اتصل بنا',
+                'formations-formula3-subtitle': 'للمجموعات أو الشركات',
+                'formations-formula3-list1': '✓ برنامج مخصص',
+                'formations-formula3-list2': '✓ جدول زمني مكيف',
+                'formations-formula3-list3': '✓ عرض سعر عند الطلب',
+                'formations-formula3-btn': 'اختر',
+                
+                // Footer
+                'footer-title-address': 'العنوان',
+                'footer-title-contact': 'الاتصال',
+                'footer-title-links': 'روابط أخرى',
+                'footer-legal': 'الإشعارات القانونية',
+                'footer-privacy': 'سياسة الخصوصية',
+                'footer-copyright': '© 2025 المعهد العالي لفنون علم الأحجار الكريمة'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'formations-hero-title': '完整课程<br><span class="text-gold italic">宝石鉴定专家</span>',
+                'formations-hero-btn': '联系我们',
+                
+                // Footer
+                'footer-title-address': '地址',
+                'footer-title-contact': '联系方式',
+                'footer-title-links': '其他链接',
+                'footer-legal': '法律声明',
+                'footer-privacy': '隐私政策',
+                'footer-copyright': '© 2025 宝石艺术学院'
             }
         };
 
+        // Fonction pour changer la langue
         function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
             const currentLangSpan = document.getElementById('currentLang');
             if (currentLangSpan) {
                 const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
                 currentLangSpan.textContent = langNames[lang] || 'Fr';
             }
+
+            // Mettre à jour tous les éléments avec data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
                     } else {
                         element.innerHTML = translations[lang][key];
                     }
                 }
             });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
             document.documentElement.lang = lang;
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
             localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
             document.querySelectorAll('[data-lang]').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
         }
 
+        // Gestionnaires d'événements pour les liens de langue (desktop)
         document.querySelectorAll('.lang-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(link.getAttribute('data-lang')); });
-        });
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(btn.getAttribute('data-lang')); });
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
             changeLanguage(savedLang);
         });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
 
         function disableKeys(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
@@ -596,7 +877,7 @@
             return true;
         }
 
-        // Animation au scroll simple
+        // Animation au scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -621,6 +902,11 @@
             else navbar.style.transform = 'translateY(0)';
             if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
             lastScrollTop = scrollTop;
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) closeMobileMenu();
         });
     </script>
 </body>
