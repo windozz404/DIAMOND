@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>ISAG Lyon | Masterclass & Formations d'Exception</title>
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
+    <meta name="description" content="Masterclasses d'exception en gemmologie, diamant et négoce de gemmes à Lyon.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -313,7 +314,7 @@
         <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
 
         <div class="mobile-lang-selector">
-            <div class="mobile-lang-title">Choisir la langue</div>
+            <div class="mobile-lang-title" data-key="lang-choose">Choisir la langue</div>
             <div class="mobile-lang-grid">
                 <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
                 <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
@@ -337,10 +338,10 @@
                 <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/be9ccto8slq-1600x2400.jpg" alt="Masterclass fond" class="absolute inset-0 w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
                 <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;" data-key="masterclass-hero-title">
                         MASTERCLASS & <br><span class="text-gold italic">FORMATIONS D'EXCEPTION</span>
                     </h1>
-                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300" data-key="masterclass-hero-btn">
                         Contactez-nous
                     </a>
                 </div>
@@ -350,28 +351,28 @@
             <div class="glass p-8 md:p-10 mb-12">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                     <div class="flex-1">
-                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Découverte de la Gemmologie <span class="text-white text-xl">(21 heures)</span></h2>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4" data-key="masterclass1-title">Masterclass Découverte de la Gemmologie <span class="text-white text-xl">(21 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-key="masterclass1-desc">
                             Cette formation immersive vous initie à l'univers fascinant des pierres précieuses et vous transmet les fondamentaux du métier de gemmologue.
                         </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm">Volet Théorique</h3>
-                                <p class="text-gray-400 text-sm">fondamentaux, méthodes d'expertise, critères d'identification, standards internationaux.</p>
+                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm" data-key="masterclass1-theory-title">Volet Théorique</h3>
+                                <p class="text-gray-400 text-sm" data-key="masterclass1-theory-desc">fondamentaux, méthodes d'expertise, critères d'identification, standards internationaux.</p>
                             </div>
                             <div>
-                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm">Volet Pratique</h3>
-                                <p class="text-gray-400 text-sm">outils professionnels, observation à la loupe, usage du polariscope, distinctions naturelles.</p>
+                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm" data-key="masterclass1-practice-title">Volet Pratique</h3>
+                                <p class="text-gray-400 text-sm" data-key="masterclass1-practice-desc">outils professionnels, observation à la loupe, usage du polariscope, distinctions naturelles.</p>
                             </div>
                         </div>
                         <div class="flex items-center justify-between border-t border-gold/20 pt-4">
-                            <span class="text-2xl font-bold text-gold">420 €</span>
-                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                            <span class="text-2xl font-bold text-gold" data-key="masterclass1-price">420 €</span>
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition" data-key="masterclass1-btn">
                                 Réserver
                             </a>
                         </div>
                     </div>
-                    <!-- image illustrative (optionnelle, on peut en mettre une par défaut) -->
+                    <!-- image illustrative -->
                     <div class="lg:w-64 h-48 lg:h-40 rounded overflow-hidden glass shrink-0">
                         <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80" alt="Gemmologie" class="w-full h-full object-cover">
                     </div>
@@ -382,20 +383,20 @@
             <div class="glass p-8 md:p-10 mb-12">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                     <div class="flex-1">
-                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Diamant : De la Mine à la Lumière <span class="text-white text-xl">(64 heures)</span></h2>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4" data-key="masterclass2-title">Masterclass Diamant : De la Mine à la Lumière <span class="text-white text-xl">(64 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-key="masterclass2-desc">
                             Formation complète retraçant le parcours du diamant depuis sa formation jusqu'à sa commercialisation.
                         </p>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-gray-400 text-sm list-disc pl-5 mb-4">
-                            <li>Cycle du diamant, extraction, taille, marché du brut</li>
-                            <li>Synthèses, traitements, négoces, histoire</li>
-                            <li>Diamants de couleur : nuances, raretés, évaluation</li>
+                            <li data-key="masterclass2-list1">Cycle du diamant, extraction, taille, marché du brut</li>
+                            <li data-key="masterclass2-list2">Synthèses, traitements, négoces, histoire</li>
+                            <li data-key="masterclass2-list3">Diamants de couleur : nuances, raretés, évaluation</li>
                         </ul>
-                        <p class="text-gray-300 text-sm mb-2">Inclut théorie (30h), pratique (30h), examen (4h), <span class="text-gold">1 session de rattrapage</span>.</p>
-                        <p class="text-gray-400 text-sm mb-4">2e rattrapage optionnel : 150 €</p>
+                        <p class="text-gray-300 text-sm mb-2"><span data-key="masterclass2-includes">Inclut théorie (30h), pratique (30h), examen (4h),</span> <span class="text-gold" data-key="masterclass2-session">1 session de rattrapage</span>.</p>
+                        <p class="text-gray-400 text-sm mb-4"><span data-key="masterclass2-optional">2e rattrapage optionnel : 150 €</span></p>
                         <div class="flex items-center justify-between border-t border-gold/20 pt-4">
                             <span class="text-2xl font-bold text-gold">2 350 €</span>
-                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition" data-key="masterclass2-btn">
                                 Réserver
                             </a>
                         </div>
@@ -410,20 +411,20 @@
             <div class="glass p-8 md:p-10 mb-16">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                     <div class="flex-1">
-                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Négoce de Gemmes <br><span class="text-white text-xl">Expertise et Stratégies Commerciales (35 heures)</span></h2>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4" data-key="masterclass3-title">Masterclass Négoce de Gemmes <br><span class="text-white text-xl">Expertise et Stratégies Commerciales (35 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6" data-key="masterclass3-desc">
                             Approfondissez vos compétences en évaluation, sourcing, négociation et marketing appliqués au secteur gemmologique.
                         </p>
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-gray-400 text-sm list-disc pl-5 mb-4">
-                            <li>Paramètres cristallographiques, indices réfractométriques</li>
-                            <li>Analyse géopolitique des zones d'extraction</li>
-                            <li>Éthique, veille sectorielle, stratégie luxe et posture professionnelle</li>
+                            <li data-key="masterclass3-list1">Paramètres cristallographiques, indices réfractométriques</li>
+                            <li data-key="masterclass3-list2">Analyse géopolitique des zones d'extraction</li>
+                            <li data-key="masterclass3-list3">Éthique, veille sectorielle, stratégie luxe et posture professionnelle</li>
                         </ul>
-                        <p class="text-gray-300 text-sm mb-2">Inclut 30h de cours + 2h30 d'examen + 2h30 de rattrapage.</p>
-                        <p class="text-gray-400 text-sm mb-4">2e rattrapage optionnel : 150 €</p>
+                        <p class="text-gray-300 text-sm mb-2"><span data-key="masterclass3-includes">Inclut 30h de cours + 2h30 d'examen + 2h30 de rattrapage.</span></p>
+                        <p class="text-gray-400 text-sm mb-4"><span data-key="masterclass3-optional">2e rattrapage optionnel : 150 €</span></p>
                         <div class="flex items-center justify-between border-t border-gold/20 pt-4">
                             <span class="text-2xl font-bold text-gold">1 450 €</span>
-                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition" data-key="masterclass3-btn">
                                 Réserver
                             </a>
                         </div>
@@ -434,9 +435,9 @@
                 </div>
             </div>
 
-            <!-- Message final optionnel (comme pour formations) mais sans bouton supplémentaire, ou on peut en ajouter un discret -->
+            <!-- Message final optionnel -->
             <div class="glass p-8 text-center">
-                <p class="text-gray-300 text-lg">Ces formations sont également accessibles en modules à la carte. <a href="contact.html" class="text-gold underline hover:text-white">Contactez-nous</a> pour construire votre parcours.</p>
+                <p class="text-gray-300 text-lg" data-key="masterclass-footer-text">Ces formations sont également accessibles en modules à la carte. <a href="contact.html" class="text-gold underline hover:text-white">Contactez-nous</a> pour construire votre parcours.</p>
             </div>
 
         </div>
@@ -499,53 +500,273 @@
         const mobileLinks = document.querySelectorAll('.mobile-menu a');
         mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-        // Mini dictionnaire pour le footer
+        // Dictionnaire de traductions pour masterclass.html
         const translations = {
             fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L\'Institut',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choisir la langue',
+                
+                // Hero
+                'masterclass-hero-title': 'MASTERCLASS & <br><span class="text-gold italic">FORMATIONS D\'EXCEPTION</span>',
+                'masterclass-hero-btn': 'Contactez-nous',
+                
+                // Masterclass 1
+                'masterclass1-title': 'Masterclass Découverte de la Gemmologie <span class="text-white text-xl">(21 heures)</span>',
+                'masterclass1-desc': 'Cette formation immersive vous initie à l\'univers fascinant des pierres précieuses et vous transmet les fondamentaux du métier de gemmologue.',
+                'masterclass1-theory-title': 'Volet Théorique',
+                'masterclass1-theory-desc': 'fondamentaux, méthodes d\'expertise, critères d\'identification, standards internationaux.',
+                'masterclass1-practice-title': 'Volet Pratique',
+                'masterclass1-practice-desc': 'outils professionnels, observation à la loupe, usage du polariscope, distinctions naturelles.',
+                'masterclass1-price': '420 €',
+                'masterclass1-btn': 'Réserver',
+                
+                // Masterclass 2
+                'masterclass2-title': 'Masterclass Diamant : De la Mine à la Lumière <span class="text-white text-xl">(64 heures)</span>',
+                'masterclass2-desc': 'Formation complète retraçant le parcours du diamant depuis sa formation jusqu\'à sa commercialisation.',
+                'masterclass2-list1': 'Cycle du diamant, extraction, taille, marché du brut',
+                'masterclass2-list2': 'Synthèses, traitements, négoces, histoire',
+                'masterclass2-list3': 'Diamants de couleur : nuances, raretés, évaluation',
+                'masterclass2-includes': 'Inclut théorie (30h), pratique (30h), examen (4h),',
+                'masterclass2-session': '1 session de rattrapage',
+                'masterclass2-optional': '2e rattrapage optionnel : 150 €',
+                'masterclass2-btn': 'Réserver',
+                
+                // Masterclass 3
+                'masterclass3-title': 'Masterclass Négoce de Gemmes <br><span class="text-white text-xl">Expertise et Stratégies Commerciales (35 heures)</span>',
+                'masterclass3-desc': 'Approfondissez vos compétences en évaluation, sourcing, négociation et marketing appliqués au secteur gemmologique.',
+                'masterclass3-list1': 'Paramètres cristallographiques, indices réfractométriques',
+                'masterclass3-list2': 'Analyse géopolitique des zones d\'extraction',
+                'masterclass3-list3': 'Éthique, veille sectorielle, stratégie luxe et posture professionnelle',
+                'masterclass3-includes': 'Inclut 30h de cours + 2h30 d\'examen + 2h30 de rattrapage.',
+                'masterclass3-optional': '2e rattrapage optionnel : 150 €',
+                'masterclass3-btn': 'Réserver',
+                
+                // Footer text
+                'masterclass-footer-text': 'Ces formations sont également accessibles en modules à la carte. <a href="contact.html" class="text-gold underline hover:text-white">Contactez-nous</a> pour construire votre parcours.',
+                
+                // Footer
                 'footer-title-address': 'Adresse',
                 'footer-title-contact': 'Contact',
                 'footer-title-links': 'Autres liens',
                 'footer-legal': 'Mentions légales',
                 'footer-privacy': 'Politique de confidentialité',
                 'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-formations': 'Courses',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choose language',
+                
+                // Hero
+                'masterclass-hero-title': 'MASTERCLASS & <br><span class="text-gold italic">EXCEPTIONAL PROGRAMS</span>',
+                'masterclass-hero-btn': 'Contact us',
+                
+                // Masterclass 1
+                'masterclass1-title': 'Masterclass: Introduction to Gemology <span class="text-white text-xl">(21 hours)</span>',
+                'masterclass1-desc': 'This immersive training introduces you to the fascinating world of precious stones and teaches you the fundamentals of the gemologist profession.',
+                'masterclass1-theory-title': 'Theoretical Part',
+                'masterclass1-theory-desc': 'fundamentals, expertise methods, identification criteria, international standards.',
+                'masterclass1-practice-title': 'Practical Part',
+                'masterclass1-practice-desc': 'professional tools, loupe observation, polariscope use, natural distinctions.',
+                'masterclass1-price': '€420',
+                'masterclass1-btn': 'Book',
+                
+                // Masterclass 2
+                'masterclass2-title': 'Masterclass: Diamond - From Mine to Light <span class="text-white text-xl">(64 hours)</span>',
+                'masterclass2-desc': 'Complete training tracing the journey of the diamond from its formation to its marketing.',
+                'masterclass2-list1': 'Diamond cycle, extraction, cutting, rough market',
+                'masterclass2-list2': 'Syntheses, treatments, trading, history',
+                'masterclass2-list3': 'Colored diamonds: nuances, rarities, evaluation',
+                'masterclass2-includes': 'Includes theory (30h), practice (30h), exam (4h),',
+                'masterclass2-session': '1 remedial session',
+                'masterclass2-optional': '2nd optional remedial: €150',
+                'masterclass2-btn': 'Book',
+                
+                // Masterclass 3
+                'masterclass3-title': 'Masterclass: Gem Trading <br><span class="text-white text-xl">Expertise and Commercial Strategies (35 hours)</span>',
+                'masterclass3-desc': 'Deepen your skills in evaluation, sourcing, negotiation and marketing applied to the gemological sector.',
+                'masterclass3-list1': 'Crystallographic parameters, refractive indices',
+                'masterclass3-list2': 'Geopolitical analysis of extraction areas',
+                'masterclass3-list3': 'Ethics, sector monitoring, luxury strategy and professional posture',
+                'masterclass3-includes': 'Includes 30h course + 2h30 exam + 2h30 remedial.',
+                'masterclass3-optional': '2nd optional remedial: €150',
+                'masterclass3-btn': 'Book',
+                
+                // Footer text
+                'masterclass-footer-text': 'These programs are also available as à la carte modules. <a href="contact.html" class="text-gold underline hover:text-white">Contact us</a> to build your pathway.',
+                
+                // Footer
+                'footer-title-address': 'Address',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Other links',
+                'footer-legal': 'Legal notice',
+                'footer-privacy': 'Privacy policy',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            ar: {
+                // Navigation simplifiée
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'التكوينات',
+                'nav-masterclass': 'الدروس المتقدمة',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'masterclass-hero-title': 'الدروس المتقدمة <br><span class="text-gold italic">وتكوينات استثنائية</span>',
+                'masterclass-hero-btn': 'اتصل بنا',
+                
+                // Masterclass 1 simplifiée
+                'masterclass1-title': 'دروس متقدمة: اكتشاف علم الأحجار الكريمة <span class="text-white text-xl">(21 ساعة)</span>',
+                'masterclass1-btn': 'احجز',
+                
+                // Masterclass 2
+                'masterclass2-title': 'دروس متقدمة: الماس - من المنجم إلى الضوء <span class="text-white text-xl">(64 ساعة)</span>',
+                'masterclass2-btn': 'احجز',
+                
+                // Masterclass 3
+                'masterclass3-title': 'دروس متقدمة: تجارة الأحجار الكريمة <br><span class="text-white text-xl">خبرة واستراتيجيات تجارية (35 ساعة)</span>',
+                'masterclass3-btn': 'احجز',
+                
+                // Footer
+                'footer-title-address': 'العنوان',
+                'footer-title-contact': 'الاتصال',
+                'footer-title-links': 'روابط أخرى',
+                'footer-legal': 'الإشعارات القانونية',
+                'footer-privacy': 'سياسة الخصوصية',
+                'footer-copyright': '© 2025 المعهد العالي لفنون علم الأحجار الكريمة'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'masterclass-hero-title': '大师班<br><span class="text-gold italic">与卓越课程</span>',
+                'masterclass-hero-btn': '联系我们',
+                
+                // Masterclass 1
+                'masterclass1-title': '大师班：宝石学入门 <span class="text-white text-xl">(21小时)</span>',
+                'masterclass1-btn': '预订',
+                
+                // Masterclass 2
+                'masterclass2-title': '大师班：钻石 - 从矿山到光芒 <span class="text-white text-xl">(64小时)</span>',
+                'masterclass2-btn': '预订',
+                
+                // Masterclass 3
+                'masterclass3-title': '大师班：宝石贸易 <br><span class="text-white text-xl">专业知识和商业策略 (35小时)</span>',
+                'masterclass3-btn': '预订',
+                
+                // Footer
+                'footer-title-address': '地址',
+                'footer-title-contact': '联系方式',
+                'footer-title-links': '其他链接',
+                'footer-legal': '法律声明',
+                'footer-privacy': '隐私政策',
+                'footer-copyright': '© 2025 宝石艺术学院'
             }
         };
 
+        // Fonction pour changer la langue
         function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
             const currentLangSpan = document.getElementById('currentLang');
             if (currentLangSpan) {
                 const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
                 currentLangSpan.textContent = langNames[lang] || 'Fr';
             }
+
+            // Mettre à jour tous les éléments avec data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
                     } else {
                         element.innerHTML = translations[lang][key];
                     }
                 }
             });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
             document.documentElement.lang = lang;
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
             localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
             document.querySelectorAll('[data-lang]').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
         }
 
+        // Gestionnaires d'événements pour les liens de langue (desktop)
         document.querySelectorAll('.lang-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(link.getAttribute('data-lang')); });
-        });
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(btn.getAttribute('data-lang')); });
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
             changeLanguage(savedLang);
         });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
 
         function disableKeys(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
@@ -555,7 +776,7 @@
             return true;
         }
 
-        // Animation au scroll simple
+        // Animation au scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -580,6 +801,11 @@
             else navbar.style.transform = 'translateY(0)';
             if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
             lastScrollTop = scrollTop;
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) closeMobileMenu();
         });
     </script>
 </body>
