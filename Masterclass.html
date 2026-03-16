@@ -2,15 +2,17 @@
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Institut Supérieur Des Arts Gemmologiques | Excellence & Luxe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ISAG Lyon | Masterclass & Formations d'Exception</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
+            --gold-light: #F1D592;
             --dark: #0a0a0a;
-            --gold-light: #f3cf65;
+            --dark-section: #050505;
         }
 
         body {
@@ -21,11 +23,10 @@
             user-select: none;
         }
 
-        h1, h2, h3, .font-serif {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Video Background */
         .video-docker video {
             top: 50%;
             left: 50%;
@@ -39,312 +40,546 @@
         }
 
         .video-overlay {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5), rgba(0,0,0,0.95));
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.6), rgba(0,0,0,0.95));
         }
 
-        /* UI Elements */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .glass-card:hover {
+        .glass:hover {
             border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
         }
 
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
         .border-gold { border-color: var(--gold); }
 
-        /* Animations */
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(40px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .animate-up { animation: fadeIn 1.2s ease forwards; }
 
-        .reveal {
-            animation: reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        @media print { body { display: none; } }
+
+        /* Style pour le sélecteur de langue */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
         }
-
-        /* Lang Selector */
         .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
             display: none;
-            animation: fadeIn 0.3s ease-out;
+            min-width: 140px;
+            z-index: 100;
         }
         .lang-selector:hover .lang-dropdown {
             display: block;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .lang-dropdown a:hover {
+            background-color: var(--gold);
+            color: black;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--dark); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); }
+        /* Style pour le menu mobile (identique) */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 80px 30px 30px;
+            border-left: 1px solid var(--gold);
+            overflow-y: auto;
+        }
 
-        @media print { body { display: none; } }
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 15px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            color: var(--gold);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 30px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        .mobile-lang-selector {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .mobile-lang-title {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mobile-lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .mobile-lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .mobile-lang-btn.active {
+            background: var(--gold);
+            color: black;
+            border-color: var(--gold);
+        }
+
+        .hamburger-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+        .hamburger-btn:active {
+            background: var(--gold);
+        }
+        .hamburger-btn:active svg {
+            stroke: black;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 2rem !important; }
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.5rem !important; }
+        }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body oncontextmenu="return false;" onkeydown="return disableKeys(event)">
 
-    <!-- Background -->
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker z-0">
+    <!-- Vidéo en arrière-plan -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker">
         <video autoplay muted loop playsinline class="absolute">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-diamonds-shining-in-the-light-2412-large.mp4" type="video/mp4">
+            <source src="video.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80" alt="Fond Diamants">
         </video>
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass border-b border-white/5">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 border border-gold flex items-center justify-center transform rotate-45 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
-                <span class="transform -rotate-45 font-bold text-gold text-[10px] tracking-tighter">ISAG</span>
+    <!-- Navigation (identique) -->
+    <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
+                <span class="transform -rotate-45 font-bold text-gold text-[10px] sm:text-xs">ISAG</span>
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold tracking-[0.2em] text-xs uppercase">ISAG Lyon</span>
-                <span class="text-[8px] text-gold uppercase tracking-[0.2em] hidden sm:block">Institut Supérieur des Arts Gemmologiques</span>
+                <span class="font-semibold tracking-[0.2em] text-[10px] sm:text-sm uppercase">ISAG Lyon</span>
+                <span class="text-[8px] sm:text-[10px] text-gold uppercase tracking-widest hidden xs:block">Institut Supérieur</span>
             </div>
         </div>
         
+        <!-- Liens de navigation desktop -->
         <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
-            <a href="#" class="hover:text-gold transition-colors" data-key="nav-home">Accueil</a>
-            <a href="#" class="hover:text-gold transition-colors" data-key="nav-formations">Formations</a>
-            <a href="#" class="hover:text-gold transition-colors" data-key="nav-masterclass">Masterclass</a>
-            <a href="#" class="hover:text-gold transition-colors" data-key="nav-about">L’Institut</a>
-            <a href="#" class="hover:text-gold transition-colors" data-key="nav-contact">Contact</a>
+            <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
+            <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
+            <a href="masterclass.html" class="hover:text-gold transition-colors duration-300" data-key="nav-masterclass">Masterclass</a>
+            <a href="propos.html" class="hover:text-gold transition-colors duration-300" data-key="nav-about">À propos / L'Institut</a>
+            <a href="contact.html" class="hover:text-gold transition-colors duration-300" data-key="nav-contact">Contact & Admissions</a>
         </div>
 
-        <div class="flex items-center space-x-4">
-            <div class="lang-selector relative group">
-                <button class="text-gold border border-gold/30 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest flex items-center space-x-2 hover:bg-gold/10 transition-all">
-                    <span id="currentLangDisplay">FR</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M19 9l-7 7-7-7" stroke-width="2" />
-                    </svg>
-                </button>
-                <div class="lang-dropdown absolute right-0 mt-2 w-32 glass border border-gold/20 rounded-sm overflow-hidden">
-                    <button onclick="changeLang('fr')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">Français</button>
-                    <button onclick="changeLang('en')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">English</button>
-                    <button onclick="changeLang('zh')" class="w-full text-left px-4 py-2 text-[10px] uppercase hover:bg-gold hover:text-black transition-colors">中文</button>
-                </div>
+        <!-- Sélecteur de langue desktop -->
+        <div class="lang-selector hidden sm:block">
+            <button class="text-gold hover:text-white transition-colors p-2 rounded-full border border-gold/30 hover:border-gold flex items-center space-x-1" title="Choisir la langue">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <span id="currentLang" class="text-xs uppercase hidden sm:inline">Fr</span>
+            </button>
+            <div class="lang-dropdown">
+                <a data-lang="fr">🇫🇷 Français</a>
+                <a data-lang="en">🇬🇧 English</a>
+                <a data-lang="ar">🇸🇦 العربية</a>
+                <a data-lang="zh">🇨🇳  Mandarin</a>
             </div>
         </div>
+
+        <!-- Bouton menu hamburger pour mobile -->
+        <button class="lg:hidden text-gold hamburger-btn" id="menuToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
     </nav>
 
-    <!-- Hero -->
-    <header class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 text-center">
-        <div class="reveal">
-            <span class="text-gold tracking-[0.6em] text-[10px] uppercase mb-6 block" data-key="hero-subtitle">Lyon • Capitale de la Haute Joaillerie</span>
-            <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight" id="main-title" data-key="hero-title">
-                L'Art de la <br><span class="text-gold italic font-light">Gemmologie</span>
-            </h1>
-            <div class="w-20 h-[1px] bg-gold mx-auto mb-10 opacity-50"></div>
-        </div>
-        
-        <p class="max-w-2xl text-sm md:text-base font-light text-gray-400 mb-12 leading-relaxed reveal" style="animation-delay: 0.3s" data-key="hero-description">
-            Un centre d’excellence dédié à la transmission des savoir-faire d'exception. Bienvenue à l’ISAG, la référence lyonnaise pour les futurs experts des pierres précieuses.
-        </p>
+    <!-- Overlay du menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 reveal" style="animation-delay: 0.6s">
-            <button class="px-12 py-4 bg-gold text-black font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-white transition-all duration-500 shadow-xl shadow-gold/10" data-key="hero-btn1">
-                Découvrir l'Institut
-            </button>
-            <button class="px-12 py-4 border border-white/20 text-white font-bold uppercase text-[10px] tracking-[0.2em] hover:border-gold hover:text-gold transition-all duration-500" data-key="hero-btn2">
-                Nos Formations
-            </button>
+    <!-- Menu mobile latéral -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu">×</div>
+        <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-gold/30">
+            <div class="w-12 h-12 border-2 border-gold flex items-center justify-center transform rotate-45">
+                <span class="transform -rotate-45 font-bold text-gold">ISAG</span>
+            </div>
+            <div>
+                <span class="font-bold text-gold text-sm">ISAG Lyon</span>
+                <p class="text-[8px] text-gray-400">Institut Supérieur des Arts Gemmologiques</p>
+            </div>
         </div>
-    </header>
+        <a href="index.html" data-key="nav-home">Accueil</a>
+        <a href="formations.html" data-key="nav-formations">Formations</a>
+        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
+        <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
 
-    <!-- About -->
-    <section class="relative z-10 py-32 px-6 bg-[#030303]">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div class="space-y-8">
-                <h2 class="text-gold text-4xl font-light italic" data-key="about-title">L'Excellence comme héritage</h2>
-                <div class="space-y-6 text-gray-400 font-light leading-relaxed text-sm">
-                    <p data-key="about-text1">Implanté au cœur de Lyon, pôle historique de la joaillerie, l'ISAG initie ses étudiants aux codes les plus confidentiels du luxe mondial.</p>
-                    <p data-key="about-text2">Notre pédagogie offre un équilibre parfait entre rigueur scientifique de laboratoire et expertise des marchés internationaux.</p>
+        <div class="mobile-lang-selector">
+            <div class="mobile-lang-title">Choisir la langue</div>
+            <div class="mobile-lang-grid">
+                <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+                <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="mobile-lang-btn" data-lang="ar">🇸🇦 AR</button>
+                <button class="mobile-lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-4 text-center">
+            <p class="text-gold text-xs mb-2">contact-admin@gemmologie-isag.com</p>
+            <p class="text-gray-500 text-[10px]">+33 06 52 89 39 43</p>
+        </div>
+    </div>
+
+    <!-- ========== CONTENU SPÉCIFIQUE MASTERCLASS.HTML ========== -->
+    <main class="relative z-10 pt-32 pb-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- HERO : titre avec l'image fournie et bouton Contactez-nous -->
+            <div class="relative w-full h-[400px] md:h-[500px] mb-16 rounded-lg overflow-hidden glass">
+                <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/be9ccto8slq-1600x2400.jpg" alt="Masterclass fond" class="absolute inset-0 w-full h-full object-cover object-center">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+                        MASTERCLASS & <br><span class="text-gold italic">FORMATIONS D'EXCEPTION</span>
+                    </h1>
+                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                        Contactez-nous
+                    </a>
                 </div>
-                <div class="flex space-x-12 pt-6">
-                    <div>
-                        <span class="text-gold text-2xl font-bold block mb-1">100%</span>
-                        <span class="text-[9px] uppercase tracking-widest text-gray-500" data-key="about-stats1">Expertise Pratique</span>
+            </div>
+
+            <!-- 1ère MASTERCLASS : Découverte de la Gemmologie -->
+            <div class="glass p-8 md:p-10 mb-12">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Découverte de la Gemmologie <span class="text-white text-xl">(21 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                            Cette formation immersive vous initie à l'univers fascinant des pierres précieuses et vous transmet les fondamentaux du métier de gemmologue.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm">Volet Théorique</h3>
+                                <p class="text-gray-400 text-sm">fondamentaux, méthodes d'expertise, critères d'identification, standards internationaux.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-gold font-semibold mb-2 uppercase tracking-wider text-sm">Volet Pratique</h3>
+                                <p class="text-gray-400 text-sm">outils professionnels, observation à la loupe, usage du polariscope, distinctions naturelles.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gold/20 pt-4">
+                            <span class="text-2xl font-bold text-gold">420 €</span>
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                                Réserver
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <span class="text-gold text-2xl font-bold block mb-1">Lyon</span>
-                        <span class="text-[9px] uppercase tracking-widest text-gray-500" data-key="about-stats2">Quartier du Luxe</span>
+                    <!-- image illustrative (optionnelle, on peut en mettre une par défaut) -->
+                    <div class="lg:w-64 h-48 lg:h-40 rounded overflow-hidden glass shrink-0">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80" alt="Gemmologie" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
-            <div class="relative group">
-                <div class="absolute -inset-4 border border-gold/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
-                <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?auto=format&fit=crop&q=80" alt="Gem" class="relative w-full grayscale group-hover:grayscale-0 transition-all duration-1000">
-            </div>
-        </div>
-    </section>
 
-    <!-- Grid Services -->
-    <section class="relative z-10 py-32 px-6 bg-black">
+            <!-- 2ème MASTERCLASS : Diamant -->
+            <div class="glass p-8 md:p-10 mb-12">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Diamant : De la Mine à la Lumière <span class="text-white text-xl">(64 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                            Formation complète retraçant le parcours du diamant depuis sa formation jusqu'à sa commercialisation.
+                        </p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-gray-400 text-sm list-disc pl-5 mb-4">
+                            <li>Cycle du diamant, extraction, taille, marché du brut</li>
+                            <li>Synthèses, traitements, négoces, histoire</li>
+                            <li>Diamants de couleur : nuances, raretés, évaluation</li>
+                        </ul>
+                        <p class="text-gray-300 text-sm mb-2">Inclut théorie (30h), pratique (30h), examen (4h), <span class="text-gold">1 session de rattrapage</span>.</p>
+                        <p class="text-gray-400 text-sm mb-4">2e rattrapage optionnel : 150 €</p>
+                        <div class="flex items-center justify-between border-t border-gold/20 pt-4">
+                            <span class="text-2xl font-bold text-gold">2 350 €</span>
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                                Réserver
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-64 h-48 lg:h-40 rounded overflow-hidden glass shrink-0">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80" alt="Diamant" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3ème MASTERCLASS : Négoce de Gemmes avec image spécifique -->
+            <div class="glass p-8 md:p-10 mb-16">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-2xl md:text-3xl text-gold mb-4">Masterclass Négoce de Gemmes <br><span class="text-white text-xl">Expertise et Stratégies Commerciales (35 heures)</span></h2>
+                        <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                            Approfondissez vos compétences en évaluation, sourcing, négociation et marketing appliqués au secteur gemmologique.
+                        </p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-gray-400 text-sm list-disc pl-5 mb-4">
+                            <li>Paramètres cristallographiques, indices réfractométriques</li>
+                            <li>Analyse géopolitique des zones d'extraction</li>
+                            <li>Éthique, veille sectorielle, stratégie luxe et posture professionnelle</li>
+                        </ul>
+                        <p class="text-gray-300 text-sm mb-2">Inclut 30h de cours + 2h30 d'examen + 2h30 de rattrapage.</p>
+                        <p class="text-gray-400 text-sm mb-4">2e rattrapage optionnel : 150 €</p>
+                        <div class="flex items-center justify-between border-t border-gold/20 pt-4">
+                            <span class="text-2xl font-bold text-gold">1 450 €</span>
+                            <a href="contact.html" class="bg-gold text-black px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white transition">
+                                Réserver
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-64 h-48 lg:h-40 rounded overflow-hidden glass shrink-0">
+                        <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/nlcdtfwsgji.jpg" alt="Négoce de gemmes" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message final optionnel (comme pour formations) mais sans bouton supplémentaire, ou on peut en ajouter un discret -->
+            <div class="glass p-8 text-center">
+                <p class="text-gray-300 text-lg">Ces formations sont également accessibles en modules à la carte. <a href="contact.html" class="text-gold underline hover:text-white">Contactez-nous</a> pour construire votre parcours.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========== FOOTER (strictement identique) ========== -->
+    <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-10">
-                    <div class="text-gold mb-6 font-serif italic text-3xl">01</div>
-                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation1-title">Gemmologie</h3>
-                    <p class="text-xs text-gray-500 leading-loose" data-key="formation1-desc">Analyse scientifique des pierres précieuses et fines. Identification des traitements et des synthèses.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite, France
+                    </p>
                 </div>
-                <div class="glass-card p-10">
-                    <div class="text-gold mb-6 font-serif italic text-3xl">02</div>
-                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation2-title">Diamantologie</h3>
-                    <p class="text-xs text-gray-500 leading-loose" data-key="formation2-desc">Maîtrise du système de gradation international GIA. Expertise sur le diamant brut et taillé.</p>
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-contact">Contact</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        Téléphone : <a href="tel:+33652893943" class="text-gray-400 hover:text-white transition">06 52 89 39 43</a><br>
+                        E-mail : <a href="mailto:contact-admin@gemmologie-isag.com" class="text-gray-400 hover:text-white transition">contact-admin@gemmologie-isag.com</a>
+                    </p>
                 </div>
-                <div class="glass-card p-10">
-                    <div class="text-gold mb-6 font-serif italic text-3xl">03</div>
-                    <h3 class="text-lg uppercase tracking-widest mb-4" data-key="formation3-title">Horlogerie</h3>
-                    <p class="text-xs text-gray-500 leading-loose" data-key="formation4-desc">Compréhension des complications et de l'histoire des grandes manufactures de luxe.</p>
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-links">Autres liens</span>
+                    <ul class="space-y-2">
+                        <li><a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a></li>
+                        <li><a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative z-10 bg-[#050505] border-t border-white/5 py-20 px-6 text-center md:text-left">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-            <div>
-                <span class="text-gold font-bold tracking-[0.3em] uppercase block mb-6 text-sm">ISAG Lyon</span>
-                <p class="text-gray-600 text-[10px] leading-loose max-w-xs" data-key="footer-desc">
-                    L'excellence académique au service des métiers des pierres précieuses.
-                </p>
-            </div>
-            <div>
-                <span class="text-white font-semibold tracking-widest uppercase block mb-6 text-[10px]">Contact</span>
-                <p class="text-gray-600 text-[10px] space-y-2">
-                    <span class="block">Lyon, France</span>
-                    <span class="block">contact@gemmologie-isag.com</span>
-                </p>
-            </div>
-            <div class="flex flex-col items-center md:items-end">
-                <div class="flex space-x-6 text-gray-600 text-[10px] uppercase tracking-widest">
-                    <a href="#" class="hover:text-gold transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-gold transition-colors">LinkedIn</a>
-                </div>
-                <p class="mt-8 text-[8px] text-gray-800 uppercase tracking-widest">&copy; 2025 ISAG Lyon. All Rights Reserved.</p>
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] sm:text-[10px] text-gray-700 uppercase tracking-widest">
+                <p data-key="footer-copyright">© 2025 Institut Supérieur Des Arts Gemmologique</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // Mini dictionnaire pour le footer
         const translations = {
             fr: {
-                'nav-home': 'Accueil',
-                'nav-formations': 'Formations',
-                'nav-masterclass': 'Masterclass',
-                'nav-about': 'L’Institut',
-                'nav-contact': 'Contact',
-                'hero-subtitle': 'Lyon • Capitale de la Haute Joaillerie',
-                'hero-title': "L'Art de la <br><span class=\"text-gold italic font-light\">Gemmologie</span>",
-                'hero-description': 'Un centre d’excellence dédié à la transmission des savoir-faire d\'exception. Bienvenue à l’ISAG, la référence lyonnaise pour les futurs experts des pierres précieuses.',
-                'hero-btn1': 'Découvrir l\'Institut',
-                'hero-btn2': 'Nos Formations',
-                'about-title': 'L\'Excellence comme héritage',
-                'about-text1': 'Implanté au cœur de Lyon, pôle historique de la joaillerie, l\'ISAG initie ses étudiants aux codes les plus confidentiels du luxe mondial.',
-                'about-text2': 'Notre pédagogie offre un équilibre parfait entre rigueur scientifique de laboratoire et expertise des marchés internationaux.',
-                'about-stats1': 'Expertise Pratique',
-                'about-stats2': 'Quartier du Luxe',
-                'formation1-title': 'Gemmologie',
-                'formation1-desc': 'Analyse scientifique des pierres précieuses et fines. Identification des traitements et des synthèses.',
-                'formation2-title': 'Diamantologie',
-                'formation2-desc': 'Maîtrise du système de gradation international GIA. Expertise sur le diamant brut et taillé.',
-                'formation4-desc': 'Compréhension des complications et de l\'histoire des grandes manufactures de luxe.',
-                'footer-desc': 'L\'excellence académique au service des métiers des pierres précieuses.'
-            },
-            en: {
-                'nav-home': 'Home',
-                'nav-formations': 'Programs',
-                'nav-masterclass': 'Masterclass',
-                'nav-about': 'The Institute',
-                'nav-contact': 'Contact',
-                'hero-subtitle': 'Lyon • Capital of High Jewelry',
-                'hero-title': "The Art of <br><span class=\"text-gold italic font-light\">Gemology</span>",
-                'hero-description': 'A center of excellence dedicated to transmitting exceptional know-how. Welcome to ISAG, the Lyon reference for future gemstone experts.',
-                'hero-btn1': 'Discover the Institute',
-                'hero-btn2': 'Our Programs',
-                'about-title': 'Excellence as Heritage',
-                'about-text1': 'Located in the heart of Lyon, the historical hub of jewelry, ISAG introduces students to the most confidential codes of global luxury.',
-                'about-text2': 'Our pedagogy offers a perfect balance between laboratory scientific rigor and international market expertise.',
-                'about-stats1': 'Hands-on Expertise',
-                'about-stats2': 'Luxury District',
-                'formation1-title': 'Gemology',
-                'formation1-desc': 'Scientific analysis of precious and semi-precious stones. Identification of treatments and synthetics.',
-                'formation2-title': 'Diamond Grading',
-                'formation2-desc': 'Mastery of the international GIA grading system. Expertise in rough and polished diamonds.',
-                'formation4-desc': 'Understanding complications and the history of major luxury manufactures.',
-                'footer-desc': 'Academic excellence at the service of the gemstone industry.'
-            },
-            zh: {
-                'nav-home': '首页',
-                'nav-formations': '培训课程',
-                'nav-masterclass': '大师班',
-                'nav-about': '学院概况',
-                'nav-contact': '联系我们',
-                'hero-subtitle': '里昂 • 高级珠宝之都',
-                'hero-title': "宝石学的 <br><span class=\"text-gold italic font-light\">艺术</span>",
-                'hero-description': '一个致力于传承卓越技艺的卓越中心。欢迎来到 ISAG，里昂未来宝石专家的摇篮。',
-                'hero-btn1': '探索学院',
-                'hero-btn2': '查看课程',
-                'about-title': '追求卓越的传承',
-                'about-text1': 'ISAG坐落于法国珠宝历史中心里昂的心脏地带，引导学生掌握全球奢侈品行业最机密的规范。',
-                'about-text2': '我们的教学在实验室科学严谨性与国际市场专业知识之间达到了完美平衡。',
-                'about-stats1': '实践专业知识',
-                'about-stats2': '奢侈品区',
-                'formation1-title': '宝石学',
-                'formation1-desc': '宝石和半宝石的科学分析。处理和合成的鉴定。',
-                'formation2-title': '钻石学',
-                'formation2-desc': '掌握GIA国际分级系统。原石和成品钻石的专业鉴定。',
-                'formation4-desc': '深入理解复杂功能及各大奢侈钟表品牌的历史。',
-                'footer-desc': '为宝石行业服务的卓越学术教育。'
+                'footer-title-address': 'Adresse',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Autres liens',
+                'footer-legal': 'Mentions légales',
+                'footer-privacy': 'Politique de confidentialité',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
             }
         };
 
-        function changeLang(lang) {
-            document.getElementById('currentLangDisplay').innerText = lang.toUpperCase();
-            
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+        function changeLanguage(lang) {
+            const currentLangSpan = document.getElementById('currentLang');
+            if (currentLangSpan) {
+                const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
+                currentLangSpan.textContent = langNames[lang] || 'Fr';
+            }
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
                 }
             });
-            
-            // Adjust RTL if needed (for Arabic, though not implemented here)
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            localStorage.setItem('preferredLanguage', lang);
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
         }
 
-        // Preload reveal animation on scroll
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(link.getAttribute('data-lang')); });
+        });
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(btn.getAttribute('data-lang')); });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            changeLanguage(savedLang);
+        });
+
+        function disableKeys(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        // Animation au scroll simple
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, { threshold: 0.1 });
+        document.querySelectorAll('.glass').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+        // Navbar hide on scroll
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) navbar.style.transform = 'translateY(-100%)';
+            else navbar.style.transform = 'translateY(0)';
+            if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
+            lastScrollTop = scrollTop;
         });
     </script>
 </body>
