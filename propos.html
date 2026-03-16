@@ -246,7 +246,7 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation (identique aux autres pages) -->
     <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
         <div class="flex items-center space-x-2 sm:space-x-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
@@ -308,12 +308,12 @@
         </div>
         <a href="index.html" data-key="nav-home">Accueil</a>
         <a href="formations.html" data-key="nav-formations">Formations</a>
-        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="Masterclass.html" data-key="nav-masterclass">Masterclass</a>
         <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
         <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
 
         <div class="mobile-lang-selector">
-            <div class="mobile-lang-title">Choisir la langue</div>
+            <div class="mobile-lang-title" data-key="lang-choose">Choisir la langue</div>
             <div class="mobile-lang-grid">
                 <button class="mobile-lang-btn active" data-lang="fr">🇫🇷 FR</button>
                 <button class="mobile-lang-btn" data-lang="en">🇬🇧 EN</button>
@@ -337,32 +337,32 @@
                 <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/9vnacvx2748.jpg" alt="Institut fond" class="absolute inset-0 w-full h-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
                 <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-                        L’Institut Supérieur des Arts Gemmologique :<br><span class="text-gold italic">une référence à Lyon</span>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;" data-key="propos-hero-title">
+                        L'Institut Supérieur des Arts Gemmologique :<br><span class="text-gold italic">une référence à Lyon</span>
                     </h1>
-                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300" data-key="propos-hero-btn">
                         Contactez-nous
                     </a>
                 </div>
             </div>
 
-            <!-- Première section : Une vision de l’excellence -->
+            <!-- Première section : Une vision de l'excellence -->
             <div class="glass p-8 md:p-12 mb-16">
-                <h2 class="text-2xl md:text-3xl text-gold mb-6">Une vision de l’excellence au service des arts précieux</h2>
-                <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-4">
-                    L’Institut Supérieur des Arts Gemmologique (ISAG) est un établissement privé de formation professionnelle dédié aux métiers de la gemmologie, de la bijouterie, de l’horlogerie et de la communication du luxe. Implanté à Lyon, l’ISAG se distingue par la qualité de son encadrement, la précision de ses contenus et l’implication de ses formateurs, tous experts reconnus.
+                <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="propos-vision-title">Une vision de l'excellence au service des arts précieux</h2>
+                <p class="text-gray-300 leading-relaxed text-sm md:text-base mb-4" data-key="propos-vision-text1">
+                    L'Institut Supérieur des Arts Gemmologique (ISAG) est un établissement privé de formation professionnelle dédié aux métiers de la gemmologie, de la bijouterie, de l'horlogerie et de la communication du luxe. Implanté à Lyon, l'ISAG se distingue par la qualité de son encadrement, la précision de ses contenus et l'implication de ses formateurs, tous experts reconnus.
                 </p>
-                <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-                    Notre vocation : transmettre des savoirs techniques de haut niveau, allier rigueur scientifique et sensibilité artistique, et permettre à chacun de bâtir une carrière durable dans l’univers des gemmes et du luxe.
+                <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-key="propos-vision-text2">
+                    Notre vocation : transmettre des savoirs techniques de haut niveau, allier rigueur scientifique et sensibilité artistique, et permettre à chacun de bâtir une carrière durable dans l'univers des gemmes et du luxe.
                 </p>
             </div>
 
-            <!-- Deuxième section : Une pédagogie fondée sur l’exigence et la bienveillance (texte à gauche, image à droite) -->
+            <!-- Deuxième section : Une pédagogie fondée sur l'exigence et la bienveillance (texte à gauche, image à droite) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
                 <div class="glass p-8">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Une pédagogie fondée sur l’exigence et la bienveillance</h2>
-                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-                        À l’ISAG, nous croyons qu’un enseignement exigeant peut rester humain et inspirant. Chaque stagiaire bénéficie d’un accompagnement individualisé, d’un accès à du matériel professionnel et de mises en situation concrètes. Nos salles de formation et laboratoires sont pensés comme de véritables ateliers métiers.
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="propos-pedagogy-title">Une pédagogie fondée sur l'exigence et la bienveillance</h2>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-key="propos-pedagogy-text">
+                        À l'ISAG, nous croyons qu'un enseignement exigeant peut rester humain et inspirant. Chaque stagiaire bénéficie d'un accompagnement individualisé, d'un accès à du matériel professionnel et de mises en situation concrètes. Nos salles de formation et laboratoires sont pensés comme de véritables ateliers métiers.
                     </p>
                 </div>
                 <div class="glass p-2 h-80 overflow-hidden">
@@ -376,8 +376,8 @@
                     <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/wsyamymqixk.jpg" alt="Experts ISAG" class="w-full h-full object-cover rounded">
                 </div>
                 <div class="glass p-8 order-1 lg:order-2">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Des intervenants experts issus du terrain</h2>
-                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="propos-experts-title">Des intervenants experts issus du terrain</h2>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-key="propos-experts-text">
                         Nos formateurs sont des praticiens actifs dans leur domaine : experts judiciaires, consultants de maisons de luxe, créateurs, horlogers, communicants, formateurs internationaux. Cette richesse de profils garantit une vision actuelle, réaliste et motivante des métiers enseignés.
                     </p>
                 </div>
@@ -386,9 +386,9 @@
             <!-- Quatrième section : Une reconnaissance professionnelle (texte à gauche, image à droite) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
                 <div class="glass p-8">
-                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Une reconnaissance professionnelle</h2>
-                    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
-                        L’ISAG est certifié Qualiopi et propose des parcours finançables via CPF, OPCO, Pôle Emploi. Nos anciens élèves évoluent aujourd’hui dans des maisons renommées, des laboratoires, des ateliers ou en tant qu’experts indépendants.
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6" data-key="propos-recognition-title">Une reconnaissance professionnelle</h2>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-key="propos-recognition-text">
+                        L'ISAG est certifié Qualiopi et propose des parcours finançables via CPF, OPCO, Pôle Emploi. Nos anciens élèves évoluent aujourd'hui dans des maisons renommées, des laboratoires, des ateliers ou en tant qu'experts indépendants.
                     </p>
                 </div>
                 <div class="glass p-2 h-80 overflow-hidden">
@@ -396,50 +396,32 @@
                 </div>
             </div>
 
-            <!-- Section Professeurs (deux portraits côte à côte) -->
-            <div class="glass p-10 mb-16">
-                <h2 class="text-2xl md:text-3xl text-gold text-center mb-10">Nos experts formateurs</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Eva Filiol -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-gold/50 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Default_pfp.jpg/330px-Default_pfp.jpg?_=20200418092106" alt="Eva Filiol" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-xl text-gold font-bold">Eva Filiol</h3>
-                        <p class="text-gray-400 text-sm">Juriste et Gemmologue</p>
-                    </div>
-                    <!-- Ghislaine Ettahri -->
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-gold/50 mb-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Default_pfp.jpg/330px-Default_pfp.jpg?_=20200418092106" alt="Ghislaine Ettahri" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-xl text-gold font-bold">Ghislaine Ettahri</h3>
-                        <p class="text-gray-400 text-sm">Expert gemmologue, expert diamantaire, négociante et formatrice (douanes de Lyon, bijoutier à Lyon et en albace, Au Maroc)</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Section Professeurs SUPPRIMÉE (conformément à la demande) -->
 
             <!-- Dernière partie : appel à l'action -->
             <div class="glass p-12 text-center">
-                <h2 class="text-2xl md:text-3xl text-gold mb-4">Découvrez comment l’ISAG vous accompagne vers une carrière d’excellence.</h2>
-                <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 mt-4">
-                    Je m’inscris à une session
+                <h2 class="text-2xl md:text-3xl text-gold mb-4" data-key="propos-cta-text">Découvrez comment l'ISAG vous accompagne vers une carrière d'excellence.</h2>
+                <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 mt-4" data-key="propos-cta-btn">
+                    Je m'inscris à une session
                 </a>
             </div>
 
         </div>
     </main>
 
-    <!-- ========== FOOTER (strictement identique) ========== -->
+    <!-- ========== FOOTER UNIFIÉ ========== -->
     <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
         <div class="max-w-7xl mx-auto">
+            <!-- Première ligne : adresse, contact, autres liens -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <!-- Adresse -->
                 <div>
                     <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
                     <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
-                        78 avenue Champs Elysee,<br>75001 Paris, France
+                        13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite, France
                     </p>
                 </div>
+                <!-- Contact avec liens cliquables -->
                 <div>
                     <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-contact">Contact</span>
                     <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
@@ -447,14 +429,21 @@
                         E-mail : <a href="mailto:contact-admin@gemmologie-isag.com" class="text-gray-400 hover:text-white transition">contact-admin@gemmologie-isag.com</a>
                     </p>
                 </div>
+                <!-- Autres liens -->
                 <div>
                     <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-links">Autres liens</span>
                     <ul class="space-y-2">
-                        <li><a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a></li>
-                        <li><a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a></li>
+                        <li>
+                            <a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a>
+                        </li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Deuxième ligne : copyright -->
             <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] sm:text-[10px] text-gray-700 uppercase tracking-widest">
                 <p data-key="footer-copyright">© 2025 Institut Supérieur Des Arts Gemmologique</p>
             </div>
@@ -487,53 +476,237 @@
         const mobileLinks = document.querySelectorAll('.mobile-menu a');
         mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-        // Mini dictionnaire pour le footer
+        // Dictionnaire de traductions pour propos.html (sans les clés des professeurs)
         const translations = {
             fr: {
+                // Navigation
+                'nav-home': 'Accueil',
+                'nav-formations': 'Formations',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'À propos / L\'Institut',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choisir la langue',
+                
+                // Hero
+                'propos-hero-title': 'L\'Institut Supérieur des Arts Gemmologique :<br><span class="text-gold italic">une référence à Lyon</span>',
+                'propos-hero-btn': 'Contactez-nous',
+                
+                // Vision
+                'propos-vision-title': 'Une vision de l\'excellence au service des arts précieux',
+                'propos-vision-text1': 'L\'Institut Supérieur des Arts Gemmologique (ISAG) est un établissement privé de formation professionnelle dédié aux métiers de la gemmologie, de la bijouterie, de l\'horlogerie et de la communication du luxe. Implanté à Lyon, l\'ISAG se distingue par la qualité de son encadrement, la précision de ses contenus et l\'implication de ses formateurs, tous experts reconnus.',
+                'propos-vision-text2': 'Notre vocation : transmettre des savoirs techniques de haut niveau, allier rigueur scientifique et sensibilité artistique, et permettre à chacun de bâtir une carrière durable dans l\'univers des gemmes et du luxe.',
+                
+                // Pédagogie
+                'propos-pedagogy-title': 'Une pédagogie fondée sur l\'exigence et la bienveillance',
+                'propos-pedagogy-text': 'À l\'ISAG, nous croyons qu\'un enseignement exigeant peut rester humain et inspirant. Chaque stagiaire bénéficie d\'un accompagnement individualisé, d\'un accès à du matériel professionnel et de mises en situation concrètes. Nos salles de formation et laboratoires sont pensés comme de véritables ateliers métiers.',
+                
+                // Experts
+                'propos-experts-title': 'Des intervenants experts issus du terrain',
+                'propos-experts-text': 'Nos formateurs sont des praticiens actifs dans leur domaine : experts judiciaires, consultants de maisons de luxe, créateurs, horlogers, communicants, formateurs internationaux. Cette richesse de profils garantit une vision actuelle, réaliste et motivante des métiers enseignés.',
+                
+                // Reconnaissance
+                'propos-recognition-title': 'Une reconnaissance professionnelle',
+                'propos-recognition-text': 'L\'ISAG est certifié Qualiopi et propose des parcours finançables via CPF, OPCO, Pôle Emploi. Nos anciens élèves évoluent aujourd\'hui dans des maisons renommées, des laboratoires, des ateliers ou en tant qu\'experts indépendants.',
+                
+                // CTA final
+                'propos-cta-text': 'Découvrez comment l\'ISAG vous accompagne vers une carrière d\'excellence.',
+                'propos-cta-btn': 'Je m\'inscris à une session',
+                
+                // Footer
                 'footer-title-address': 'Adresse',
                 'footer-title-contact': 'Contact',
                 'footer-title-links': 'Autres liens',
                 'footer-legal': 'Mentions légales',
                 'footer-privacy': 'Politique de confidentialité',
                 'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'Home',
+                'nav-formations': 'Courses',
+                'nav-masterclass': 'Masterclass',
+                'nav-about': 'About / The Institute',
+                'nav-contact': 'Contact & Admissions',
+                'lang-choose': 'Choose language',
+                
+                // Hero
+                'propos-hero-title': 'The Institut Supérieur des Arts Gemmologique:<br><span class="text-gold italic">a reference in Lyon</span>',
+                'propos-hero-btn': 'Contact us',
+                
+                // Vision
+                'propos-vision-title': 'A vision of excellence in the service of precious arts',
+                'propos-vision-text1': 'The Institut Supérieur des Arts Gemmologique (ISAG) is a private vocational training institution dedicated to the professions of gemology, jewelry, watchmaking and luxury communication. Based in Lyon, ISAG stands out for the quality of its supervision, the precision of its content and the commitment of its trainers, all recognized experts.',
+                'propos-vision-text2': 'Our mission: to transmit high-level technical knowledge, combine scientific rigor with artistic sensitivity, and enable everyone to build a sustainable career in the world of gems and luxury.',
+                
+                // Pedagogy
+                'propos-pedagogy-title': 'A pedagogy based on rigor and benevolence',
+                'propos-pedagogy-text': 'At ISAG, we believe that demanding teaching can remain human and inspiring. Each trainee benefits from individualized support, access to professional equipment and practical simulations. Our training rooms and laboratories are designed as real professional workshops.',
+                
+                // Experts
+                'propos-experts-title': 'Expert instructors from the field',
+                'propos-experts-text': 'Our trainers are active practitioners in their field: forensic experts, luxury house consultants, creators, watchmakers, communicators, international trainers. This wealth of profiles guarantees an up-to-date, realistic and motivating vision of the professions taught.',
+                
+                // Recognition
+                'propos-recognition-title': 'Professional recognition',
+                'propos-recognition-text': 'ISAG is Qualiopi certified and offers courses that can be financed via CPF, OPCO, Pôle Emploi. Our alumni now work in renowned houses, laboratories, workshops or as independent experts.',
+                
+                // CTA
+                'propos-cta-text': 'Discover how ISAG supports you towards an excellent career.',
+                'propos-cta-btn': 'Register for a session',
+                
+                // Footer
+                'footer-title-address': 'Address',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Other links',
+                'footer-legal': 'Legal notice',
+                'footer-privacy': 'Privacy policy',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
+            },
+            ar: {
+                // Navigation
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'التكوينات',
+                'nav-masterclass': 'الدروس المتقدمة',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'propos-hero-title': 'المعهد العالي لفنون علم الأحجار الكريمة:<br><span class="text-gold italic">مرجع في ليون</span>',
+                'propos-hero-btn': 'اتصل بنا',
+                
+                // Vision simplifiée
+                'propos-vision-title': 'رؤية للتميز في خدمة الفنون الثمينة',
+                
+                // CTA
+                'propos-cta-text': 'اكتشف كيف يرافقك ISAG نحو مهنة متميزة.',
+                'propos-cta-btn': 'أسجل في دورة',
+                
+                // Footer
+                'footer-title-address': 'العنوان',
+                'footer-title-contact': 'الاتصال',
+                'footer-title-links': 'روابط أخرى',
+                'footer-legal': 'الإشعارات القانونية',
+                'footer-privacy': 'سياسة الخصوصية',
+                'footer-copyright': '© 2025 المعهد العالي لفنون علم الأحجار الكريمة'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'propos-hero-title': '宝石艺术学院：<br><span class="text-gold italic">里昂的标杆</span>',
+                'propos-hero-btn': '联系我们',
+                
+                // Vision simplifiée
+                'propos-vision-title': '卓越的愿景，为珍贵艺术服务',
+                
+                // CTA
+                'propos-cta-text': '了解ISAG如何支持您走向卓越的职业生涯。',
+                'propos-cta-btn': '注册课程',
+                
+                // Footer
+                'footer-title-address': '地址',
+                'footer-title-contact': '联系方式',
+                'footer-title-links': '其他链接',
+                'footer-legal': '法律声明',
+                'footer-privacy': '隐私政策',
+                'footer-copyright': '© 2025 宝石艺术学院'
             }
         };
 
+        // Fonction pour changer la langue
         function changeLanguage(lang) {
+            // Mettre à jour le texte du bouton de langue
             const currentLangSpan = document.getElementById('currentLang');
             if (currentLangSpan) {
                 const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
                 currentLangSpan.textContent = langNames[lang] || 'Fr';
             }
+
+            // Mettre à jour tous les éléments avec data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
                     } else {
                         element.innerHTML = translations[lang][key];
                     }
                 }
             });
+
+            // Mettre à jour les attributs lang et dir pour l'arabe
             document.documentElement.lang = lang;
-            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                // Ajustements pour le RTL
+                document.querySelectorAll('.flex').forEach(el => {
+                    if (lang === 'ar') {
+                        el.style.flexDirection = 'row-reverse';
+                    }
+                });
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.querySelectorAll('.flex').forEach(el => {
+                    el.style.flexDirection = '';
+                });
+            }
+
+            // Sauvegarder la préférence
             localStorage.setItem('preferredLanguage', lang);
+
+            // Mettre à jour la classe active sur les boutons de langue
             document.querySelectorAll('[data-lang]').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
         }
 
+        // Gestionnaires d'événements pour les liens de langue (desktop)
         document.querySelectorAll('.lang-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(link.getAttribute('data-lang')); });
-        });
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(btn.getAttribute('data-lang')); });
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
+        // Gestionnaires d'événements pour les boutons de langue mobile
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // Charger la langue préférée au démarrage
+        document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
             changeLanguage(savedLang);
         });
+
+        // Détection de la langue du navigateur pour la première visite
+        if (!localStorage.getItem('preferredLanguage')) {
+            const browserLang = navigator.language.split('-')[0];
+            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
+            if (supportedLangs.includes(browserLang)) {
+                changeLanguage(browserLang);
+            } else {
+                changeLanguage('fr');
+            }
+        }
 
         function disableKeys(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
@@ -568,6 +741,11 @@
             else navbar.style.transform = 'translateY(0)';
             if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
             lastScrollTop = scrollTop;
+        });
+
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) closeMobileMenu();
         });
     </script>
 </body>
