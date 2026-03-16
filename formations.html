@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Cursus Académiques de Gemmologie | ISAG Lyon</title>
-        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
+    <title>ISAG Lyon | Cursus intégral de l'expert gemmologue</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAb1BMVEX////V1+Hk5exlbZm+wdKxtcmQlrO2usxtdJ7BxNTz8/fY2uTO0N19g6fs7fJTXpCBiKpYYpJ0e6ERKHSdobuWmrY7SYRdZpSnq8IAC2uEiqyNkrHHytgxPn9CToYhMnmqrsQ0QoAAFm4AIXFJVYrEBYhJAAAAv0lEQVR4Ac3NS06DUABA0VMKFHiU/gvyE9T9r9GkA31pnBo90zu4fsMmAdimYtmGfAdQlCpJgDqwzxpEcX84ns6Sy/V4a+5tkeRZHDtedD0MI7ddHEemqpqnvjGUP0Zkk36M4zZ1LnkVxqqcdefg+5kmxoRFkxdDxZI3dfDPnWpACJ7V6wHQLZ61YW0o+rWf1ntailVvuhunK13GKvIo7xwSrgu52Ppxny/1V4wJM8b2EZeeINKN0Boa7OeQ+wOf68sLJ9Hp23sAAAAASUVORK5CYII=" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
@@ -19,81 +19,53 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--dark);
             color: white;
-            user-select: none;
             overflow-x: hidden;
+            user-select: none;
         }
 
-        h1, h2, h3, h4, .font-serif {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
+        }
+
+        .video-docker video {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.07);
         }
 
         .text-gold { color: var(--gold); }
         .bg-gold { background-color: var(--gold); }
         .border-gold { border-color: var(--gold); }
-        
-        /* Glassmorphism Avancé */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-        }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: 0.5s;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        .animate-up { animation: fadeIn 1.2s ease forwards; }
 
-        .glass-card:hover::before {
-            left: 100%;
-        }
-
-        .glass-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Animations de révélation */
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(50px); filter: blur(10px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-
-        .reveal { animation: reveal 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-
-        .line-accent {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .program-item {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .program-item::before {
-            content: '◊';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-size: 0.8rem;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.95));
-        }
+        @media print { body { display: none; } }
 
         /* Style pour le sélecteur de langue */
         .lang-selector {
@@ -131,33 +103,7 @@
             color: black;
         }
 
-        /* Style pour la navigation glass */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .glass:hover {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.07);
-        }
-
-        /* Empêcher les animations sur les images */
-        .image-statique, 
-        .image-statique:hover,
-        .image-statique img,
-        .image-statique img:hover {
-            transition: none !important;
-            transform: none !important;
-            filter: none !important;
-            opacity: 1 !important;
-            border-color: inherit !important;
-            scale: 1 !important;
-        }
-
-        /* Styles pour le menu mobile (identiques à index.html) */
+        /* Style pour le menu mobile (identique à index) */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -227,7 +173,6 @@
             border-radius: 50%;
         }
 
-        /* Sélecteur de langue mobile */
         .mobile-lang-selector {
             margin-top: 30px;
             padding-top: 20px;
@@ -266,11 +211,7 @@
             border-color: var(--gold);
         }
 
-        .mobile-lang-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Bouton hamburger */
+        /* Hamburger btn */
         .hamburger-btn {
             background: transparent;
             border: 1px solid var(--gold);
@@ -278,49 +219,36 @@
             padding: 8px;
             transition: all 0.3s;
         }
-
         .hamburger-btn:active {
             background: var(--gold);
         }
-
         .hamburger-btn:active svg {
             stroke: black;
         }
 
-        /* Améliorations responsive */
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem !important;
-            }
-            h2 {
-                font-size: 2rem !important;
-            }
-            .hero-subtitle {
-                font-size: 10px;
-                letter-spacing: 3px;
-            }
-            .container-padding {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .glass-card {
-                padding: 2rem !important;
-            }
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 2rem !important; }
         }
-
         @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem !important;
-            }
-            h2 {
-                font-size: 1.5rem !important;
-            }
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.5rem !important; }
         }
     </style>
 </head>
-<body class="antialiased">
+<body oncontextmenu="return false;" onkeydown="return disableKeys(event)">
 
-    <!-- Navigation avec menu mobile (identique à index.html) -->
+    <!-- Vidéo en arrière-plan (identique à index) -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden video-docker">
+        <video autoplay muted loop playsinline class="absolute">
+            <source src="video.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80" alt="Fond Diamants">
+        </video>
+        <div class="absolute inset-0 video-overlay"></div>
+    </div>
+
+    <!-- Navigation (identique à index) -->
     <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4 flex justify-between items-center glass">
         <div class="flex items-center space-x-2 sm:space-x-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 border-2 border-gold flex items-center justify-center transform rotate-45 shadow-lg shadow-gold/20">
@@ -332,7 +260,7 @@
             </div>
         </div>
         
-        <!-- Liens de navigation desktop (cachés sur mobile) -->
+        <!-- Liens de navigation desktop -->
         <div class="space-x-8 hidden lg:flex text-[10px] uppercase tracking-[0.3em] font-medium">
             <a href="index.html" class="hover:text-gold transition-colors duration-300" data-key="nav-home">Accueil</a>
             <a href="formations.html" class="hover:text-gold transition-colors duration-300" data-key="nav-formations">Formations</a>
@@ -371,7 +299,6 @@
     <!-- Menu mobile latéral -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="close-menu" id="closeMenu">×</div>
-        
         <!-- Logo dans le menu -->
         <div class="flex items-center space-x-3 mb-8 pb-4 border-b border-gold/30">
             <div class="w-12 h-12 border-2 border-gold flex items-center justify-center transform rotate-45">
@@ -382,7 +309,6 @@
                 <p class="text-[8px] text-gray-400">Institut Supérieur des Arts Gemmologiques</p>
             </div>
         </div>
-
         <!-- Liens du menu mobile -->
         <a href="index.html" data-key="nav-home">Accueil</a>
         <a href="formations.html" data-key="nav-formations">Formations</a>
@@ -403,576 +329,193 @@
 
         <!-- Informations de contact dans le menu -->
         <div class="mt-8 pt-4 text-center">
-            <p class="text-gold text-xs mb-2">contact@gemmologie-isag.com</p>
+            <p class="text-gold text-xs mb-2">contact-admin@gemmologie-isag.com</p>
             <p class="text-gray-500 text-[10px]">+33 06 52 89 39 43</p>
         </div>
     </div>
 
-    <!-- Hero Section (adaptée pour mobile) -->
-    <section class="relative min-h-[60vh] sm:min-h-[70vh] flex flex-col justify-center items-center pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 hero-overlay z-10"></div>
-            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover grayscale opacity-30" alt="Excellence Gemmologique">
-        </div>
-        
-        <div class="relative z-20 text-center max-w-4xl reveal px-2">
-            <span class="text-gold text-[10px] sm:text-xs uppercase tracking-[0.4em] sm:tracking-[0.6em] mb-4 sm:mb-8 block" data-key="hero_supra">Programmes de Haute Expertise</span>
-            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-4 sm:mb-8 leading-tight" data-key="hero_title">
-                Façonner votre <br>
-                <span class="italic font-light">Regard d'Expert</span>
-            </h1>
-            <div class="line-accent w-32 sm:w-64 mx-auto mb-6 sm:mb-10"></div>
-            <p class="text-gray-400 font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-2" data-key="hero_text">
-                De l'initiation aux secrets des inclusions minérales, nos formations certifiantes à Lyon marient rigueur scientifique et passion esthétique.
-            </p>
-        </div>
-    </section>
-
-    <!-- Main Content Section (adaptée pour mobile) -->
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-dark-section">
-        <div class="max-w-7xl mx-auto">
+    <!-- ========== CONTENU SPÉCIFIQUE FORMATIONS.HTML ========== -->
+    <main class="relative z-10 pt-32 pb-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
             
-            <!-- Intro Text Details (adapté pour mobile) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 mb-16 sm:mb-32 items-center reveal delay-1">
-                <div class="px-2">
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 italic" data-key="sec_title">Une pédagogie de l'excellence</h2>
-                    <p class="text-gray-400 font-light leading-loose text-xs sm:text-sm md:text-base mb-4 sm:mb-6" data-key="sec_text">
-                        L'ISAG propose un parcours structuré en quatre étapes clés, permettant de passer de la découverte des gemmes à la maîtrise totale de l'expertise en laboratoire. Chaque niveau est validé par un examen théorique et pratique rigoureux.
+            <!-- HERO : titre avec image de fond et bouton Contactez-nous -->
+            <div class="relative w-full h-[300px] md:h-[400px] mb-16 rounded-lg overflow-hidden glass">
+                <!-- Image de fond (via une URL externe pertinente pour la gemmologie) -->
+                <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/wr98s28orlm-768x432.jpg" alt="Diamants fond" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+                        CURSUS INTÉGRAL DE <br><span class="text-gold italic">L'EXPERT GEMMOLOGUE</span>
+                    </h1>
+                    <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                        Contactez-nous
+                    </a>
+                </div>
+            </div>
+
+            <!-- DESCRIPTION PRINCIPALE -->
+            <div class="glass p-8 md:p-12 mb-20">
+                <h2 class="text-2xl md:text-3xl text-gold mb-6">Gemmologie Professionnelle Intensive</h2>
+                <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                    La Gemmologie Professionnelle Intensive comprend les compétences essentielles du titre de Gemmologue Expert. Cette formation intensive de 5 mois (548 heures) offre un parcours accéléré d'acquisition des connaissances et savoir-faire en gemmologie. L'enseignement privilégie l'immersion pratique en laboratoire, complétée par des modules théoriques pour une maîtrise optimale des concepts fondamentaux.
+                </p>
+            </div>
+
+            <!-- PROPOSER 3 FORMULES (visuellement en cartes) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <!-- Formule 1 : Standard -->
+                <div class="glass p-8 text-center hover:border-gold transition-all">
+                    <h3 class="text-xl text-gold font-bold mb-4">Formation complète</h3>
+                    <p class="text-3xl font-bold text-white mb-4">12 360 €</p>
+                    <p class="text-gray-400 text-sm mb-6">Théorie + pratique + examen</p>
+                    <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
+                        <li>✓ 540 heures de cours</li>
+                        <li>✓ Examen final inclus</li>
+                        <li>✓ 2 sessions de rattrapage</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                </div>
+                <!-- Formule 2 : Module unique -->
+                <div class="glass p-8 text-center hover:border-gold transition-all border-gold/50">
+                    <h3 class="text-xl text-gold font-bold mb-4">Module unique</h3>
+                    <p class="text-3xl font-bold text-white mb-4">150 €</p>
+                    <p class="text-gray-400 text-sm mb-6">Par module / unité capitalisable</p>
+                    <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
+                        <li>✓ Accès à un module spécifique</li>
+                        <li>✓ Évaluation incluse</li>
+                        <li>✓ Attestation de suivi</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                </div>
+                <!-- Formule 3 : Sur mesure (option entreprise/pro) -->
+                <div class="glass p-8 text-center hover:border-gold transition-all">
+                    <h3 class="text-xl text-gold font-bold mb-4">Sur mesure</h3>
+                    <p class="text-3xl font-bold text-white mb-4">Nous contacter</p>
+                    <p class="text-gray-400 text-sm mb-6">Pour groupes ou entreprises</p>
+                    <ul class="text-left text-gray-300 text-sm space-y-2 mb-6">
+                        <li>✓ Programme personnalisé</li>
+                        <li>✓ Calendrier adapté</li>
+                        <li>✓ Devis sur demande</li>
+                    </ul>
+                    <a href="contact.html" class="inline-block border border-gold text-gold px-6 py-2 text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">Choisir</a>
+                </div>
+            </div>
+
+            <!-- COMPÉTENCES DÉVELOPPÉES avec image à droite -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="glass p-8">
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Compétences développées</h2>
+                    <p class="text-gray-300 text-sm mb-4">À l'issue de la formation, les participants maîtriseront :</p>
+                    <ul class="text-gray-400 text-sm space-y-3 list-disc pl-5">
+                        <li>L'identification précise des gemmes et de leurs caractéristiques</li>
+                        <li>La réalisation d'expertises techniques et scientifiques selon les standards internationaux</li>
+                        <li>L'évaluation des diamants blancs selon les critères 4C (taille, couleur, pureté, carat) et diamants de couleurs</li>
+                        <li>La gradation professionnelle des perles</li>
+                        <li>La rédaction de rapports d'analyses gemmologiques conformes aux exigences du secteur</li>
+                        <li>La connaissance des cadres législatifs internationaux régissant le commerce des gemmes</li>
+                        <li>La sélection des couvertures d'assurance adaptées au transport sécurisé des pierres précieuses</li>
+                    </ul>
+                </div>
+                <div class="glass p-2">
+                    <img src="https://i.imgur.com/jw8gyAq.jpeg" alt="Compétences gemmologie" class="w-full h-auto rounded">
+                </div>
+            </div>
+
+            <!-- STRUCTURE DU PROGRAMME avec image à gauche -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="glass p-2 order-2 lg:order-1">
+                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/m3t3e7gzpkq.jpg" alt="Structure du programme" class="w-full h-auto rounded">
+                </div>
+                <div class="glass p-8 order-1 lg:order-2">
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6">Structure du Programme (548 heures)</h2>
+                    <ul class="text-gray-300 text-sm space-y-3 list-disc pl-5 columns-1 md:columns-2 gap-6">
+                        <li>Module Fondamental Niveau I | 78h : Identification et classification</li>
+                        <li>Module Intermédiaire Niveau II | 78h : Propriétés et caractérisation</li>
+                        <li>Module Avancé I Niveau III | 130h : Sciences gemmologiques</li>
+                        <li>Module Avancé II Niveau IV | 130h : Expertise spécialisée</li>
+                        <li>Module Spécialisé | 60h : Diamantologie</li>
+                        <li>Module Juridique | 35h : Cadre réglementaire</li>
+                        <li>Module Négoce | 35h : Commerce des gemmes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PRIX DE LA FORMATION avec image -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="glass p-8">
+                    <h2 class="text-2xl md:text-3xl text-gold mb-6">PRIX DE LA FORMATION</h2>
+                    <p class="text-gray-300 text-sm mb-4">Formation complète : 540 heures</p>
+                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold">Inclus dans le prix standard :</span></p>
+                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-5 mb-6">
+                        <li>Heures de cours (théorie et pratique)</li>
+                        <li>Examen final</li>
+                        <li>2 sessions de rattrapage</li>
+                    </ul>
+                    <p class="text-gray-400 text-sm mb-2"><span class="text-white font-semibold">Options :</span></p>
+                    <ul class="text-gray-400 text-sm space-y-1">
+                        <li>Formation complète (théorie + pratique + examen) : <span class="text-gold font-bold">12360 €</span></li>
+                        <li>Module unique : <span class="text-gold font-bold">150 €</span></li>
+                    </ul>
+                </div>
+                <div class="glass p-2">
+                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/oiohxaq_lrw-768x512.jpg" alt="Prix formation" class="w-full h-auto rounded">
+                </div>
+            </div>
+
+            <!-- BANDEAU FINAL : Lancez votre parcours + bouton -->
+            <div class="glass p-12 text-center mt-16">
+                <h2 class="text-2xl md:text-3xl text-gold mb-4">Lancez votre parcours dans les métiers de la gemmologie avec l'ISAG.</h2>
+                <a href="contact.html" class="inline-block bg-gold text-black px-10 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 mt-4">
+                    Je m'inscris à une session
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========== FOOTER (strictement identique à index) ========== -->
+    <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Première ligne : adresse, contact, autres liens -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <!-- Adresse -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        13 Bd John Fitzgerald Kennedy,<br>69600 Oullins-Pierre-Bénite, France
                     </p>
-                    <div class="grid grid-cols-2 gap-4 sm:gap-8 text-[8px] sm:text-[10px] uppercase tracking-widest text-gold font-semibold">
-                        <div class="flex flex-col border-l border-gold/30 pl-2 sm:pl-4">
-                            <span>+500 Pierres</span>
-                            <span class="text-gray-600 font-normal" data-key="sec_stat1">Collection d'étude</span>
-                        </div>
-                        <div class="flex flex-col border-l border-gold/30 pl-2 sm:pl-4">
-                            <span>Équipement GIA</span>
-                            <span class="text-gray-600 font-normal" data-key="sec_stat2">Standards mondiaux</span>
-                        </div>
-                    </div>
                 </div>
-                <div class="relative px-2">
-                    <img src="https://gemmologie-isag.com/wp-content/uploads/2025/07/talnaz9bug0-768x512.jpg" class="rounded-sm grayscale border border-white/10 image-statique w-full" alt="Étude de gemme">
-                    <div class="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 glass-card p-3 sm:p-6 hidden md:block">
-                        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gold mb-1 sm:mb-2" data-key="next_session">Prochaine Session</p>
-                        <p class="text-sm sm:text-xl">Septembre 2025</p>
-                    </div>
+                <!-- Contact avec liens cliquables -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-contact">Contact</span>
+                    <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
+                        Téléphone : <a href="tel:+33652893943" class="text-gray-400 hover:text-white transition">06 52 89 39 43</a><br>
+                        E-mail : <a href="mailto:contact-admin@gemmologie-isag.com" class="text-gray-400 hover:text-white transition">contact-admin@gemmologie-isag.com</a>
+                    </p>
+                </div>
+                <!-- Autres liens -->
+                <div>
+                    <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-links">Autres liens</span>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="avis.html" class="text-red-600 hover:text-red-400 transition text-[11px] sm:text-xs font-medium" data-key="footer-legal">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="Politique.html" class="text-gray-400 hover:text-white transition text-[11px] sm:text-xs" data-key="footer-privacy">Politique de confidentialité</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Enhanced Cursus Grid (adapté pour mobile) -->
-            <div class="grid grid-cols-1 gap-6 sm:gap-12">
-                
-                <!-- NIVEAU 1 - Adapté mobile -->
-                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-2">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
-                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
-                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">01</span>
-                            <div class="h-[1px] flex-grow bg-gold/30"></div>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n1_title">Les Fondamentaux</h3>
-                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n1_sub">Introduction & Identification</p>
-                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-                            <p><strong data-key="duration">Durée :</strong> <span data-key="n1_duration">5 jours (35h)</span></p>
-                            <p><strong data-key="audience">Public :</strong> <span data-key="n1_audience">Débutants, passionnés</span></p>
-                            <p><strong data-key="objective">Objectif :</strong> <span data-key="n1_objective">Savoir utiliser la loupe 10x et le réfractomètre.</span></p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                        <div>
-                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list1">Cristallographie et systèmes cristallins</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list2">Propriétés physiques et optiques</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list3">Utilisation des instruments de base</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n1_list4">Étude des "Big Three" (Rubis, Saphir, Émeraude)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
-                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n1_quote">
-                                "À l'issue de ce niveau, l'étudiant est capable de distinguer une pierre naturelle d'une imitation plastique ou vitreuse simple."
-                            </p>
-                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n1_button">Télécharger la brochure</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NIVEAU 2 - Adapté mobile -->
-                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-3">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
-                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
-                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">02</span>
-                            <div class="h-[1px] flex-grow bg-gold/30"></div>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n2_title">L'Inclusion</h3>
-                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n2_sub">Laboratoire & Approfondissement</p>
-                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-                            <p><strong data-key="duration">Durée :</strong> <span data-key="n2_duration">10 jours (70h)</span></p>
-                            <p><strong data-key="prereq">Pré-requis :</strong> <span data-key="n2_prereq">Niveau 1 validé</span></p>
-                            <p><strong data-key="objective">Objectif :</strong> <span data-key="n2_objective">Maîtrise du microscope binoculaire.</span></p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                        <div>
-                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list1">Inclusions solides, liquides et gazeuses</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list2">Polariscope et spectroscope à main</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list3">Identification des pierres fines (Tourmaline, Grenat, Topaze)</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n2_list4">Méthodologie de rapport de laboratoire</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
-                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n2_quote">
-                                "Identification systématique des pierres de couleur et détection des synthèses historiques (Verneuil)."
-                            </p>
-                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n2_button">S'inscrire à l'examen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NIVEAU 3 - Adapté mobile -->
-                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-4">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
-                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
-                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">03</span>
-                            <div class="h-[1px] flex-grow bg-gold/30"></div>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n3_title">L'Expertise</h3>
-                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n3_sub">Synthèses & Traitements</p>
-                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-                            <p><strong data-key="duration">Durée :</strong> <span data-key="n3_duration">15 jours (105h)</span></p>
-                            <p><strong data-key="profile">Profil :</strong> <span data-key="n3_profile">Futurs experts, négociants</span></p>
-                            <p><strong data-key="objective">Objectif :</strong> <span data-key="n3_objective">Certification professionnelle ISAG.</span></p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                        <div>
-                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list1">Détection des traitements thermiques et chimiques</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list2">Synthèses modernes (Flux, Hydrothermale)</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list3">Expertise du diamant (Les 4C)</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n3_list4">Marché mondial et cotations (Rapaport)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white/5 p-4 sm:p-6 rounded-sm">
-                            <h4 class="text-white text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="skills">Compétences Acquises</h4>
-                            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed mb-3 sm:mb-4 italic" data-key="n3_quote">
-                                "Capacité à authentifier des lots complexes et à rédiger des certificats d'expertise reconnus."
-                            </p>
-                            <button class="w-full py-2 sm:py-3 bg-gold/10 border border-gold/50 text-gold text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold hover:text-black transition-all" data-key="n3_button">Demander un entretien</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NIVEAU 4 - Adapté mobile -->
-                <div class="glass-card p-6 sm:p-8 md:p-10 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 reveal delay-4">
-                    <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/10 pb-4 sm:pb-6 lg:pb-0 lg:pr-8 lg:pr-12">
-                        <div class="flex items-center space-x-2 sm:space-x-4 mb-3 sm:mb-6">
-                            <span class="text-2xl sm:text-3xl lg:text-4xl font-serif text-gold">04</span>
-                            <div class="h-[1px] flex-grow bg-gold/30"></div>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-4 italic" data-key="n4_title">Masterclass</h3>
-                        <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mb-3 sm:mb-6" data-key="n4_sub">Haute Joaillerie & Investissement</p>
-                        <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-                            <p><strong data-key="format">Format :</strong> <span data-key="n4_format">Coaching individuel</span></p>
-                            <p><strong data-key="target">Cible :</strong> <span data-key="n4_target">Directeurs de création, Collectionneurs</span></p>
-                            <p><strong data-key="focus">Focus :</strong> <span data-key="n4_focus">Pierres d'exception.</span></p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                        <div>
-                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="program">Programme Académique</h4>
-                            <ul class="text-xs sm:text-sm text-gray-300 space-y-1 sm:space-y-2 font-light">
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list1">Analyse des origines géographiques (Pigeon Blood, Royal Blue)</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list2">Gemmes organiques (Perles, Ambre, Corail)</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list3">Estimation en ventes aux enchères</li>
-                                <li class="program-item text-[11px] sm:text-xs" data-key="n4_list4">Droit et éthique (Processus de Kimberley)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gold/5 p-4 sm:p-6 rounded-sm border border-gold/20">
-                            <h4 class="text-gold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-4" data-key="exclusive">Exclusivité ISAG</h4>
-                            <p class="text-[10px] sm:text-xs text-gray-400 leading-relaxed mb-3 sm:mb-4" data-key="n4_exclusive">
-                                Accès privé à notre collection de pierres de musées et immersion chez nos partenaires lapidaires.
-                            </p>
-                            <button class="w-full py-2 sm:py-3 bg-white text-black text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.2em] hover:bg-gold transition-all font-bold" data-key="n4_button">Contact Privé</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer adapté mobile -->
-    <footer class="bg-black py-16 sm:py-32 px-4 sm:px-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-16">
-            <div class="sm:col-span-2">
-                <span class="text-2xl sm:text-3xl font-light tracking-[0.2em] sm:tracking-[0.3em] text-gold block mb-4 sm:mb-8">ISAG</span>
-                <p class="text-gray-500 font-light max-w-sm leading-loose text-xs sm:text-sm" data-key="footer_desc">
-                    L'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.
-                </p>
-            </div>
-            <div>
-                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="footer_nav">Navigation</h5>
-                <ul class="text-gray-500 text-[10px] sm:text-xs space-y-2 sm:space-y-4 uppercase tracking-widest">
-                    <li><a href="index.html" class="hover:text-gold" data-key="nav-home">Accueil</a></li>
-                    <li><a href="formations.html" class="hover:text-gold" data-key="nav-formations">Formations</a></li>
-                    <li><a href="masterclass.html" class="hover:text-gold" data-key="nav-masterclass">Masterclass</a></li>
-                    <li><a href="propos.html" class="hover:text-gold" data-key="nav-about">À propos</a></li>
-                    <li><a href="contact.html" class="hover:text-gold" data-key="nav-contact">Contact & Admissions</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-white uppercase text-[9px] sm:text-[10px] tracking-widest mb-4 sm:mb-8" data-key="location">Lieu d'Exception</h5>
-                <p class="text-gray-500 text-[10px] sm:text-xs font-light leading-relaxed" data-key="address">
-                    Presqu'île de Lyon<br>
-                    69002 France<br><br>
-                    admissions@gemmologie-isag.com
-                </p>
-            </div>
-        </div>
-        <div class="mt-16 sm:mt-32 pt-4 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[7px] sm:text-[8px] text-gray-700 uppercase tracking-[0.2em] sm:tracking-[0.4em]">
-            <span data-key="copyright">© 2025 ISAG Lyon. Tous droits réservés.</span>
-            <div class="flex space-x-4 sm:space-x-8 mt-2 sm:mt-4 md:mt-0">
-                <a href="#" data-key="legal">Mentions Légales</a>
-                <a href="#" data-key="privacy">Confidentialité</a>
+            <!-- Deuxième ligne : copyright -->
+            <div class="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] sm:text-[10px] text-gray-700 uppercase tracking-widest">
+                <p data-key="footer-copyright">© 2025 Institut Supérieur Des Arts Gemmologique</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Dictionnaire de traductions COMPLET (identique à celui fourni précédemment)
-        const translations = {
-            fr: {
-                // Navigation
-                'nav-home': 'Accueil',
-                'nav-formations': 'Formations',
-                'nav-masterclass': 'Masterclass',
-                'nav-about': 'À propos / L\'Institut',
-                'nav-contact': 'Contact & Admissions',
-                
-                // Hero
-                'hero_supra': 'Programmes de Haute Expertise',
-                'hero_title': 'Façonner votre <br><span class="italic font-light">Regard d\'Expert</span>',
-                'hero_text': 'De l\'initiation aux secrets des inclusions minérales, nos formations certifiantes à Lyon marient rigueur scientifique et passion esthétique.',
-                
-                // Section intro
-                'sec_title': 'Une pédagogie de l\'excellence',
-                'sec_text': 'L\'ISAG propose un parcours structuré en quatre étapes clés, permettant de passer de la découverte des gemmes à la maîtrise totale de l\'expertise en laboratoire. Chaque niveau est validé par un examen théorique et pratique rigoureux.',
-                'sec_stat1': 'Collection d\'étude',
-                'sec_stat2': 'Standards mondiaux',
-                'next_session': 'Prochaine Session',
-                
-                // Labels génériques
-                'duration': 'Durée :',
-                'audience': 'Public :',
-                'objective': 'Objectif :',
-                'prereq': 'Pré-requis :',
-                'profile': 'Profil :',
-                'format': 'Format :',
-                'target': 'Cible :',
-                'focus': 'Focus :',
-                'program': 'Programme Académique',
-                'skills': 'Compétences Acquises',
-                'exclusive': 'Exclusivité ISAG',
-                
-                // Niveau 1
-                'n1_title': 'Les Fondamentaux',
-                'n1_sub': 'Introduction & Identification',
-                'n1_duration': '5 jours (35h)',
-                'n1_audience': 'Débutants, passionnés',
-                'n1_objective': 'Savoir utiliser la loupe 10x et le réfractomètre.',
-                'n1_list1': 'Cristallographie et systèmes cristallins',
-                'n1_list2': 'Propriétés physiques et optiques',
-                'n1_list3': 'Utilisation des instruments de base',
-                'n1_list4': 'Étude des "Big Three" (Rubis, Saphir, Émeraude)',
-                'n1_quote': '"À l\'issue de ce niveau, l\'étudiant est capable de distinguer une pierre naturelle d\'une imitation plastique ou vitreuse simple."',
-                'n1_button': 'Télécharger la brochure',
-                
-                // Niveau 2
-                'n2_title': 'L\'Inclusion',
-                'n2_sub': 'Laboratoire & Approfondissement',
-                'n2_duration': '10 jours (70h)',
-                'n2_prereq': 'Niveau 1 validé',
-                'n2_objective': 'Maîtrise du microscope binoculaire.',
-                'n2_list1': 'Inclusions solides, liquides et gazeuses',
-                'n2_list2': 'Polariscope et spectroscope à main',
-                'n2_list3': 'Identification des pierres fines (Tourmaline, Grenat, Topaze)',
-                'n2_list4': 'Méthodologie de rapport de laboratoire',
-                'n2_quote': '"Identification systématique des pierres de couleur et détection des synthèses historiques (Verneuil)."',
-                'n2_button': 'S\'inscrire à l\'examen',
-                
-                // Niveau 3
-                'n3_title': 'L\'Expertise',
-                'n3_sub': 'Synthèses & Traitements',
-                'n3_duration': '15 jours (105h)',
-                'n3_profile': 'Futurs experts, négociants',
-                'n3_objective': 'Certification professionnelle ISAG.',
-                'n3_list1': 'Détection des traitements thermiques et chimiques',
-                'n3_list2': 'Synthèses modernes (Flux, Hydrothermale)',
-                'n3_list3': 'Expertise du diamant (Les 4C)',
-                'n3_list4': 'Marché mondial et cotations (Rapaport)',
-                'n3_quote': '"Capacité à authentifier des lots complexes et à rédiger des certificats d\'expertise reconnus."',
-                'n3_button': 'Demander un entretien',
-                
-                // Niveau 4
-                'n4_title': 'Masterclass',
-                'n4_sub': 'Haute Joaillerie & Investissement',
-                'n4_format': 'Coaching individuel',
-                'n4_target': 'Directeurs de création, Collectionneurs',
-                'n4_focus': 'Pierres d\'exception.',
-                'n4_list1': 'Analyse des origines géographiques (Pigeon Blood, Royal Blue)',
-                'n4_list2': 'Gemmes organiques (Perles, Ambre, Corail)',
-                'n4_list3': 'Estimation en ventes aux enchères',
-                'n4_list4': 'Droit et éthique (Processus de Kimberley)',
-                'n4_exclusive': 'Accès privé à notre collection de pierres de musées et immersion chez nos partenaires lapidaires.',
-                'n4_button': 'Contact Privé',
-                
-                // Footer
-                'footer_desc': 'L\'Institut Supérieur des Arts Gemmologiques est dédié à la transmission du savoir millénaire des pierres précieuses à travers une approche moderne et scientifique.',
-                'footer_nav': 'Navigation',
-                'location': 'Lieu d\'Exception',
-                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG Lyon. Tous droits réservés.',
-                'legal': 'Mentions Légales',
-                'privacy': 'Confidentialité'
-            },
-            en: {
-                'nav-home': 'Home',
-                'nav-formations': 'Programs',
-                'nav-masterclass': 'Masterclass',
-                'nav-about': 'About / The Institute',
-                'nav-contact': 'Contact & Admissions',
-                'hero_supra': 'High-Expertise Programs',
-                'hero_title': 'Shape your <br><span class="italic font-light">Expert Eye</span>',
-                'hero_text': 'From basic initiation to the secrets of mineral inclusions, our certified courses in Lyon blend scientific rigor with aesthetic passion.',
-                'sec_title': 'Excellence in teaching',
-                'sec_text': 'ISAG offers a structured curriculum in four key stages, allowing students to progress from discovering gemstones to mastering laboratory expertise. Each level is validated by rigorous theoretical and practical examinations.',
-                'sec_stat1': 'Study Collection',
-                'sec_stat2': 'World Standards',
-                'next_session': 'Next Session',
-                'duration': 'Duration:',
-                'audience': 'Audience:',
-                'objective': 'Objective:',
-                'prereq': 'Prerequisites:',
-                'profile': 'Profile:',
-                'format': 'Format:',
-                'target': 'Target:',
-                'focus': 'Focus:',
-                'program': 'Academic Program',
-                'skills': 'Skills Acquired',
-                'exclusive': 'ISAG Exclusive',
-                'n1_title': 'Fundamentals',
-                'n1_sub': 'Introduction & Identification',
-                'n1_duration': '5 days (35h)',
-                'n1_audience': 'Beginners, enthusiasts',
-                'n1_objective': 'Learn to use the 10x loupe and refractometer.',
-                'n1_list1': 'Crystallography and crystal systems',
-                'n1_list2': 'Physical and optical properties',
-                'n1_list3': 'Use of basic instruments',
-                'n1_list4': 'Study of the "Big Three" (Ruby, Sapphire, Emerald)',
-                'n1_quote': '"Upon completion of this level, the student can distinguish a natural stone from simple plastic or glass imitation."',
-                'n1_button': 'Download brochure',
-                'n2_title': 'Inclusions',
-                'n2_sub': 'Laboratory & Advanced Studies',
-                'n2_duration': '10 days (70h)',
-                'n2_prereq': 'Level 1 validated',
-                'n2_objective': 'Mastery of the binocular microscope.',
-                'n2_list1': 'Solid, liquid and gaseous inclusions',
-                'n2_list2': 'Polariscope and hand spectroscope',
-                'n2_list3': 'Identification of semi-precious stones (Tourmaline, Garnet, Topaz)',
-                'n2_list4': 'Laboratory report methodology',
-                'n2_quote': '"Systematic identification of colored stones and detection of historical synthetics (Verneuil)."',
-                'n2_button': 'Register for exam',
-                'n3_title': 'Expertise',
-                'n3_sub': 'Syntheses & Treatments',
-                'n3_duration': '15 days (105h)',
-                'n3_profile': 'Future experts, traders',
-                'n3_objective': 'ISAG professional certification.',
-                'n3_list1': 'Detection of heat and chemical treatments',
-                'n3_list2': 'Modern synthetics (Flux, Hydrothermal)',
-                'n3_list3': 'Diamond expertise (The 4Cs)',
-                'n3_list4': 'Global market and quotations (Rapaport)',
-                'n3_quote': '"Ability to authenticate complex batches and write recognized expert reports."',
-                'n3_button': 'Request an interview',
-                'n4_title': 'Masterclass',
-                'n4_sub': 'High Jewelry & Investment',
-                'n4_format': 'Individual coaching',
-                'n4_target': 'Creative directors, Collectors',
-                'n4_focus': 'Exceptional stones.',
-                'n4_list1': 'Analysis of geographical origins (Pigeon Blood, Royal Blue)',
-                'n4_list2': 'Organic gems (Pearls, Amber, Coral)',
-                'n4_list3': 'Auction house valuation',
-                'n4_list4': 'Law and ethics (Kimberley Process)',
-                'n4_exclusive': 'Private access to our museum stone collection and immersion with our lapidary partners.',
-                'n4_button': 'Private Contact',
-                'footer_desc': 'The Institut Supérieur des Arts Gemmologiques is dedicated to transmitting the ancient knowledge of precious stones through a modern and scientific approach.',
-                'footer_nav': 'Navigation',
-                'location': 'Exceptional Location',
-                'address': 'Presqu\'île de Lyon<br>69002 France<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG Lyon. All rights reserved.',
-                'legal': 'Legal Notice',
-                'privacy': 'Privacy'
-            },
-            ar: {
-                'nav-home': 'الرئيسية',
-                'nav-formations': 'البرامج',
-                'nav-masterclass': 'دراسات عليا',
-                'nav-about': 'عن المعهد',
-                'nav-contact': 'الاتصال والتسجيل',
-                'hero_supra': 'برامج الخبرة العالية',
-                'hero_title': 'شكل <br><span class="italic font-light">عين الخبير</span>',
-                'hero_text': 'من التمهيد إلى أسرار الشوائب المعدنية، دوراتنا المعتمدة في ليون تمزج بين الدقة العلمية والشغف الجمالي.',
-                'sec_title': 'نهج التميز التربوي',
-                'sec_text': 'يقدم المعهد العالي لفنون علم الأحجار الكريمة منهجاً منظمًا على أربع مراحل رئيسية، تسمح بالانتقال من اكتشاف الأحجار الكريمة إلى الإتقان الكامل للخبرة المخبرية. كل مستوى يتم التحقق منه بامتحان نظري وعملي صارم.',
-                'sec_stat1': 'مجموعة دراسة',
-                'sec_stat2': 'معايير عالمية',
-                'next_session': 'الدورة القادمة',
-                'duration': 'المدة:',
-                'audience': 'الجمهور:',
-                'objective': 'الهدف:',
-                'prereq': 'المتطلبات:',
-                'profile': 'الملف:',
-                'format': 'التنسيق:',
-                'target': 'الهدف:',
-                'focus': 'التركيز:',
-                'program': 'البرنامج الأكاديمي',
-                'skills': 'المهارات المكتسبة',
-                'exclusive': 'حصرية للمعهد',
-                'n1_title': 'الأساسيات',
-                'n1_sub': 'مقدمة وتحديد الهوية',
-                'n1_duration': '5 أيام (35 ساعة)',
-                'n1_audience': 'المبتدئون، الهواة',
-                'n1_objective': 'تعلم استخدام العدسة المكبرة 10x وجهاز قياس الانكسار.',
-                'n1_list1': 'علم البلورات والأنظمة البلورية',
-                'n1_list2': 'الخصائص الفيزيائية والبصرية',
-                'n1_list3': 'استخدام الأدوات الأساسية',
-                'n1_list4': 'دراسة "الثلاثة الكبار" (ياقوت، زفير، زمرد)',
-                'n1_quote': '"عند الانتهاء من هذا المستوى، يمكن للطالب تمييز الحجر الطبيعي من التقليد البلاستيكي أو الزجاجي البسيط."',
-                'n1_button': 'تحميل الكتيب',
-                'n2_title': 'الشوائب',
-                'n2_sub': 'المختبر والتعمق',
-                'n2_duration': '10 أيام (70 ساعة)',
-                'n2_prereq': 'المستوى 1 مُعتمد',
-                'n2_objective': 'إتقان استخدام المجهر ثنائي العينية.',
-                'n2_list1': 'الشوائب الصلبة والسائلة والغازية',
-                'n2_list2': 'المستقطب ومطياف اليد',
-                'n2_list3': 'تحديد الأحجار الكريمة الثانوية (التورمالين، العقيق، التوباز)',
-                'n2_list4': 'منهجية تقرير المختبر',
-                'n2_quote': '"تحديد منهجي للأحجار الملونة وكشف التركيبات التاريخية (فيرنويل)."',
-                'n2_button': 'التسجيل للامتحان',
-                'n3_title': 'الخبرة',
-                'n3_sub': 'التركيبات والمعالجات',
-                'n3_duration': '15 يومًا (105 ساعة)',
-                'n3_profile': 'خبراء مستقبليون، تجار',
-                'n3_objective': 'شهادة مهنية من المعهد.',
-                'n3_list1': 'كشف المعالجات الحرارية والكيميائية',
-                'n3_list2': 'التركيبات الحديثة (التدفق، الهيدروحراري)',
-                'n3_list3': 'خبرة الماس (المعايير الأربعة)',
-                'n3_list4': 'السوق العالمي والأسعار (رابابورت)',
-                'n3_quote': '"القدرة على توثيق المجموعات المعقدة وكتابة تقارير خبرة معترف بها."',
-                'n3_button': 'طلب مقابلة',
-                'n4_title': 'دراسات عليا',
-                'n4_sub': 'المجوهرات الراقية والاستثمار',
-                'n4_format': 'تدريب فردي',
-                'n4_target': 'مديرو الإبداع، هواة الجمع',
-                'n4_focus': 'أحجار استثنائية',
-                'n4_list1': 'تحليل المنشأ الجغرافي (دم الحمام، الأزرق الملكي)',
-                'n4_list2': 'الأحجار العضوية (اللؤلؤ، الكهرمان، المرجان)',
-                'n4_list3': 'التقييم في المزادات',
-                'n4_list4': 'القانون والأخلاق (عملية كيمبرلي)',
-                'n4_exclusive': 'وصول خاص إلى مجموعة الأحجار المتحفية لدينا والانغماس مع شركائنا في قطع الأحجار.',
-                'n4_button': 'اتصال خاص',
-                'footer_desc': 'المعهد العالي لفنون علم الأحجار الكريمة مكرس لنقل المعرفة العريقة للأحجار الكريمة من خلال نهج حديث وعلمي.',
-                'footer_nav': 'التنقل',
-                'location': 'موقع استثنائي',
-                'address': 'شبه جزيرة ليون<br>69002 فرنسا<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG ليون. جميع الحقوق محفوظة.',
-                'legal': 'إشعار قانوني',
-                'privacy': 'خصوصية'
-            },
-            zh: {
-                'nav-home': '首页',
-                'nav-formations': '课程',
-                'nav-masterclass': '大师班',
-                'nav-about': '关于学院',
-                'nav-contact': '联系与入学',
-                'hero_supra': '高级专业课程',
-                'hero_title': '塑造你的<br><span class="italic font-light">专家眼光</span>',
-                'hero_text': '从矿物内含物的秘密入门开始，我们在里昂的认证课程将科学严谨与审美热情相结合。',
-                'sec_title': '卓越的教学法',
-                'sec_text': 'ISAG提供四个关键阶段的结构化课程，使学生能够从发现宝石到完全掌握实验室专业知识。每个级别都通过严格的理论和实践考试进行验证。',
-                'sec_stat1': '研究收藏',
-                'sec_stat2': '世界标准',
-                'next_session': '下一期',
-                'duration': '时长：',
-                'audience': '受众：',
-                'objective': '目标：',
-                'prereq': '先决条件：',
-                'profile': '对象：',
-                'format': '形式：',
-                'target': '目标群体：',
-                'focus': '重点：',
-                'program': '学术课程',
-                'skills': '获得技能',
-                'exclusive': 'ISAG独家',
-                'n1_title': '基础知识',
-                'n1_sub': '介绍与鉴定',
-                'n1_duration': '5天 (35小时)',
-                'n1_audience': '初学者，爱好者',
-                'n1_objective': '学习使用10倍放大镜和折射仪。',
-                'n1_list1': '晶体学和晶体系统',
-                'n1_list2': '物理和光学性质',
-                'n1_list3': '基础仪器的使用',
-                'n1_list4': '研究"三大宝石"（红宝石、蓝宝石、祖母绿）',
-                'n1_quote': '"完成此级别后，学生能够区分天然宝石与简单的塑料或玻璃仿制品。"',
-                'n1_button': '下载手册',
-                'n2_title': '内含物',
-                'n2_sub': '实验室与深入研究',
-                'n2_duration': '10天 (70小时)',
-                'n2_prereq': '通过第1级',
-                'n2_objective': '掌握双目显微镜的使用。',
-                'n2_list1': '固体、液体和气体内含物',
-                'n2_list2': '偏光镜和手持分光镜',
-                'n2_list3': '鉴定半宝石（碧玺、石榴石、托帕石）',
-                'n2_list4': '实验室报告方法学',
-                'n2_quote': '"系统鉴定彩色宝石并检测历史合成品（维尔纳伊法）。"',
-                'n2_button': '注册考试',
-                'n3_title': '专业技能',
-                'n3_sub': '合成与处理',
-                'n3_duration': '15天 (105小时)',
-                'n3_profile': '未来专家，交易商',
-                'n3_objective': 'ISAG专业认证。',
-                'n3_list1': '检测热处理和化学处理',
-                'n3_list2': '现代合成（助熔剂、水热法）',
-                'n3_list3': '钻石鉴定（4C标准）',
-                'n3_list4': '全球市场和报价（拉帕波特）',
-                'n3_quote': '"能够鉴定复杂批次并撰写公认的专家报告。"',
-                'n3_button': '申请面谈',
-                'n4_title': '大师班',
-                'n4_sub': '高级珠宝与投资',
-                'n4_format': '个人辅导',
-                'n4_target': '创意总监，收藏家',
-                'n4_focus': '特殊宝石',
-                'n4_list1': '地理来源分析（鸽血红，皇家蓝）',
-                'n4_list2': '有机宝石（珍珠、琥珀、珊瑚）',
-                'n4_list3': '拍卖估价',
-                'n4_list4': '法律与伦理（金伯利进程）',
-                'n4_exclusive': '私人访问我们的博物馆级宝石收藏，并与我们的宝石切割合作伙伴深入交流。',
-                'n4_button': '私人联系',
-                'footer_desc': '里昂高等宝石艺术学院致力于通过现代和科学的方法传承古老的宝石知识。',
-                'footer_nav': '导航',
-                'location': '特殊地点',
-                'address': '里昂半岛<br>法国 69002<br><br>admissions@gemmologie-isag.com',
-                'copyright': '© 2025 ISAG 里昂。版权所有。',
-                'legal': '法律声明',
-                'privacy': '隐私政策'
-            }
-        };
-
-        // Gestion du menu mobile
+        // Gestion du menu mobile (identique à index)
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -990,46 +533,31 @@
             document.body.style.overflow = '';
         }
 
-        if (menuToggle) {
-            menuToggle.addEventListener('click', openMobileMenu);
-        }
+        if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
 
-        if (closeMenu) {
-            closeMenu.addEventListener('click', closeMobileMenu);
-        }
-
-        if (menuOverlay) {
-            menuOverlay.addEventListener('click', closeMobileMenu);
-        }
-
-        // Fermer le menu quand on clique sur un lien
         const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
-        // Fermer le menu sur redimensionnement
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 1024) {
-                closeMobileMenu();
+        // Petit dictionnaire pour les quelques data-key du footer
+        const translations = {
+            fr: {
+                'footer-title-address': 'Adresse',
+                'footer-title-contact': 'Contact',
+                'footer-title-links': 'Autres liens',
+                'footer-legal': 'Mentions légales',
+                'footer-privacy': 'Politique de confidentialité',
+                'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique'
             }
-        });
+        };
 
-        // Fonction pour changer la langue
         function changeLanguage(lang) {
-            // Mettre à jour le texte du bouton de langue
             const currentLangSpan = document.getElementById('currentLang');
             if (currentLangSpan) {
-                const langNames = {
-                    fr: 'Fr',
-                    en: 'En',
-                    ar: 'ع',
-                    zh: '中'
-                };
+                const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
                 currentLangSpan.textContent = langNames[lang] || 'Fr';
             }
-
-            // Mettre à jour tous les éléments avec data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
@@ -1040,140 +568,60 @@
                     }
                 }
             });
-
-            // Mettre à jour les attributs lang et dir pour l'arabe
             document.documentElement.lang = lang;
-            if (lang === 'ar') {
-                document.documentElement.dir = 'rtl';
-                // Ajustements pour le RTL
-                document.querySelectorAll('.flex, .space-x-*').forEach(el => {
-                    if (lang === 'ar') {
-                        el.style.flexDirection = 'row-reverse';
-                    }
-                });
-            } else {
-                document.documentElement.dir = 'ltr';
-                document.querySelectorAll('.flex').forEach(el => {
-                    el.style.flexDirection = '';
-                });
-            }
-
-            // Sauvegarder la préférence
+            document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
             localStorage.setItem('preferredLanguage', lang);
-
-            // Mettre à jour la classe active sur les boutons de langue
             document.querySelectorAll('[data-lang]').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.add('active');
-                    }
-                } else {
-                    btn.classList.remove('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.remove('active');
-                    }
-                }
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
         }
 
-        // Gestionnaires d'événements pour les liens de langue (desktop)
         document.querySelectorAll('.lang-dropdown a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                changeLanguage(lang);
-            });
+            link.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(link.getAttribute('data-lang')); });
         });
-
-        // Gestionnaires d'événements pour les boutons de langue mobile
         document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.getAttribute('data-lang');
-                changeLanguage(lang);
-            });
+            btn.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(btn.getAttribute('data-lang')); });
         });
 
-        // Charger la langue préférée au démarrage
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
             changeLanguage(savedLang);
         });
 
-        // Détection de la langue du navigateur pour la première visite
-        if (!localStorage.getItem('preferredLanguage')) {
-            const browserLang = navigator.language.split('-')[0];
-            const supportedLangs = ['fr', 'en', 'ar', 'zh'];
-            if (supportedLangs.includes(browserLang)) {
-                changeLanguage(browserLang);
-            } else {
-                changeLanguage('fr');
-            }
-        }
-
-        // Protection de Contenu
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.onkeydown = (e) => {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) {
+        function disableKeys(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
                 return false;
             }
-        };
+            return true;
+        }
 
-        // Scroll Reveal amélioré
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        // Animation au scroll simple
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.glass').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(50px)';
-            el.style.transition = 'opacity 1.4s ease, transform 1.4s ease';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
         });
 
-        // Smooth scroll pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Gestion du scroll pour la navigation
+        // Navbar hide on scroll
         let lastScrollTop = 0;
         const navbar = document.querySelector('nav');
-        
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-            
-            if (scrollTop < 100) {
-                navbar.style.transform = 'translateY(0)';
-            }
-            
+            if (scrollTop > lastScrollTop && scrollTop > 100) navbar.style.transform = 'translateY(-100%)';
+            else navbar.style.transform = 'translateY(0)';
+            if (scrollTop < 100) navbar.style.transform = 'translateY(0)';
             lastScrollTop = scrollTop;
         });
-
-        console.log('ISAG Formations - Site adapté pour mobile avec traduction multilingue');
     </script>
 </body>
 </html>
