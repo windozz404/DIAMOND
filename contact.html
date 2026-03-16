@@ -1,3 +1,5 @@
+Voici le fichier `contact.html` mis à jour avec la liste complète des formations dans le menu déroulant "Formation visée", comme vous l'avez demandé.
+```html
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
@@ -372,7 +374,7 @@
         <!-- Liens du menu mobile -->
         <a href="index.html" data-key="nav-home">Accueil</a>
         <a href="formations.html" data-key="nav-formations">Formations</a>
-        <a href="masterclass.html" data-key="nav-masterclass">Masterclass</a>
+        <a href="Masterclass.html" data-key="nav-masterclass">Masterclass</a>
         <a href="propos.html" data-key="nav-about">À propos / L'Institut</a>
         <a href="contact.html" data-key="nav-contact">Contact & Admissions</a>
         <a href="#" class="text-gold font-bold border-gold px-3 py-2 text-center mt-4" data-key="nav-apply">Candidature Online</a>
@@ -420,7 +422,7 @@
                 <div class="absolute inset-0 bg-black/30"></div>
                 <div class="absolute bottom-4 sm:bottom-8 left-2 sm:left-8 right-2 sm:right-8 p-3 sm:p-6 glass-card border-white/10">
                     <p class="text-gold text-[8px] sm:text-xs uppercase tracking-widest mb-1 sm:mb-2 font-bold" data-key="did-you-know">Le Saviez-vous ?</p>
-                    <p class="text-[10px] sm:text-sm font-light italic" data-key="fact-text">"Nos sessions de formation sont limitées à 14 étudiants pour garantir un accompagnement ultra-personnalisé et l'accès à un matériel de pointe."</p>
+                    <p class="text-[10px] sm:text-sm font-light italic" data-key="fact-text">"Nos sessions de formation sont limitées à 8 étudiants pour garantir un accompagnement ultra-personnalisé et l'accès à un matériel de pointe."</p>
                 </div>
             </div>
             
@@ -452,10 +454,10 @@
             </div>
         </section>
 
-        <!-- Section: Formulaire & Contact (adaptée pour mobile) -->
+        <!-- Section: Formulaire & Contact (adaptée pour mobile) avec coordonnées réelles -->
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
             
-            <!-- Contact Cards (adaptés pour mobile) avec coordonnées réelles -->
+            <!-- Contact Cards (adaptés pour mobile) -->
             <div class="lg:col-span-4 space-y-4 sm:space-y-6 animate-fade" style="animation-delay: 0.3s">
                 <div class="glass-card p-4 sm:p-6 lg:p-8">
                     <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-6 text-gold" data-key="direct-contact">Contact Direct</h3>
@@ -485,7 +487,7 @@
                             </div>
                             <div>
                                 <p class="text-[8px] sm:text-[10px] uppercase text-gray-500 tracking-widest mb-0.5 sm:mb-1" data-key="address-label">Adresse</p>
-                                <p class="text-xs sm:text-sm font-medium">78 avenue Champs Elysee,<br>75001 Paris</p>
+                                <p class="text-xs sm:text-sm font-medium">78 avenue Champs Elysee<br> 75001 Paris</p>
                             </div>
                         </div>
                     </div>
@@ -498,7 +500,7 @@
                 </div>
             </div>
 
-            <!-- Formulaire (adapté pour mobile) -->
+            <!-- Formulaire (adapté pour mobile) avec liste complète des formations -->
             <div class="lg:col-span-8 animate-fade" style="animation-delay: 0.4s">
                 <form id="contactForm" class="glass-card p-4 sm:p-6 md:p-8 lg:p-12 space-y-4 sm:space-y-6">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4" data-key="form-title">Demande d'information rapide</h3>
@@ -517,10 +519,19 @@
                         <div class="space-y-1 sm:space-y-2">
                             <label class="text-[8px] sm:text-[10px] uppercase tracking-widest text-gray-500 ml-1" data-key="program-label">Formation visée</label>
                             <select class="input-field w-full px-3 sm:px-5 py-2 sm:py-4 rounded-xl text-xs sm:text-sm appearance-none cursor-pointer">
-                                <option data-key="program-option1">Diplôme de Gemmologue Expert</option>
-                                <option data-key="program-option2">Masterclass : Diamant & Expertise</option>
-                                <option data-key="program-option3">Initiation à la Gemmologie</option>
-                                <option data-key="program-option4">Autre demande</option>
+                                <option value="expert" data-key="program-expert">Expert gemmologue</option>
+                                <option value="excellence" data-key="program-excellence">Formation d'excellence</option>
+                                <option value="stage-n1" data-key="program-stage-n1">Stage à la carte - Niveau 1</option>
+                                <option value="stage-n2" data-key="program-stage-n2">Stage à la carte - Niveau 2</option>
+                                <option value="stage-n3" data-key="program-stage-n3">Stage à la carte - Niveau 3</option>
+                                <option value="stage-n4" data-key="program-stage-n4">Stage à la carte - Niveau 4</option>
+                                <option value="diamant" data-key="program-diamant">Formation diamant</option>
+                                <option value="negoce" data-key="program-negoce">Formation négoce</option>
+                                <option value="droit" data-key="program-droit">Droit</option>
+                                <option value="expert-bijou" data-key="program-expert-bijou">Expert bijou</option>
+                                <option value="horlogerie" data-key="program-horlogerie">Horlogerie</option>
+                                <option value="communication" data-key="program-communication">Communication</option>
+                                <option value="lapidaire" data-key="program-lapidaire">Lapidaire</option>
                             </select>
                         </div>
                         <div class="space-y-1 sm:space-y-2">
@@ -579,11 +590,11 @@
         </iframe>
         <div class="absolute top-2 sm:top-4 lg:top-10 left-2 sm:left-4 lg:left-10 p-2 sm:p-4 lg:p-6 glass-card bg-black/60 pointer-events-none border-gold/30">
             <h4 class="text-gold font-bold text-xs sm:text-sm lg:text-lg mb-0.5 sm:mb-1 lg:mb-2" data-key="map-title">Visitez l'ISAG</h4>
-            <p class="text-[8px] sm:text-[10px] lg:text-xs text-gray-300" data-key="map-address">78 avenue Champs Elysee,<br>75001 Paris, France</p>
+            <p class="text-[8px] sm:text-[10px] lg:text-xs text-gray-300" data-key="map-address">78 avenue Champs Elysee<br> 75001 Paris</p>
         </div>
     </section>
 
-    <!-- Footer UNIFIÉ avec les autres pages (index, formations, masterclass, propos) -->
+    <!-- Footer UNIFIÉ avec les autres pages -->
     <footer class="relative z-10 bg-black border-t border-white/5 py-12 sm:py-20 px-4 sm:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Première ligne : adresse, contact, autres liens -->
@@ -592,7 +603,7 @@
                 <div>
                     <span class="text-white font-semibold tracking-widest uppercase block mb-4 text-[9px] sm:text-[10px]" data-key="footer-title-address">Adresse</span>
                     <p class="text-gray-400 text-[11px] sm:text-xs leading-relaxed">
-                        78 avenue Champs Elysee,<br>75001 Paris, France
+                        78 avenue Champs Elysee<br> 75001 Paris, France
                     </p>
                 </div>
                 <!-- Contact avec liens cliquables -->
@@ -625,7 +636,32 @@
     </footer>
 
     <script>
-        // Dictionnaire de traductions (simplifié avec les clés du footer unifié)
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // Dictionnaire de traductions complet pour contact.html avec toutes les formations
         const translations = {
             fr: {
                 // Navigation
@@ -651,7 +687,7 @@
                 'step3-title': 'Financement & Inscription',
                 'step3-text': 'Accompagnement administratif pour vos demandes de financement (CPF, OPCO) et finalisation de l\'inscription.',
                 'did-you-know': 'Le Saviez-vous ?',
-                'fact-text': '"Nos sessions de formation sont limitées à 14 étudiants pour garantir un accompagnement ultra-personnalisé et l\'accès à un matériel de pointe."',
+                'fact-text': '"Nos sessions de formation sont limitées à 8 étudiants pour garantir un accompagnement ultra-personnalisé et l\'accès à un matériel de pointe."',
                 
                 // Contact
                 'direct-contact': 'Contact Direct',
@@ -666,10 +702,19 @@
                 'name-placeholder': 'Votre nom',
                 'email-placeholder': 'nom@exemple.com',
                 'program-label': 'Formation visée',
-                'program-option1': 'Diplôme de Gemmologue Expert',
-                'program-option2': 'Masterclass : Diamant & Expertise',
-                'program-option3': 'Initiation à la Gemmologie',
-                'program-option4': 'Autre demande',
+                'program-expert': 'Expert gemmologue',
+                'program-excellence': 'Formation d\'excellence',
+                'program-stage-n1': 'Stage à la carte - Niveau 1',
+                'program-stage-n2': 'Stage à la carte - Niveau 2',
+                'program-stage-n3': 'Stage à la carte - Niveau 3',
+                'program-stage-n4': 'Stage à la carte - Niveau 4',
+                'program-diamant': 'Formation diamant',
+                'program-negoce': 'Formation négoce',
+                'program-droit': 'Droit',
+                'program-expert-bijou': 'Expert bijou',
+                'program-horlogerie': 'Horlogerie',
+                'program-communication': 'Communication',
+                'program-lapidaire': 'Lapidaire',
                 'funding-label': 'Mode de financement',
                 'funding-option1': 'Compte personnel de formation (CPF)',
                 'funding-option2': 'Auto-financement',
@@ -689,9 +734,9 @@
                 
                 // Map
                 'map-title': 'Visitez l\'ISAG',
-                'map-address': '78 avenue Champs Elysee,<br>75001 Paris, France',
+                'map-address': '78 avenue Champs Elysee 75001 Paris, France',
                 
-                // Footer - clés unifiées (exactement comme dans les autres pages)
+                // Footer
                 'footer-title-address': 'Adresse',
                 'footer-title-contact': 'Contact',
                 'footer-title-links': 'Autres liens',
@@ -705,18 +750,22 @@
                 'success': 'Message Transmis',
                 'success-message': 'Succès ! Un conseiller prendra contact avec vous dans les 24 heures.'
             },
-            // Les autres langues (en, ar, zh) peuvent être ajoutées de la même manière
             en: {
+                // Navigation
                 'nav-home': 'Home',
-                'nav-formations': 'Programs',
+                'nav-formations': 'Courses',
                 'nav-masterclass': 'Masterclass',
                 'nav-about': 'About / The Institute',
                 'nav-contact': 'Contact & Admissions',
                 'nav-apply': 'Apply Online',
                 'lang-choose': 'Choose language',
+                
+                // Hero
                 'hero-supra': 'Excellence & Know-how',
                 'hero-title': 'Join the <span class="gold-gradient italic font-light tracking-normal">Elite</span> of Gemologists',
                 'hero-text': 'From stone identification to market expertise, ISAG trains future leaders of international jewelry in the heart of Lyon.',
+                
+                // Admission
                 'admission-title': 'Admission Process',
                 'step1-title': 'Application File',
                 'step1-text': 'Submit your CV and cover letter via our dedicated form. We analyze each profile carefully.',
@@ -726,20 +775,33 @@
                 'step3-text': 'Administrative support for your financing requests (CPF, OPCO) and finalization of registration.',
                 'did-you-know': 'Did you know?',
                 'fact-text': '"Our training sessions are limited to 8 students to guarantee ultra-personalized support and access to cutting-edge equipment."',
+                
+                // Contact
                 'direct-contact': 'Direct Contact',
                 'phone': 'Phone',
                 'email-label': 'Email',
                 'address-label': 'Address',
                 'workshop-label': 'Expertise Workshop Lyon',
+                
+                // Form
                 'form-title': 'Quick Information Request',
                 'name-label': 'First & Last Name',
                 'name-placeholder': 'Your name',
                 'email-placeholder': 'name@example.com',
                 'program-label': 'Target Program',
-                'program-option1': 'Expert Gemologist Diploma',
-                'program-option2': 'Masterclass: Diamond & Expertise',
-                'program-option3': 'Introduction to Gemology',
-                'program-option4': 'Other request',
+                'program-expert': 'Expert Gemologist',
+                'program-excellence': 'Excellence Program',
+                'program-stage-n1': 'À la carte - Level 1',
+                'program-stage-n2': 'À la carte - Level 2',
+                'program-stage-n3': 'À la carte - Level 3',
+                'program-stage-n4': 'À la carte - Level 4',
+                'program-diamant': 'Diamond Program',
+                'program-negoce': 'Trading Program',
+                'program-droit': 'Law',
+                'program-expert-bijou': 'Jewelry Expert',
+                'program-horlogerie': 'Watchmaking',
+                'program-communication': 'Communication',
+                'program-lapidaire': 'Lapidary',
                 'funding-label': 'Funding Method',
                 'funding-option1': 'Personal Training Account (CPF)',
                 'funding-option2': 'Self-funding',
@@ -749,81 +811,116 @@
                 'message-placeholder': 'Specify your project...',
                 'submit-btn': 'Send my request',
                 'form-consent': 'By sending this form, you agree to be contacted by an ISAG advisor.',
+                
+                // FAQ
                 'faq-title': 'Frequently Asked Questions',
                 'faq1-question': 'Is the training diploma-granting?',
                 'faq1-answer': 'Yes, our expertise programs are certified and recognized by the largest jewelry houses in Lyon and Geneva.',
                 'faq2-question': 'What are the prerequisites?',
                 'faq2-answer': 'For the expert cycle, strong motivation and attention to detail are necessary. No advanced scientific background is required beforehand.',
+                
+                // Map
                 'map-title': 'Visit ISAG',
-                'map-address': '78 avenue Champs Elysee,<br>75001 Paris, France',
+                'map-address': '78 avenue Champs Elysee 75001 Paris, France',
+                
+                // Footer
                 'footer-title-address': 'Address',
                 'footer-title-contact': 'Contact',
                 'footer-title-links': 'Other links',
                 'footer-legal': 'Legal notice',
                 'footer-privacy': 'Privacy policy',
                 'footer-copyright': '© 2025 Institut Supérieur Des Arts Gemmologique',
+                
+                // Form messages
                 'sending': 'Sending...',
                 'secure-connection': 'Securing connection...',
                 'success': 'Message Sent',
                 'success-message': 'Success! An advisor will contact you within 24 hours.'
+            },
+            ar: {
+                // Navigation simplifiée
+                'nav-home': 'الرئيسية',
+                'nav-formations': 'التكوينات',
+                'nav-masterclass': 'الدروس المتقدمة',
+                'nav-about': 'عن المعهد',
+                'nav-contact': 'الاتصال والتسجيل',
+                'nav-apply': 'قدم الآن',
+                'lang-choose': 'اختر اللغة',
+                
+                // Hero
+                'hero-supra': 'التميز والخبرة',
+                'hero-title': 'انضم إلى <span class="gold-gradient italic font-light tracking-normal">نخبة</span> علماء الأحجار الكريمة',
+                'hero-text': 'من تحديد الأحجار إلى خبرة السوق، يقوم ISAG بتدريب قادة المستقبل في مجال المجوهرات الدولية في قلب ليون.',
+                
+                // Form - Programmes
+                'program-expert': 'خبير أحجار كريمة',
+                'program-excellence': 'تكوين التميز',
+                'program-stage-n1': 'دورة حسب الطلب - المستوى 1',
+                'program-stage-n2': 'دورة حسب الطلب - المستوى 2',
+                'program-stage-n3': 'دورة حسب الطلب - المستوى 3',
+                'program-stage-n4': 'دورة حسب الطلب - المستوى 4',
+                'program-diamant': 'تكوين الماس',
+                'program-negoce': 'تكوين التجارة',
+                'program-droit': 'قانون',
+                'program-expert-bijou': 'خبير مجوهرات',
+                'program-horlogerie': 'صناعة الساعات',
+                'program-communication': 'اتصال',
+                'program-lapidaire': 'قطع الأحجار',
+                
+                // Footer
+                'footer-title-address': 'العنوان',
+                'footer-title-contact': 'الاتصال',
+                'footer-title-links': 'روابط أخرى',
+                'footer-legal': 'الإشعارات القانونية',
+                'footer-privacy': 'سياسة الخصوصية',
+                'footer-copyright': '© 2025 المعهد العالي لفنون علم الأحجار الكريمة'
+            },
+            zh: {
+                // Navigation
+                'nav-home': '首页',
+                'nav-formations': '课程',
+                'nav-masterclass': '大师班',
+                'nav-about': '关于学院',
+                'nav-contact': '联系与入学',
+                'nav-apply': '在线申请',
+                'lang-choose': '选择语言',
+                
+                // Hero
+                'hero-supra': '卓越与技艺',
+                'hero-title': '加入<span class="gold-gradient italic font-light tracking-normal">精英</span>宝石学家行列',
+                'hero-text': '从宝石鉴定到市场专业，ISAG在里昂市中心培养国际珠宝业的未来领导者。',
+                
+                // Form - Programmes
+                'program-expert': '宝石鉴定专家',
+                'program-excellence': '卓越课程',
+                'program-stage-n1': '定制课程 - 级别 1',
+                'program-stage-n2': '定制课程 - 级别 2',
+                'program-stage-n3': '定制课程 - 级别 3',
+                'program-stage-n4': '定制课程 - 级别 4',
+                'program-diamant': '钻石课程',
+                'program-negoce': '贸易课程',
+                'program-droit': '法律',
+                'program-expert-bijou': '珠宝鉴定专家',
+                'program-horlogerie': '钟表学',
+                'program-communication': '传播学',
+                'program-lapidaire': '宝石切割',
+                
+                // Footer
+                'footer-title-address': '地址',
+                'footer-title-contact': '联系方式',
+                'footer-title-links': '其他链接',
+                'footer-legal': '法律声明',
+                'footer-privacy': '隐私政策',
+                'footer-copyright': '© 2025 宝石艺术学院'
             }
-            // Les traductions pour ar et zh peuvent être ajoutées si nécessaire
         };
-
-        // Gestion du menu mobile
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const closeMenu = document.getElementById('closeMenu');
-
-        function openMobileMenu() {
-            mobileMenu.classList.add('active');
-            menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', openMobileMenu);
-        }
-
-        if (closeMenu) {
-            closeMenu.addEventListener('click', closeMobileMenu);
-        }
-
-        if (menuOverlay) {
-            menuOverlay.addEventListener('click', closeMobileMenu);
-        }
-
-        // Fermer le menu quand on clique sur un lien
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Fermer le menu sur redimensionnement
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 1024) {
-                closeMobileMenu();
-            }
-        });
 
         // Fonction pour changer la langue
         function changeLanguage(lang) {
             // Mettre à jour le texte du bouton de langue
             const currentLangSpan = document.getElementById('currentLang');
             if (currentLangSpan) {
-                const langNames = {
-                    fr: 'Fr',
-                    en: 'En',
-                    ar: 'ع',
-                    zh: '中'
-                };
+                const langNames = { fr: 'Fr', en: 'En', ar: 'ع', zh: '中' };
                 currentLangSpan.textContent = langNames[lang] || 'Fr';
             }
 
@@ -865,14 +962,8 @@
             document.querySelectorAll('[data-lang]').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.add('active');
-                    }
                 } else {
                     btn.classList.remove('active');
-                    if (btn.classList.contains('mobile-lang-btn')) {
-                        btn.classList.remove('active');
-                    }
                 }
             });
         }
@@ -950,6 +1041,15 @@
             }
         }
 
+        // Désactivation des touches pour éviter l'inspection
+        function disableKeys(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.shiftKey && e.key === 'J') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
         // Animation au scroll
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
@@ -988,7 +1088,11 @@
             lastScrollTop = scrollTop;
         });
 
-        console.log('ISAG Contact - Footer unifié avec mentions légales rouges');
+        // Fermer le menu sur redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) closeMobileMenu();
+        });
     </script>
 </body>
 </html>
+```
